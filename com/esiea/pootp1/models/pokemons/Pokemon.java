@@ -56,4 +56,44 @@ public class Pokemon {
         this.minSpeed = minSpeed;
         this.maxSpeed = maxSpeed;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Type getType() {
+        return this.type;
+    }
+
+    public int getMinHP() {
+        return this.minHP;
+    }
+
+    public int getMaxHP() {
+        return this.maxHP;
+    }
+
+    public int getMinAttack() {
+        return this.minAttack;
+    }
+
+    public int getMaxAttack() {
+        return this.maxAttack;
+    }
+
+    public int getMinDefense() {
+        return this.minDefense;
+    }
+
+    public int getMaxDefense() {
+        return this.maxDefense;
+    }
+
+    public int getMinSpeed() {
+        return this.minSpeed;
+    }
+
+    public int getMaxSpeed() {
+        return this.maxSpeed;
+    }
 }

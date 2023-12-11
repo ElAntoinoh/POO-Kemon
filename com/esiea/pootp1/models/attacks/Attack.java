@@ -12,4 +12,24 @@ public class Attack {
     private double failureProbability;
 
     public Attack() {};
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public void setNbUtilisations(int nbUtilisations) {
+        this.nbUtilisations = nbUtilisations;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
+    }
+
+    public void setFailureProbability(double failureProbability) {
+        this.failureProbability = failureProbability;
+    }
 }
