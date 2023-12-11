@@ -60,8 +60,10 @@ public class AttacksFileReader {
                             case "Earth"    -> type = Type.TERRE;
                             case "Electric" -> type = Type.FOUDRE;
                             case "Water"    -> type = Type.EAU;
-                            case "Grass"    -> type = Type.HERBE;
+                            case "Nature"   -> type = Type.NATURE;
                             case "Normal"   -> type = Type.NORMAL;
+                            case "Plant"    -> type = Type.PLANTE;
+                            case "Insect"   -> type = Type.INSECT;
                         }
 
                         currentAttack.setType(type);

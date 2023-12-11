@@ -18,21 +18,6 @@ public class Pokemon {
         this.name = name;
     }
 
-    public void setType(String typeStr) {
-        Type type;
-
-        switch (typeStr) {
-            case "Earth"    -> type = Type.TERRE;
-            case "Electric" -> type = Type.FOUDRE;
-            case "Water"    -> type = Type.EAU;
-            case "Grass"    -> type = Type.HERBE;
-
-            default -> type = Type.NORMAL;
-        }
-
-        this.type = type;
-    }
-
     public void setType(Type type) {
         this.type = type;
     }

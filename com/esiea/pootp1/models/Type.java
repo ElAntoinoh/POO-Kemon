@@ -4,33 +4,37 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public enum Type {
-    NORMAL, TERRE, FOUDRE, EAU, FEU, HERBE;
+    NORMAL, TERRE, FOUDRE, EAU, FEU, NATURE, PLANTE, INSECT;
+
+    private Type parent;
 
     private ArrayList<Type> strengths;
     private ArrayList<Type> weaknesses;
 
     static {
-        NORMAL.setStrengths(new ArrayList<>());
-        TERRE .setStrengths(new ArrayList<>(Arrays.asList(new Type[] {FOUDRE})));
-        FOUDRE.setStrengths(new ArrayList<>(Arrays.asList(new Type[] {EAU   })));
-        EAU   .setStrengths(new ArrayList<>(Arrays.asList(new Type[] {FEU   })));
-        FEU   .setStrengths(new ArrayList<>(Arrays.asList(new Type[] {HERBE })));
-        HERBE .setStrengths(new ArrayList<>(Arrays.asList(new Type[] {TERRE })));
+        PLANTE.parent = NATURE;
+        INSECT.parent = NATURE;
 
-        NORMAL.setWeaknesses(new ArrayList<>());
-        TERRE .setWeaknesses(new ArrayList<>(Arrays.asList(new Type[] {HERBE })));
-        FOUDRE.setWeaknesses(new ArrayList<>(Arrays.asList(new Type[] {TERRE })));
-        EAU   .setWeaknesses(new ArrayList<>(Arrays.asList(new Type[] {FOUDRE})));
-        FEU   .setWeaknesses(new ArrayList<>(Arrays.asList(new Type[] {EAU   })));
-        HERBE .setWeaknesses(new ArrayList<>(Arrays.asList(new Type[] {FEU   })));
-    }
+        NORMAL.strengths = new ArrayList<>();
+        TERRE .strengths = new ArrayList<>(Arrays.asList(new Type[] {FOUDRE}));
+        FOUDRE.strengths = new ArrayList<>(Arrays.asList(new Type[] {EAU   }));
+        EAU   .strengths = new ArrayList<>(Arrays.asList(new Type[] {FEU   }));
+        FEU   .strengths = new ArrayList<>(Arrays.asList(new Type[] {NATURE}));
+        NATURE.strengths = new ArrayList<>(Arrays.asList(new Type[] {TERRE }));
 
-    private void setStrengths(ArrayList<Type> strengths) {
-        this.strengths = strengths;
-    }
+        NORMAL.weaknesses = new ArrayList<>();
+        TERRE .weaknesses = new ArrayList<>(Arrays.asList(new Type[] {NATURE}));
+        FOUDRE.weaknesses = new ArrayList<>(Arrays.asList(new Type[] {TERRE }));
+        EAU   .weaknesses = new ArrayList<>(Arrays.asList(new Type[] {FOUDRE}));
+        FEU   .weaknesses = new ArrayList<>(Arrays.asList(new Type[] {EAU   }));
+        NATURE.weaknesses = new ArrayList<>(Arrays.asList(new Type[] {FEU   }));
 
-    private void setWeaknesses(ArrayList<Type> weaknesses) {
-        this.weaknesses = weaknesses;
+        for (Type t : Type.values()) {
+            if (t.parent != null) {
+                t.strengths  = t.parent.strengths;
+                t.weaknesses = t.parent.weaknesses;
+            }
+        }
     }
 
     public ArrayList<Type> getStrengths() {

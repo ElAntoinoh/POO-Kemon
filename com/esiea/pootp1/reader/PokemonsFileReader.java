@@ -61,7 +61,9 @@ public class PokemonsFileReader {
                             case "Earth"    -> type = Type.TERRE;
                             case "Electric" -> type = Type.FOUDRE;
                             case "Water"    -> type = Type.EAU;
-                            case "Grass"    -> type = Type.HERBE;
+                            case "Nature"   -> type = Type.NATURE;
+                            case "Plant"    -> type = Type.PLANTE;
+                            case "Insect"   -> type = Type.INSECT;
                         }
 
                         currentPokemon.setType(type);
