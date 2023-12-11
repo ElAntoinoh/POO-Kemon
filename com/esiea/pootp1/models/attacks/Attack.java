@@ -11,8 +11,6 @@ public class Attack {
     private int power;
     private double failureProbability;
 
-    public Attack() {};
-
     public void setName(String name) {
         this.name = name;
     }

@@ -6,7 +6,7 @@ import java.util.Arrays;
 public enum Type {
     NORMAL, TERRE, FOUDRE, EAU, FEU, NATURE, PLANTE, INSECT;
 
-    private Type parent;
+    private Type parent = null;
 
     private ArrayList<Type> strengths;
     private ArrayList<Type> weaknesses;

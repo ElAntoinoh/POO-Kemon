@@ -9,15 +9,15 @@ import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.pokemons.Pokemon;
 
 public class PokemonsFileReader {
-    private final static String START_MONSTER_KEY_WORD = "Monster";
-    private final static String END_MONSTER_KEY_WORD   = "EndMonster";
+    private final static String START_MONSTER = "Monster";
+    private final static String END_MONSTER   = "EndMonster";
 
-    private final static String NAME_KEY_WORD    = "Name";
-    private final static String TYPE_KEY_WORD    = "Type";
-    private final static String HP_KEY_WORD      = "HP";
-    private final static String ATTACK_KEY_WORD  = "Attack";
-    private final static String DEFENSE_KEY_WORD = "Defense";
-    private final static String SPEED_KEY_WORD   = "Speed";
+    private final static String NAME    = "Name";
+    private final static String TYPE    = "Type";
+    private final static String HP      = "HP";
+    private final static String ATTACK  = "Attack";
+    private final static String DEFENSE = "Defense";
+    private final static String SPEED   = "Speed";
 
     Controller controller;
     File file;
@@ -42,19 +42,19 @@ public class PokemonsFileReader {
                 words = line.split("\t");
 
                 switch (words[0]) {
-                    case START_MONSTER_KEY_WORD -> {
+                    case START_MONSTER -> {
                         currentPokemon = new Pokemon();
                     }
 
-                    case END_MONSTER_KEY_WORD -> {
+                    case END_MONSTER -> {
                         addPokemon(currentPokemon);
                     }
 
-                    case NAME_KEY_WORD -> {
+                    case NAME -> {
                         currentPokemon.setName(words[1]);
                     }
 
-                    case TYPE_KEY_WORD -> {
+                    case TYPE -> {
                         Type type = null;
 
                         switch (words[1]) {
@@ -69,7 +69,7 @@ public class PokemonsFileReader {
                         currentPokemon.setType(type);
                     }
 
-                    case HP_KEY_WORD -> {
+                    case HP -> {
                         int minHP = Integer.parseInt(words[1]);
 
                         int maxHP = words.length > 2 ? Integer.parseInt(words[2]) : minHP;
@@ -77,7 +77,7 @@ public class PokemonsFileReader {
                         currentPokemon.setHP(minHP, maxHP);
                     }
 
-                    case ATTACK_KEY_WORD -> {
+                    case ATTACK -> {
                         int minAttack = Integer.parseInt(words[1]);
 
                         int maxAttack = words.length > 2 ? Integer.parseInt(words[2]) : minAttack;
@@ -85,7 +85,7 @@ public class PokemonsFileReader {
                         currentPokemon.setAttack(minAttack, maxAttack);
                     }
 
-                    case DEFENSE_KEY_WORD -> {
+                    case DEFENSE -> {
                         int minDefense = Integer.parseInt(words[1]);
 
                         int maxDefense = words.length > 2 ? Integer.parseInt(words[2]) : minDefense;
@@ -93,7 +93,7 @@ public class PokemonsFileReader {
                         currentPokemon.setDefense(minDefense, maxDefense);
                     }
 
-                    case SPEED_KEY_WORD -> {
+                    case SPEED -> {
                         int minSpeed = Integer.parseInt(words[1]);
 
                         int maxSpeed = words.length > 2 ? Integer.parseInt(words[2]) : minSpeed;

@@ -20,8 +20,6 @@ public class Controller {
 
         new PokemonsFileReader(this, POKEMONS_FILE_PATH).readFile();
         new AttacksFileReader (this, ATTACKS_FILE_PATH ).readFile();
-
-        System.out.println(this.attackDex.toString());
     }
 
     public void addPokemon(Pokemon pokemon) {
