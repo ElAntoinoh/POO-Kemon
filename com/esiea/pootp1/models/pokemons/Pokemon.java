@@ -1,0 +1,59 @@
+package com.esiea.pootp1.models.pokemons;
+
+import com.esiea.pootp1.models.Type;
+
+public class Pokemon {
+    private String name;
+
+    private Type type;
+
+    private int minHP,      maxHP;
+    private int minAttack,  maxAttack;
+    private int minDefense, maxDefense;
+    private int minSpeed,   maxSpeed;
+
+    public Pokemon() {};
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String typeStr) {
+        Type type;
+
+        switch (typeStr) {
+            case "Earth"    -> type = Type.TERRE;
+            case "Electric" -> type = Type.FOUDRE;
+            case "Water"    -> type = Type.EAU;
+            case "Grass"    -> type = Type.HERBE;
+
+            default -> type = Type.NORMAL;
+        }
+
+        this.type = type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+    
+    public void setHP(int minHP, int maxHP) {
+        this.minHP = minHP;
+        this.maxHP = maxHP;
+    }
+
+    public void setAttack(int minAttack, int maxAttack) {
+        this.minAttack = minAttack;
+        this.maxAttack = maxAttack;
+    }
+
+    public void setDefense(int minDefense, int maxDefense) {
+        this.minDefense = minDefense;
+        this.maxDefense = maxDefense;
+    }
+
+    public void setSpeed(int minSpeed, int maxSpeed) {
+        this.minSpeed = minSpeed;
+        this.maxSpeed = maxSpeed;
+    }
+}

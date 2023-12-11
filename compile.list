@@ -1,0 +1,16 @@
+-encoding utf8
+
+com/esiea/pootp1/controller/Controller.java
+
+com/esiea/pootp1/models/attacks/Attack.java
+com/esiea/pootp1/models/attacks/AttackDex.java
+
+com/esiea/pootp1/models/pokemons/Pokedex.java
+com/esiea/pootp1/models/pokemons/Pokemon.java
+
+com/esiea/pootp1/models/Type.java
+
+com/esiea/pootp1/reader/AttacksFileReader.java
+com/esiea/pootp1/reader/PokemonsFileReader.java
+
+com/esiea/pootp1/POOKemon.java
