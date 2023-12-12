@@ -29,4 +29,12 @@ public class Controller {
     public void addAttack(Attack attack) {
         this.attackDex.addAttack(attack);
     }
+
+    public PokeDex getPokeDex() {
+        return this.pokeDex;
+    }
+
+    public AttackDex getAttackDex() {
+        return this.attackDex;
+    }
 }
