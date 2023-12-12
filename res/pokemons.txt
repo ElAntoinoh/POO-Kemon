@@ -1,20 +1,1541 @@
 Monster
-	Name	Pikachu
+	Name	Bulbizarre
+	Type	Insect
+	HP	40	49
+	Attack	44	53
+	Defense	44	53
+	Speed	40	49
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Herbizarre
+	Type	Water
+	HP	54	66
+	Attack	55	68
+	Defense	56	69
+	Speed	54	66
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Florizarre
+	Type	Insect
+	HP	72	88
+	Attack	73	90
+	Defense	74	91
+	Speed	72	88
+	Poison	0.71
+EndMonster
+
+Monster
+	Name	Salamèche
+	Type	Fire
+	HP	35	42
+	Attack	46	57
+	Defense	38	47
+	Speed	58	71
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Reptincel
+	Type	Insect
+	HP	52	63
+	Attack	57	70
+	Defense	52	63
+	Speed	72	88
+	Poison	0.65
+EndMonster
+
+Monster
+	Name	Dracaufeu
+	Type	Insect
+	HP	70	85
+	Attack	75	92
+	Defense	70	85
+	Speed	90	110
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Carapuce
+	Type	Water
+	HP	39	48
+	Attack	43	52
+	Defense	58	71
+	Speed	38	47
+	Flood	0.29
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Carabaffe
 	Type	Electric
-	HP	110	141
-	Speed	110	141
-	Attack	75	106
-	Defense	50	82
+	HP	53	64
+	Attack	56	69
+	Defense	72	88
+	Speed	52	63
+	Paralysis	0.52
+EndMonster
+
+Monster
+	Name	Tortank
+	Type	Plant
+	HP	71	86
+	Attack	74	91
+	Defense	90	110
+	Speed	70	85
+	Heal	0.29
+EndMonster
+
+Monster
+	Name	Chenipan
+	Type	Earth
+	HP	40	49
+	Attack	27	33
+	Defense	31	38
+	Speed	40	49
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Chrysacier
+	Type	Earth
+	HP	45	55
+	Attack	18	22
+	Defense	49	60
+	Speed	27	33
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Papilusion
+	Type	Water
+	HP	54	66
+	Attack	40	49
+	Defense	45	55
+	Speed	63	77
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Aspicot
+	Type	Insect
+	HP	36	44
+	Attack	31	38
+	Defense	27	33
+	Speed	45	55
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Coconfort
+	Type	Water
+	HP	40	49
+	Attack	22	27
+	Defense	45	55
+	Speed	31	38
+	Flood	0.2
+	Fall	0.25
+EndMonster
+
+Monster
+	Name	Dardargnan
+	Type	Fire
+	HP	58	71
+	Attack	72	88
+	Defense	36	44
+	Speed	67	82
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Roucool
+	Type	Electric
+	HP	36	44
+	Attack	40	49
+	Defense	36	44
+	Speed	50	61
 	Paralysis	0.2
 EndMonster
 
 Monster
-	Name	Cerapuca
+	Name	Roucoups
 	Type	Water
-	HP	119	150
-	Attack	68	99
-	Speed	63	94
-	Defense	85	116
-	Flood	0.25
-	Fall	0.35
+	HP	56	69
+	Attack	54	66
+	Defense	49	60
+	Speed	63	78
+	Flood	0.2
+	Fall	0.2
 EndMonster
+
+Monster
+	Name	Roucarnage
+	Type	Fire
+	HP	74	91
+	Attack	72	88
+	Defense	67	82
+	Speed	81	100
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Rattata
+	Type	Earth
+	HP	27	33
+	Attack	50	61
+	Defense	31	38
+	Speed	64	79
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Rattatac
+	Type	Electric
+	HP	49	60
+	Attack	72	89
+	Defense	54	66
+	Speed	87	106
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Piafabec
+	Type	Electric
+	HP	36	44
+	Attack	54	66
+	Defense	27	33
+	Speed	63	77
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Rapasdepic
+	Type	Water
+	HP	58	71
+	Attack	81	99
+	Defense	58	71
+	Speed	90	110
+	Flood	0.71
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Abo
+	Type	Earth
+	HP	31	38
+	Attack	54	66
+	Defense	39	48
+	Speed	49	60
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Arbok
+	Type	Electric
+	HP	54	66
+	Attack	76	93
+	Defense	62	75
+	Speed	72	88
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Pikachu
+	Type	Earth
+	HP	31	38
+	Attack	49	60
+	Defense	27	33
+	Speed	81	99
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Raichu
+	Type	Plant
+	HP	54	66
+	Attack	81	99
+	Defense	49	60
+	Speed	90	110
+	Heal	0.2
+EndMonster
+
+Monster
+	Name	Sabelette
+	Type	Insect
+	HP	45	55
+	Attack	67	82
+	Defense	76	93
+	Speed	36	44
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Sablaireau
+	Type	Insect
+	HP	67	82
+	Attack	90	110
+	Defense	99	121
+	Speed	58	71
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Nidoran♀
+	Type	Fire
+	HP	49	60
+	Attack	42	51
+	Defense	46	57
+	Speed	36	45
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Nidorina
+	Type	Water
+	HP	63	77
+	Attack	55	68
+	Defense	60	73
+	Speed	50	61
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Nidoqueen
+	Type	Electric
+	HP	81	99
+	Attack	73	90
+	Defense	78	95
+	Speed	68	83
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Nidoran♂
+	Type	Electric
+	HP	41	50
+	Attack	51	62
+	Defense	36	44
+	Speed	45	55
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Nidorino
+	Type	Earth
+	HP	54	67
+	Attack	64	79
+	Defense	51	62
+	Speed	58	71
+	Hide	0.92
+EndMonster
+
+Monster
+	Name	Nidoking
+	Type	Fire
+	HP	72	89
+	Attack	82	101
+	Defense	69	84
+	Speed	76	93
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Mélofée
+	Type	Water
+	HP	63	77
+	Attack	40	49
+	Defense	43	52
+	Speed	31	38
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Mélodelfe
+	Type	Fire
+	HP	85	104
+	Attack	63	77
+	Defense	65	80
+	Speed	54	66
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Goupix
+	Type	Fire
+	HP	34	41
+	Attack	36	45
+	Defense	36	44
+	Speed	58	71
+	Burn	0.4
+EndMonster
+
+Monster
+	Name	Feunard
+	Type	Water
+	HP	65	80
+	Attack	68	83
+	Defense	67	82
+	Speed	90	110
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Rondoudou
+	Type	Fire
+	HP	103	126
+	Attack	40	49
+	Defense	18	22
+	Speed	18	22
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Grodoudou
+	Type	Earth
+	HP	126	154
+	Attack	63	77
+	Defense	40	49
+	Speed	40	49
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Nosferapti
+	Type	Electric
+	HP	36	44
+	Attack	40	49
+	Defense	31	38
+	Speed	49	60
+	Paralysis	0.68
+EndMonster
+
+Monster
+	Name	Nosferalto
+	Type	Insect
+	HP	67	82
+	Attack	72	88
+	Defense	63	77
+	Speed	81	99
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Mystherbe
+	Type	Plant
+	HP	40	49
+	Attack	45	55
+	Defense	49	60
+	Speed	27	33
+	Heal	0.2
+EndMonster
+
+Monster
+	Name	Ortide
+	Type	Fire
+	HP	54	66
+	Attack	58	71
+	Defense	63	77
+	Speed	36	44
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Rafflesia
+	Type	Earth
+	HP	67	82
+	Attack	72	88
+	Defense	76	93
+	Speed	45	55
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Paras
+	Type	Electric
+	HP	31	38
+	Attack	63	77
+	Defense	49	60
+	Speed	22	27
+	Paralysis	0.21
+EndMonster
+
+Monster
+	Name	Parasect
+	Type	Earth
+	HP	54	66
+	Attack	85	104
+	Defense	72	88
+	Speed	27	33
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Mimitoss
+	Type	Earth
+	HP	54	66
+	Attack	49	60
+	Defense	45	55
+	Speed	40	49
+	Hide	0.22
+EndMonster
+
+Monster
+	Name	Aéromite
+	Type	Earth
+	HP	63	77
+	Attack	58	71
+	Defense	54	66
+	Speed	81	99
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Taupiqueur
+	Type	Fire
+	HP	9	11
+	Attack	49	60
+	Defense	22	27
+	Speed	85	104
+	Burn	0.24
+EndMonster
+
+Monster
+	Name	Triopikeur
+	Type	Electric
+	HP	31	38
+	Attack	72	88
+	Defense	45	55
+	Speed	108	132
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Miaouss
+	Type	Insect
+	HP	36	44
+	Attack	40	49
+	Defense	31	38
+	Speed	81	99
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Persian
+	Type	Earth
+	HP	58	71
+	Attack	63	77
+	Defense	54	66
+	Speed	103	126
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Psykokwak
+	Type	Earth
+	HP	45	55
+	Attack	46	57
+	Defense	43	52
+	Speed	49	60
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Akwakwak
+	Type	Earth
+	HP	72	88
+	Attack	73	90
+	Defense	70	85
+	Speed	76	93
+	Hide	0.26
+EndMonster
+
+Monster
+	Name	Férosinge
+	Type	Fire
+	HP	36	44
+	Attack	72	88
+	Defense	31	38
+	Speed	63	77
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Colossinge
+	Type	Insect
+	HP	58	71
+	Attack	94	115
+	Defense	54	66
+	Speed	85	104
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Caninos
+	Type	Earth
+	HP	49	60
+	Attack	63	77
+	Defense	40	49
+	Speed	54	66
+	Hide	0.26
+EndMonster
+
+Monster
+	Name	Arcanin
+	Type	Fire
+	HP	81	99
+	Attack	99	121
+	Defense	72	88
+	Speed	85	104
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Ptitard
+	Type	Fire
+	HP	36	44
+	Attack	45	55
+	Defense	36	44
+	Speed	81	99
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Têtarte
+	Type	Water
+	HP	58	71
+	Attack	58	71
+	Defense	58	71
+	Speed	81	99
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Tartard
+	Type	Electric
+	HP	81	99
+	Attack	76	93
+	Defense	85	104
+	Speed	63	77
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Abra
+	Type	Earth
+	HP	22	27
+	Attack	18	22
+	Defense	13	16
+	Speed	81	99
+	Hide	0.59
+EndMonster
+
+Monster
+	Name	Kadabra
+	Type	Fire
+	HP	36	44
+	Attack	31	38
+	Defense	27	33
+	Speed	94	115
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Alakazam
+	Type	Fire
+	HP	49	60
+	Attack	45	55
+	Defense	40	49
+	Speed	108	132
+	Burn	0.31
+EndMonster
+
+Monster
+	Name	Machoc
+	Type	Earth
+	HP	63	77
+	Attack	72	88
+	Defense	45	55
+	Speed	31	38
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Machopeur
+	Type	Insect
+	HP	72	88
+	Attack	90	110
+	Defense	63	77
+	Speed	40	49
+	Poison	0.71
+EndMonster
+
+Monster
+	Name	Mackogneur
+	Type	Electric
+	HP	81	99
+	Attack	117	143
+	Defense	72	88
+	Speed	49	60
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Chétiflor
+	Type	Fire
+	HP	45	55
+	Attack	67	82
+	Defense	31	38
+	Speed	36	44
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Boustiflor
+	Type	Earth
+	HP	58	71
+	Attack	81	99
+	Defense	45	55
+	Speed	49	60
+	Hide	0.71
+EndMonster
+
+Monster
+	Name	Empiflor
+	Type	Fire
+	HP	72	88
+	Attack	94	115
+	Defense	58	71
+	Speed	63	77
+	Burn	0.62
+EndMonster
+
+Monster
+	Name	Tentacool
+	Type	Electric
+	HP	36	44
+	Attack	36	44
+	Defense	31	38
+	Speed	63	77
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Tentacruel
+	Type	Earth
+	HP	72	88
+	Attack	63	77
+	Defense	58	71
+	Speed	90	110
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Racaillou
+	Type	Fire
+	HP	36	44
+	Attack	72	88
+	Defense	90	110
+	Speed	18	22
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Gravalanch
+	Type	Insect
+	HP	49	60
+	Attack	85	104
+	Defense	103	126
+	Speed	31	38
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Grolem
+	Type	Earth
+	HP	72	88
+	Attack	99	121
+	Defense	117	143
+	Speed	40	49
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Ponyta
+	Type	Fire
+	HP	45	55
+	Attack	76	93
+	Defense	49	60
+	Speed	81	99
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Galopa
+	Type	Fire
+	HP	58	71
+	Attack	90	110
+	Defense	63	77
+	Speed	94	115
+	Burn	0.81
+EndMonster
+
+Monster
+	Name	Ramoloss
+	Type	Earth
+	HP	81	99
+	Attack	58	71
+	Defense	58	71
+	Speed	13	16
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Flagadoss
+	Type	Insect
+	HP	85	104
+	Attack	67	82
+	Defense	99	121
+	Speed	27	33
+	Poison	0.21
+EndMonster
+
+Monster
+	Name	Magnéti
+	Type	Water
+	HP	22	27
+	Attack	31	38
+	Defense	63	77
+	Speed	40	49
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Magnéton
+	Type	Insect
+	HP	45	55
+	Attack	54	66
+	Defense	85	104
+	Speed	63	77
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Canarticho
+	Type	Water
+	HP	46	57
+	Attack	58	71
+	Defense	49	60
+	Speed	54	66
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Doduo
+	Type	Earth
+	HP	31	38
+	Attack	76	93
+	Defense	40	49
+	Speed	67	82
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Dodrio
+	Type	Earth
+	HP	54	66
+	Attack	99	121
+	Defense	63	77
+	Speed	90	110
+	Hide	0.31
+EndMonster
+
+Monster
+	Name	Otaria
+	Type	Plant
+	HP	58	71
+	Attack	40	49
+	Defense	49	60
+	Speed	40	49
+	Heal	0.43
+EndMonster
+
+Monster
+	Name	Lamantine
+	Type	Water
+	HP	81	99
+	Attack	63	77
+	Defense	72	88
+	Speed	63	77
+	Flood	0.88
+	Fall	0.26
+EndMonster
+
+Monster
+	Name	Tadmorv
+	Type	Water
+	HP	72	88
+	Attack	72	88
+	Defense	45	55
+	Speed	22	27
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Grotadmorv
+	Type	Earth
+	HP	94	115
+	Attack	94	115
+	Defense	67	82
+	Speed	45	55
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Kokiyas
+	Type	Electric
+	HP	27	33
+	Attack	58	71
+	Defense	90	110
+	Speed	36	44
+	Paralysis	0.43
+EndMonster
+
+Monster
+	Name	Crustabri
+	Type	Electric
+	HP	45	55
+	Attack	85	104
+	Defense	162	198
+	Speed	63	77
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Fantominus
+	Type	Water
+	HP	27	33
+	Attack	31	38
+	Defense	27	33
+	Speed	72	88
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Spectrum
+	Type	Water
+	HP	40	49
+	Attack	45	55
+	Defense	40	49
+	Speed	85	104
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Ectoplasma
+	Type	Plant
+	HP	54	66
+	Attack	58	71
+	Defense	54	66
+	Speed	99	121
+	Heal	0.71
+EndMonster
+
+Monster
+	Name	Onix
+	Type	Fire
+	HP	31	38
+	Attack	40	49
+	Defense	144	176
+	Speed	63	77
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Soporifik
+	Type	Water
+	HP	54	66
+	Attack	43	52
+	Defense	40	49
+	Speed	37	46
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Hypnomade
+	Type	Electric
+	HP	76	93
+	Attack	65	80
+	Defense	63	77
+	Speed	60	73
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Krabby
+	Type	Water
+	HP	27	33
+	Attack	94	115
+	Defense	81	99
+	Speed	45	55
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Krabboss
+	Type	Insect
+	HP	49	60
+	Attack	117	143
+	Defense	103	126
+	Speed	67	82
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Voltorbe
+	Type	Insect
+	HP	36	44
+	Attack	27	33
+	Defense	45	55
+	Speed	90	110
+	Poison	0.47
+EndMonster
+
+Monster
+	Name	Électrode
+	Type	Water
+	HP	54	66
+	Attack	45	55
+	Defense	63	77
+	Speed	126	154
+	Flood	0.57
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Noeunoeuf
+	Type	Earth
+	HP	54	66
+	Attack	36	44
+	Defense	72	88
+	Speed	36	44
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Noadkoko
+	Type	Earth
+	HP	85	104
+	Attack	85	104
+	Defense	76	93
+	Speed	49	60
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Osselait
+	Type	Water
+	HP	45	55
+	Attack	45	55
+	Defense	85	104
+	Speed	31	38
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Ossatueur
+	Type	Water
+	HP	54	66
+	Attack	72	88
+	Defense	99	121
+	Speed	40	49
+	Flood	0.24
+	Fall	0.54
+EndMonster
+
+Monster
+	Name	Kicklee
+	Type	Electric
+	HP	45	55
+	Attack	108	132
+	Defense	47	58
+	Speed	78	95
+	Paralysis	0.57
+EndMonster
+
+Monster
+	Name	Tygnon
+	Type	Earth
+	HP	45	55
+	Attack	94	115
+	Defense	71	86
+	Speed	68	83
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Excelangue
+	Type	Insect
+	HP	81	99
+	Attack	49	60
+	Defense	67	82
+	Speed	27	33
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Smogo
+	Type	Electric
+	HP	36	44
+	Attack	58	71
+	Defense	85	104
+	Speed	31	38
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Smogogo
+	Type	Insect
+	HP	58	71
+	Attack	81	99
+	Defense	108	132
+	Speed	54	66
+	Poison	0.38
+EndMonster
+
+Monster
+	Name	Rhinocorne
+	Type	Water
+	HP	72	88
+	Attack	76	93
+	Defense	85	104
+	Speed	22	27
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Rhinoféros
+	Type	Plant
+	HP	94	115
+	Attack	117	143
+	Defense	108	132
+	Speed	36	44
+	Heal	0.2
+EndMonster
+
+Monster
+	Name	Leveinard
+	Type	Electric
+	HP	225	275
+	Attack	4	5
+	Defense	4	5
+	Speed	45	55
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Saquedeneu
+	Type	Fire
+	HP	58	71
+	Attack	49	60
+	Defense	103	126
+	Speed	54	66
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Kangourex
+	Type	Water
+	HP	94	115
+	Attack	85	104
+	Defense	72	88
+	Speed	81	99
+	Flood	0.2
+	Fall	0.26
+EndMonster
+
+Monster
+	Name	Hypotrempe
+	Type	Water
+	HP	27	33
+	Attack	36	44
+	Defense	63	77
+	Speed	54	66
+	Flood	0.2
+	Fall	0.54
+EndMonster
+
+Monster
+	Name	Hypocéan
+	Type	Earth
+	HP	49	60
+	Attack	58	71
+	Defense	85	104
+	Speed	76	93
+	Hide	0.47
+EndMonster
+
+Monster
+	Name	Poissirène
+	Type	Earth
+	HP	40	49
+	Attack	60	73
+	Defense	54	66
+	Speed	56	69
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Poissoroy
+	Type	Earth
+	HP	72	88
+	Attack	82	101
+	Defense	58	71
+	Speed	61	74
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Stari
+	Type	Electric
+	HP	27	33
+	Attack	40	49
+	Defense	49	60
+	Speed	76	93
+	Paralysis	0.52
+EndMonster
+
+Monster
+	Name	Staross
+	Type	Fire
+	HP	54	66
+	Attack	67	82
+	Defense	76	93
+	Speed	103	126
+	Burn	0.35
+EndMonster
+
+Monster
+	Name	M. Mime
+	Type	Earth
+	HP	36	44
+	Attack	40	49
+	Defense	58	71
+	Speed	81	99
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Insécateur
+	Type	Earth
+	HP	63	77
+	Attack	99	121
+	Defense	72	88
+	Speed	94	115
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Lippoutou
+	Type	Electric
+	HP	58	71
+	Attack	45	55
+	Defense	31	38
+	Speed	85	104
+	Paralysis	0.21
+EndMonster
+
+Monster
+	Name	Élektek
+	Type	Electric
+	HP	58	71
+	Attack	74	91
+	Defense	51	62
+	Speed	94	115
+	Paralysis	0.65
+EndMonster
+
+Monster
+	Name	Magmar
+	Type	Water
+	HP	58	71
+	Attack	85	104
+	Defense	51	62
+	Speed	83	102
+	Flood	0.59
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Scarabrute
+	Type	Fire
+	HP	58	71
+	Attack	112	137
+	Defense	90	110
+	Speed	76	93
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Tauros
+	Type	Insect
+	HP	67	82
+	Attack	90	110
+	Defense	85	104
+	Speed	99	121
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Magicarpe
+	Type	Water
+	HP	18	22
+	Attack	9	11
+	Defense	49	60
+	Speed	72	88
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Léviator
+	Type	Electric
+	HP	85	104
+	Attack	112	137
+	Defense	71	86
+	Speed	72	89
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Lokhlass
+	Type	Fire
+	HP	117	143
+	Attack	76	93
+	Defense	72	88
+	Speed	54	66
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Métamorph
+	Type	Earth
+	HP	43	52
+	Attack	43	52
+	Defense	43	52
+	Speed	43	52
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Évoli
+	Type	Electric
+	HP	49	60
+	Attack	49	60
+	Defense	45	55
+	Speed	49	60
+	Paralysis	0.74
+EndMonster
+
+Monster
+	Name	Aquali
+	Type	Earth
+	HP	117	143
+	Attack	58	71
+	Defense	54	66
+	Speed	58	71
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Voltali
+	Type	Water
+	HP	58	71
+	Attack	58	71
+	Defense	54	66
+	Speed	117	143
+	Flood	0.47
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Pyroli
+	Type	Electric
+	HP	58	71
+	Attack	117	143
+	Defense	54	66
+	Speed	58	71
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Porygon
+	Type	Insect
+	HP	58	71
+	Attack	54	66
+	Defense	63	77
+	Speed	36	44
+	Poison	0.2
+EndMonster
+
+Monster
+	Name	Amonita
+	Type	Electric
+	HP	31	38
+	Attack	36	44
+	Defense	90	110
+	Speed	31	38
+	Paralysis	0.2
+EndMonster
+
+Monster
+	Name	Amonistar
+	Type	Earth
+	HP	63	77
+	Attack	54	66
+	Defense	112	137
+	Speed	49	60
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Kabuto
+	Type	Water
+	HP	27	33
+	Attack	72	88
+	Defense	81	99
+	Speed	49	60
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Kabutops
+	Type	Water
+	HP	54	66
+	Attack	103	126
+	Defense	94	115
+	Speed	72	88
+	Flood	0.2
+	Fall	0.2
+EndMonster
+
+Monster
+	Name	Ptéra
+	Type	Fire
+	HP	72	88
+	Attack	94	115
+	Defense	58	71
+	Speed	117	143
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Ronflex
+	Type	Fire
+	HP	144	176
+	Attack	99	121
+	Defense	58	71
+	Speed	27	33
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Artikodin
+	Type	Fire
+	HP	81	99
+	Attack	76	93
+	Defense	90	110
+	Speed	76	93
+	Burn	0.35
+EndMonster
+
+Monster
+	Name	Électhor
+	Type	Fire
+	HP	81	99
+	Attack	81	99
+	Defense	76	93
+	Speed	90	110
+	Burn	0.2
+EndMonster
+
+Monster
+	Name	Sulfura
+	Type	Plant
+	HP	81	99
+	Attack	90	110
+	Defense	81	99
+	Speed	81	99
+	Heal	0.2
+EndMonster
+
+Monster
+	Name	Minidraco
+	Type	Plant
+	HP	36	45
+	Attack	57	70
+	Defense	40	49
+	Speed	45	55
+	Heal	0.2
+EndMonster
+
+Monster
+	Name	Draco
+	Type	Water
+	HP	54	67
+	Attack	75	92
+	Defense	58	71
+	Speed	63	77
+	Flood	0.2
+	Fall	0.62
+EndMonster
+
+Monster
+	Name	Dracolosse
+	Type	Water
+	HP	81	100
+	Attack	120	147
+	Defense	85	104
+	Speed	72	88
+	Flood	0.31
+	Fall	0.22
+EndMonster
+
+Monster
+	Name	Mewtwo
+	Type	Earth
+	HP	95	116
+	Attack	99	121
+	Defense	81	99
+	Speed	117	143
+	Hide	0.2
+EndMonster
+
+Monster
+	Name	Mew
+	Type	Fire
+	HP	90	110
+	Attack	90	110
+	Defense	90	110
+	Speed	90	110
+	Burn	0.92
+EndMonster
+

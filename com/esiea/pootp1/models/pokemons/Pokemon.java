@@ -12,8 +12,6 @@ public class Pokemon {
     private int minDefense, maxDefense;
     private int minSpeed,   maxSpeed;
 
-    public Pokemon() {};
-
     public void setName(String name) {
         this.name = name;
     }

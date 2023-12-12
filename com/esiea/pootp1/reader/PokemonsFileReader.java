@@ -9,15 +9,15 @@ import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.pokemons.Pokemon;
 
 public class PokemonsFileReader {
+    // Configuration file's key words
     private final static String START_MONSTER = "Monster";
     private final static String END_MONSTER   = "EndMonster";
-
-    private final static String NAME    = "Name";
-    private final static String TYPE    = "Type";
-    private final static String HP      = "HP";
-    private final static String ATTACK  = "Attack";
-    private final static String DEFENSE = "Defense";
-    private final static String SPEED   = "Speed";
+    private final static String NAME          = "Name";
+    private final static String TYPE          = "Type";
+    private final static String HP            = "HP";
+    private final static String ATTACK        = "Attack";
+    private final static String DEFENSE       = "Defense";
+    private final static String SPEED         = "Speed";
 
     Controller controller;
     File file;
@@ -37,7 +37,7 @@ public class PokemonsFileReader {
             while ((line = br.readLine()) != null) {
                 if (line.equals("")) continue;
                 
-                if (line.charAt(0) == '\t') line = line.substring(1);
+                line = line.trim();
 
                 words = line.split("\t");
 
@@ -55,18 +55,11 @@ public class PokemonsFileReader {
                     }
 
                     case TYPE -> {
-                        Type type = null;
+                        Type type = Type.getTypeConfigText().get(words[1]);
 
-                        switch (words[1]) {
-                            case "Earth"    -> type = Type.TERRE;
-                            case "Electric" -> type = Type.FOUDRE;
-                            case "Water"    -> type = Type.EAU;
-                            case "Nature"   -> type = Type.NATURE;
-                            case "Plant"    -> type = Type.PLANTE;
-                            case "Insect"   -> type = Type.INSECT;
+                        if (Type.getUsableTypes().contains(type)) {
+                            currentPokemon.setType(type);
                         }
-
-                        currentPokemon.setType(type);
                     }
 
                     case HP -> {

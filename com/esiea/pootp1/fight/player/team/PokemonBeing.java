@@ -20,4 +20,28 @@ public class PokemonBeing {
         this.defense = pokemon.getMinDefense() + (int) (Math.random() * (pokemon.getMaxDefense() - pokemon.getMinDefense()));
         this.speed   = pokemon.getMinSpeed  () + (int) (Math.random() * (pokemon.getMaxSpeed  () - pokemon.getMinSpeed  ()));
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Type getType() {
+        return this.type;
+    }
+
+    public int getHP() {
+        return this.hp;
+    }
+
+    public int getAttack() {
+        return this.attack;
+    }
+
+    public int getDefense() {
+        return this.defense;
+    }
+
+    public int getSpeed() {
+        return this.speed;
+    }
 }

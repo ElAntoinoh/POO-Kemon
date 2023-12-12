@@ -9,6 +9,7 @@ public class Attack {
 
     private int nbUtilisations;
     private int power;
+
     private double failureProbability;
 
     public void setName(String name) {
@@ -29,5 +30,25 @@ public class Attack {
 
     public void setFailureProbability(double failureProbability) {
         this.failureProbability = failureProbability;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Type getType() {
+        return this.type;
+    }
+
+    public int getNbUtilisations() {
+        return this.nbUtilisations;
+    }
+
+    public int getPower() {
+        return this.power;
+    }
+
+    public double getFailureProbability() {
+        return this.failureProbability;
     }
 }

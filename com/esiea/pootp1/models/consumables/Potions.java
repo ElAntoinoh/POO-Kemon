@@ -1,5 +1,5 @@
 package com.esiea.pootp1.models.consumables;
 
-public class Potions {
+public class Potions extends Consumable {
     
 }

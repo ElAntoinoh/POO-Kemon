@@ -9,14 +9,14 @@ import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.attacks.Attack;
 
 public class AttacksFileReader {
-    private final static String START_ATTACK_KEY_WORD = "Attack";
-    private final static String END_ATTACK_KEY_WORD   = "EndAttack";
-
-    private final static String NAME_KEY_WORD               = "Name";
-    private final static String TYPE_KEY_WORD               = "Type";
-    private final static String POWER_KEY_WORD              = "Power";
-    private final static String NB_USE_KEY_WORD             = "NbUse";
-    private final static String FAIL_PROBABILITY_KEY_WORD   = "Fail";
+    // Configuration file's key words
+    private final static String START_ATTACK     = "Attack";
+    private final static String END_ATTACK       = "EndAttack";
+    private final static String NAME             = "Name";
+    private final static String TYPE             = "Type";
+    private final static String POWER            = "Power";
+    private final static String NB_USE           = "NbUse";
+    private final static String FAIL_PROBABILITY = "Fail";
 
     Controller controller;
     File file;
@@ -36,48 +36,36 @@ public class AttacksFileReader {
             while ((line = br.readLine()) != null) {
                 if (line.equals("")) continue;
                 
-                if (line.charAt(0) == '\t') line = line.substring(1);
+                line = line.trim();
 
                 words = line.split("\t");
 
                 switch (words[0]) {
-                    case START_ATTACK_KEY_WORD -> {
+                    case START_ATTACK -> {
                         currentAttack = new Attack();
                     }
 
-                    case END_ATTACK_KEY_WORD -> {
+                    case END_ATTACK -> {
                         addAttack(currentAttack);
                     }
 
-                    case NAME_KEY_WORD -> {
+                    case NAME -> {
                         currentAttack.setName(words[1]);
                     }
 
-                    case TYPE_KEY_WORD -> {
-                        Type type = null;
-
-                        switch (words[1]) {
-                            case "Earth"    -> type = Type.TERRE;
-                            case "Electric" -> type = Type.FOUDRE;
-                            case "Water"    -> type = Type.EAU;
-                            case "Nature"   -> type = Type.NATURE;
-                            case "Normal"   -> type = Type.NORMAL;
-                            case "Plant"    -> type = Type.PLANTE;
-                            case "Insect"   -> type = Type.INSECT;
-                        }
-
-                        currentAttack.setType(type);
+                    case TYPE -> {
+                        currentAttack.setType(Type.getTypeConfigText().get(words[1]));
                     }
 
-                    case POWER_KEY_WORD -> {
+                    case POWER -> {
                         currentAttack.setPower(Integer.parseInt(words[1]));
                     }
 
-                    case NB_USE_KEY_WORD -> {
+                    case NB_USE -> {
                         currentAttack.setNbUtilisations(Integer.parseInt(words[1]));
                     }
 
-                    case FAIL_PROBABILITY_KEY_WORD -> {
+                    case FAIL_PROBABILITY -> {
                         currentAttack.setFailureProbability(Double.parseDouble(words[1]));
                     }
                 }
