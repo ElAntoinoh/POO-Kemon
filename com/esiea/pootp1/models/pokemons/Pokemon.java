@@ -79,4 +79,8 @@ public class Pokemon {
     public int getMaxSpeed() {
         return this.maxSpeed;
     }
+
+    public String toString() {
+        return this.name + " | " + Type.getTypeDisplayText().get(this.type);
+    }
 }

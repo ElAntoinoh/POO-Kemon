@@ -1,0 +1,47 @@
+package com.esiea.pootp1.fight.player.team;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+import com.esiea.pootp1.fight.player.Player;
+import com.esiea.pootp1.models.pokemons.Pokemon;
+
+public class Team {
+    private final static int MAXIMUM_NUMBER_OF_MEMBERS = 3;
+
+    private Player player;
+
+    private ArrayList<PokemonBeing> members = new ArrayList<>();
+
+    public Team(Player player) {
+        this.player = player;
+
+        for (int i = 0; i < MAXIMUM_NUMBER_OF_MEMBERS; i++) this.members.add(null);
+
+        changeMembers();
+    }
+
+    public void changeMembers() {
+        ArrayList<Pokemon> pokemonList = this.player.getController().getPokeDex().getPokemonList();
+
+        Collections.shuffle(pokemonList);
+
+        for (int i = 0; i < MAXIMUM_NUMBER_OF_MEMBERS; i++) {
+            members.set(i, new PokemonBeing(this, pokemonList.get(i)));
+        }
+    }
+
+    public Player getPlayer() {
+        return this.player;
+    }
+
+    public String toString() {
+        String str = "Team :\n";
+
+        for (PokemonBeing p : this.members) {
+            str += p.toString() + '\n';
+        }
+
+        return str;
+    }
+}

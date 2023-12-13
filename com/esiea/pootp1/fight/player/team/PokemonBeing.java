@@ -3,7 +3,6 @@ package com.esiea.pootp1.fight.player.team;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.attacks.Attack;
 import com.esiea.pootp1.models.pokemons.Pokemon;
@@ -11,7 +10,7 @@ import com.esiea.pootp1.models.pokemons.Pokemon;
 public class PokemonBeing {
     private final static int MAX_NB_ATTACKS = 4;
 
-    private Player player;
+    private Team team;
 
     private String name;
 
@@ -21,8 +20,8 @@ public class PokemonBeing {
 
     private Attack[] attacks;
 
-    public PokemonBeing(Player player, Pokemon pokemon) {
-        this.player = player;
+    public PokemonBeing(Team team, Pokemon pokemon) {
+        this.team = team;
 
         this.name = pokemon.getName();
 
@@ -41,12 +40,12 @@ public class PokemonBeing {
     private void chooseAttacks() {
         ArrayList<Attack> learnableAttacks = new ArrayList<>();
 
-        learnableAttacks.addAll(this.player.geController().getAttackDex().getAttacksFromType(this.type));
-        learnableAttacks.addAll(this.player.geController().getAttackDex().getAttacksFromType(Type.NORMAL));
+        learnableAttacks.addAll(this.team.getPlayer().getController().getAttackDex().getAttacksFromType(this.type));
+        learnableAttacks.addAll(this.team.getPlayer().getController().getAttackDex().getAttacksFromType(Type.NORMAL));
 
         Collections.shuffle(learnableAttacks);
 
-        for (int i = 0; i < MAX_NB_ATTACKS; i++) {
+        for (int i = 0; i < MAX_NB_ATTACKS && i < learnableAttacks.size(); i++) {
             this.attacks[i] = learnableAttacks.get(i);
         }
     }
@@ -77,5 +76,15 @@ public class PokemonBeing {
 
     public Attack[] getAttacks() {
         return this.attacks;
+    }
+
+    public String toString() {
+        String str = this.name;
+
+        for (int i = 0; i < MAX_NB_ATTACKS; i++) {
+            str += " | " + this.attacks[i].getName();
+        }
+
+        return str + '\n';
     }
 }

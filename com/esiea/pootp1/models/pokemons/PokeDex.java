@@ -12,4 +12,18 @@ public class PokeDex {
     public void addPokemon(Pokemon pokemon) {
         this.pokemonsList.add(pokemon);
     }
+
+    public ArrayList<Pokemon> getPokemonList() {
+        return this.pokemonsList;
+    }
+
+    public String toString() {
+        String str = "";
+
+        for (Pokemon p : this.pokemonsList) {
+            str += p.toString() + '\n';
+        }
+
+        return str;
+    }
 }

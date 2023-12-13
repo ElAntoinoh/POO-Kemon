@@ -92,7 +92,7 @@ EndMonster
 
 Monster
 	Name	Chenipan
-	Type	Earth
+	Type	Dirt
 	HP	40	49
 	Attack	27	33
 	Defense	31	38
@@ -102,7 +102,7 @@ EndMonster
 
 Monster
 	Name	Chrysacier
-	Type	Earth
+	Type	Dirt
 	HP	45	55
 	Attack	18	22
 	Defense	49	60
@@ -185,7 +185,7 @@ EndMonster
 
 Monster
 	Name	Rattata
-	Type	Earth
+	Type	Dirt
 	HP	27	33
 	Attack	50	61
 	Defense	31	38
@@ -226,7 +226,7 @@ EndMonster
 
 Monster
 	Name	Abo
-	Type	Earth
+	Type	Dirt
 	HP	31	38
 	Attack	54	66
 	Defense	39	48
@@ -246,7 +246,7 @@ EndMonster
 
 Monster
 	Name	Pikachu
-	Type	Earth
+	Type	Dirt
 	HP	31	38
 	Attack	49	60
 	Defense	27	33
@@ -327,7 +327,7 @@ EndMonster
 
 Monster
 	Name	Nidorino
-	Type	Earth
+	Type	Dirt
 	HP	54	67
 	Attack	64	79
 	Defense	51	62
@@ -399,7 +399,7 @@ EndMonster
 
 Monster
 	Name	Grodoudou
-	Type	Earth
+	Type	Dirt
 	HP	126	154
 	Attack	63	77
 	Defense	40	49
@@ -449,7 +449,7 @@ EndMonster
 
 Monster
 	Name	Rafflesia
-	Type	Earth
+	Type	Dirt
 	HP	67	82
 	Attack	72	88
 	Defense	76	93
@@ -469,7 +469,7 @@ EndMonster
 
 Monster
 	Name	Parasect
-	Type	Earth
+	Type	Dirt
 	HP	54	66
 	Attack	85	104
 	Defense	72	88
@@ -479,7 +479,7 @@ EndMonster
 
 Monster
 	Name	Mimitoss
-	Type	Earth
+	Type	Dirt
 	HP	54	66
 	Attack	49	60
 	Defense	45	55
@@ -489,7 +489,7 @@ EndMonster
 
 Monster
 	Name	Aéromite
-	Type	Earth
+	Type	Dirt
 	HP	63	77
 	Attack	58	71
 	Defense	54	66
@@ -529,7 +529,7 @@ EndMonster
 
 Monster
 	Name	Persian
-	Type	Earth
+	Type	Dirt
 	HP	58	71
 	Attack	63	77
 	Defense	54	66
@@ -539,7 +539,7 @@ EndMonster
 
 Monster
 	Name	Psykokwak
-	Type	Earth
+	Type	Dirt
 	HP	45	55
 	Attack	46	57
 	Defense	43	52
@@ -549,7 +549,7 @@ EndMonster
 
 Monster
 	Name	Akwakwak
-	Type	Earth
+	Type	Dirt
 	HP	72	88
 	Attack	73	90
 	Defense	70	85
@@ -579,7 +579,7 @@ EndMonster
 
 Monster
 	Name	Caninos
-	Type	Earth
+	Type	Dirt
 	HP	49	60
 	Attack	63	77
 	Defense	40	49
@@ -630,7 +630,7 @@ EndMonster
 
 Monster
 	Name	Abra
-	Type	Earth
+	Type	Dirt
 	HP	22	27
 	Attack	18	22
 	Defense	13	16
@@ -660,7 +660,7 @@ EndMonster
 
 Monster
 	Name	Machoc
-	Type	Earth
+	Type	Dirt
 	HP	63	77
 	Attack	72	88
 	Defense	45	55
@@ -700,7 +700,7 @@ EndMonster
 
 Monster
 	Name	Boustiflor
-	Type	Earth
+	Type	Dirt
 	HP	58	71
 	Attack	81	99
 	Defense	45	55
@@ -730,7 +730,7 @@ EndMonster
 
 Monster
 	Name	Tentacruel
-	Type	Earth
+	Type	Dirt
 	HP	72	88
 	Attack	63	77
 	Defense	58	71
@@ -760,7 +760,7 @@ EndMonster
 
 Monster
 	Name	Grolem
-	Type	Earth
+	Type	Dirt
 	HP	72	88
 	Attack	99	121
 	Defense	117	143
@@ -790,7 +790,7 @@ EndMonster
 
 Monster
 	Name	Ramoloss
-	Type	Earth
+	Type	Dirt
 	HP	81	99
 	Attack	58	71
 	Defense	58	71
@@ -842,7 +842,7 @@ EndMonster
 
 Monster
 	Name	Doduo
-	Type	Earth
+	Type	Dirt
 	HP	31	38
 	Attack	76	93
 	Defense	40	49
@@ -852,7 +852,7 @@ EndMonster
 
 Monster
 	Name	Dodrio
-	Type	Earth
+	Type	Dirt
 	HP	54	66
 	Attack	99	121
 	Defense	63	77
@@ -894,7 +894,7 @@ EndMonster
 
 Monster
 	Name	Grotadmorv
-	Type	Earth
+	Type	Dirt
 	HP	94	115
 	Attack	94	115
 	Defense	67	82
@@ -1029,7 +1029,7 @@ EndMonster
 
 Monster
 	Name	Noeunoeuf
-	Type	Earth
+	Type	Dirt
 	HP	54	66
 	Attack	36	44
 	Defense	72	88
@@ -1039,7 +1039,7 @@ EndMonster
 
 Monster
 	Name	Noadkoko
-	Type	Earth
+	Type	Dirt
 	HP	85	104
 	Attack	85	104
 	Defense	76	93
@@ -1081,7 +1081,7 @@ EndMonster
 
 Monster
 	Name	Tygnon
-	Type	Earth
+	Type	Dirt
 	HP	45	55
 	Attack	94	115
 	Defense	71	86
@@ -1184,7 +1184,7 @@ EndMonster
 
 Monster
 	Name	Hypocéan
-	Type	Earth
+	Type	Dirt
 	HP	49	60
 	Attack	58	71
 	Defense	85	104
@@ -1194,7 +1194,7 @@ EndMonster
 
 Monster
 	Name	Poissirène
-	Type	Earth
+	Type	Dirt
 	HP	40	49
 	Attack	60	73
 	Defense	54	66
@@ -1204,7 +1204,7 @@ EndMonster
 
 Monster
 	Name	Poissoroy
-	Type	Earth
+	Type	Dirt
 	HP	72	88
 	Attack	82	101
 	Defense	58	71
@@ -1234,7 +1234,7 @@ EndMonster
 
 Monster
 	Name	M. Mime
-	Type	Earth
+	Type	Dirt
 	HP	36	44
 	Attack	40	49
 	Defense	58	71
@@ -1244,7 +1244,7 @@ EndMonster
 
 Monster
 	Name	Insécateur
-	Type	Earth
+	Type	Dirt
 	HP	63	77
 	Attack	99	121
 	Defense	72	88
@@ -1336,7 +1336,7 @@ EndMonster
 
 Monster
 	Name	Métamorph
-	Type	Earth
+	Type	Dirt
 	HP	43	52
 	Attack	43	52
 	Defense	43	52
@@ -1356,7 +1356,7 @@ EndMonster
 
 Monster
 	Name	Aquali
-	Type	Earth
+	Type	Dirt
 	HP	117	143
 	Attack	58	71
 	Defense	54	66
@@ -1407,7 +1407,7 @@ EndMonster
 
 Monster
 	Name	Amonistar
-	Type	Earth
+	Type	Dirt
 	HP	63	77
 	Attack	54	66
 	Defense	112	137
@@ -1521,7 +1521,7 @@ EndMonster
 
 Monster
 	Name	Mewtwo
-	Type	Earth
+	Type	Dirt
 	HP	95	116
 	Attack	99	121
 	Defense	81	99

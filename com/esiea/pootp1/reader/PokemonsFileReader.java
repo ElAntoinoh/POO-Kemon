@@ -3,6 +3,7 @@ package com.esiea.pootp1.reader;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.nio.charset.StandardCharsets;
 
 import com.esiea.pootp1.controller.Controller;
 import com.esiea.pootp1.models.Type;
@@ -28,7 +29,7 @@ public class PokemonsFileReader {
     }
 
     public void readFile() {
-        try (BufferedReader br = new BufferedReader(new FileReader(this.file))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(this.file, StandardCharsets.UTF_8))) {
             String line;
             String[] words;
 
@@ -59,6 +60,8 @@ public class PokemonsFileReader {
 
                         if (Type.getUsableTypes().contains(type)) {
                             currentPokemon.setType(type);
+                        } else {
+                            currentPokemon.setType(null);
                         }
                     }
 

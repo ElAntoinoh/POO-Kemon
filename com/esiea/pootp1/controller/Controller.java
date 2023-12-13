@@ -1,5 +1,6 @@
 package com.esiea.pootp1.controller;
 
+import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.models.attacks.Attack;
 import com.esiea.pootp1.models.attacks.AttackDex;
 import com.esiea.pootp1.models.pokemons.PokeDex;
@@ -20,6 +21,12 @@ public class Controller {
 
         new PokemonsFileReader(this, POKEMONS_FILE_PATH).readFile();
         new AttacksFileReader (this, ATTACKS_FILE_PATH ).readFile();
+
+        Player player1 = new Player(this);
+        Player player2 = new Player(this);
+
+        System.out.println(player1);
+        System.out.println(player2);
     }
 
     public void addPokemon(Pokemon pokemon) {

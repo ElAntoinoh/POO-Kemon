@@ -1,15 +1,1320 @@
 Attack
-	Name	Eclair
+	Name	Abîme
+	Type	Dirt
+	Power	10
+	NbUse	5
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Acidarmure
 	Type	Electric
-	Power	40
-	NbUse	10
-	Fail	0.07
+	Power	124
+	NbUse	6
+	Fail	0.24
+EndAttack
+
+Attack
+	Name	Acide
+	Type	Normal
+	Power	15
+	NbUse	38
+	Fail	0.48
+EndAttack
+
+Attack
+	Name	Affûtage
+	Type	Normal
+	Power	18
+	NbUse	6
+	Fail	0.87
+EndAttack
+
+Attack
+	Name	Amnésie
+	Type	Normal
+	Power	43
+	NbUse	6
+	Fail	0.02
+EndAttack
+
+Attack
+	Name	Armure
+	Type	Water
+	Power	86
+	NbUse	15
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Balayage
+	Type	Normal
+	Power	10
+	NbUse	5
+	Fail	0.22
+EndAttack
+
+Attack
+	Name	Bec Vrille
+	Type	Fire
+	Power	116
+	NbUse	11
+	Fail	0.06
+EndAttack
+
+Attack
+	Name	Bélier
+	Type	Fire
+	Power	161
+	NbUse	21
+	Fail	0.04
+EndAttack
+
+Attack
+	Name	Berceuse
+	Type	Electric
+	Power	10
+	NbUse	9
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Blizzard
+	Type	Fire
+	Power	29
+	NbUse	17
+	Fail	0.86
+EndAttack
+
+Attack
+	Name	Bombe Œuf
+	Type	Electric
+	Power	115
+	NbUse	5
+	Fail	0.3
+EndAttack
+
+Attack
+	Name	Bouclier
+	Type	Electric
+	Power	48
+	NbUse	18
+	Fail	0.38
+EndAttack
+
+Attack
+	Name	Boul'Armure
+	Type	Fire
+	Power	125
+	NbUse	5
+	Fail	0.01
+EndAttack
+
+Attack
+	Name	Brouillard
+	Type	Fire
+	Power	12
+	NbUse	22
+	Fail	0.24
+EndAttack
+
+Attack
+	Name	Brume
+	Type	Electric
+	Power	10
+	NbUse	6
+	Fail	0.42
+EndAttack
+
+Attack
+	Name	Buée Noire
+	Type	Normal
+	Power	12
+	NbUse	17
+	Fail	0.01
+EndAttack
+
+Attack
+	Name	Bulles d'O
+	Type	Normal
+	Power	16
+	NbUse	6
+	Fail	0.54
+EndAttack
+
+Attack
+	Name	Cage Éclair
+	Type	Normal
+	Power	53
+	NbUse	31
+	Fail	0.98
+EndAttack
+
+Attack
+	Name	Cascade
+	Type	Normal
+	Power	54
+	NbUse	7
+	Fail	0.52
 EndAttack
 
 Attack
 	Name	Charge
-	Type	Normal
-	Power	35
-	NbUse	15
+	Type	Plant
+	Power	110
+	NbUse	8
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Choc Mental
+	Type	Fire
+	Power	39
+	NbUse	12
+	Fail	0.57
+EndAttack
+
+Attack
+	Name	Claquoir
+	Type	Dirt
+	Power	10
+	NbUse	25
+	Fail	0.02
+EndAttack
+
+Attack
+	Name	Clonage
+	Type	Fire
+	Power	156
+	NbUse	23
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Combo-Griffe
+	Type	Insect
+	Power	29
+	NbUse	5
 	Fail	0.03
 EndAttack
+
+Attack
+	Name	Constriction
+	Type	Fire
+	Power	48
+	NbUse	15
+	Fail	0.49
+EndAttack
+
+Attack
+	Name	Conversion
+	Type	Fire
+	Power	12
+	NbUse	5
+	Fail	0.04
+EndAttack
+
+Attack
+	Name	Copie
+	Type	Fire
+	Power	62
+	NbUse	33
+	Fail	0.02
+EndAttack
+
+Attack
+	Name	Coud'Krâne
+	Type	Fire
+	Power	10
+	NbUse	9
+	Fail	0.31
+EndAttack
+
+Attack
+	Name	Coup d'Boule
+	Type	Normal
+	Power	105
+	NbUse	6
+	Fail	0.03
+EndAttack
+
+Attack
+	Name	Coupe
+	Type	Normal
+	Power	52
+	NbUse	9
+	Fail	0.05
+EndAttack
+
+Attack
+	Name	Coupe-Vent
+	Type	Fire
+	Power	152
+	NbUse	5
+	Fail	0.88
+EndAttack
+
+Attack
+	Name	Croc de Mort
+	Type	Dirt
+	Power	24
+	NbUse	6
+	Fail	0.15
+EndAttack
+
+Attack
+	Name	Croc Fatal
+	Type	Fire
+	Power	10
+	NbUse	6
+	Fail	0.28
+EndAttack
+
+Attack
+	Name	Croissance
+	Type	Dirt
+	Power	22
+	NbUse	24
+	Fail	0.06
+EndAttack
+
+Attack
+	Name	Cru-Ailes
+	Type	Plant
+	Power	21
+	NbUse	21
+	Fail	0.13
+EndAttack
+
+Attack
+	Name	Cyclone
+	Type	Electric
+	Power	16
+	NbUse	5
+	Fail	0.77
+EndAttack
+
+Attack
+	Name	Damoclès
+	Type	Fire
+	Power	125
+	NbUse	12
+	Fail	0.01
+EndAttack
+
+Attack
+	Name	Danse Flammes
+	Type	Normal
+	Power	44
+	NbUse	5
+	Fail	0.65
+EndAttack
+
+Attack
+	Name	Danse Fleurs
+	Type	Electric
+	Power	26
+	NbUse	5
+	Fail	0.04
+EndAttack
+
+Attack
+	Name	Danse Lames
+	Type	Water
+	Power	10
+	NbUse	9
+	Fail	0.29
+EndAttack
+
+Attack
+	Name	Dard-Nuée
+	Type	Insect
+	Power	95
+	NbUse	5
+	Fail	0.02
+EndAttack
+
+Attack
+	Name	Dard-Venin
+	Type	Normal
+	Power	49
+	NbUse	7
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Déflagration
+	Type	Fire
+	Power	74
+	NbUse	29
+	Fail	0.2
+EndAttack
+
+Attack
+	Name	Destruction
+	Type	Dirt
+	Power	41
+	NbUse	31
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Détritus
+	Type	Water
+	Power	10
+	NbUse	6
+	Fail	0.53
+EndAttack
+
+Attack
+	Name	Dévorêve
+	Type	Insect
+	Power	142
+	NbUse	7
+	Fail	0.02
+EndAttack
+
+Attack
+	Name	Double Dard
+	Type	Fire
+	Power	164
+	NbUse	6
+	Fail	0.1
+EndAttack
+
+Attack
+	Name	Double Pied
+	Type	Fire
+	Power	27
+	NbUse	8
+	Fail	0.2
+EndAttack
+
+Attack
+	Name	Draco-Rage
+	Type	Electric
+	Power	10
+	NbUse	13
+	Fail	0.03
+EndAttack
+
+Attack
+	Name	E-Coque
+	Type	Water
+	Power	16
+	NbUse	17
+	Fail	0.01
+EndAttack
+
+Attack
+	Name	Éboulement
+	Type	Water
+	Power	62
+	NbUse	6
+	Fail	0.1
+EndAttack
+
+Attack
+	Name	Éclair
+	Type	Plant
+	Power	11
+	NbUse	5
+	Fail	0.14
+EndAttack
+
+Attack
+	Name	Écras'Face
+	Type	Fire
+	Power	11
+	NbUse	23
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Écrasement
+	Type	Dirt
+	Power	10
+	NbUse	5
+	Fail	0.11
+EndAttack
+
+Attack
+	Name	Écume
+	Type	Dirt
+	Power	10
+	NbUse	39
+	Fail	0.6
+EndAttack
+
+Attack
+	Name	Empal'Korne
+	Type	Dirt
+	Power	91
+	NbUse	21
+	Fail	0.89
+EndAttack
+
+Attack
+	Name	Entrave
+	Type	Dirt
+	Power	10
+	NbUse	12
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Étreinte
+	Type	Dirt
+	Power	110
+	NbUse	5
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Explosion
+	Type	Water
+	Power	78
+	NbUse	24
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Fatal-Foudre
+	Type	Plant
+	Power	75
+	NbUse	6
+	Fail	0.05
+EndAttack
+
+Attack
+	Name	Flammèche
+	Type	Fire
+	Power	19
+	NbUse	5
+	Fail	0.12
+EndAttack
+
+Attack
+	Name	Flash
+	Type	Electric
+	Power	12
+	NbUse	8
+	Fail	0.31
+EndAttack
+
+Attack
+	Name	Force
+	Type	Electric
+	Power	11
+	NbUse	7
+	Fail	0.72
+EndAttack
+
+Attack
+	Name	Force Poigne
+	Type	Normal
+	Power	74
+	NbUse	17
+	Fail	0.69
+EndAttack
+
+Attack
+	Name	Fouet Lianes
+	Type	Fire
+	Power	14
+	NbUse	5
+	Fail	0.05
+EndAttack
+
+Attack
+	Name	Frappe Atlas
+	Type	Fire
+	Power	14
+	NbUse	15
+	Fail	0.53
+EndAttack
+
+Attack
+	Name	Frénésie
+	Type	Dirt
+	Power	19
+	NbUse	27
+	Fail	0.22
+EndAttack
+
+Attack
+	Name	Furie
+	Type	Dirt
+	Power	21
+	NbUse	11
+	Fail	0.19
+EndAttack
+
+Attack
+	Name	Gaz Toxik
+	Type	Dirt
+	Power	127
+	NbUse	31
+	Fail	0.05
+EndAttack
+
+Attack
+	Name	Griffe
+	Type	Dirt
+	Power	62
+	NbUse	5
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Grincement
+	Type	Fire
+	Power	16
+	NbUse	28
+	Fail	0.13
+EndAttack
+
+Attack
+	Name	Grobisou
+	Type	Normal
+	Power	10
+	NbUse	38
+	Fail	0.19
+EndAttack
+
+Attack
+	Name	Groz'Yeux
+	Type	Electric
+	Power	42
+	NbUse	6
+	Fail	0.06
+EndAttack
+
+Attack
+	Name	Guillotine
+	Type	Insect
+	Power	10
+	NbUse	6
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Hâte
+	Type	Dirt
+	Power	14
+	NbUse	6
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Hurlement
+	Type	Normal
+	Power	37
+	NbUse	6
+	Fail	0.06
+EndAttack
+
+Attack
+	Name	Hydrocanon
+	Type	Electric
+	Power	19
+	NbUse	6
+	Fail	0.28
+EndAttack
+
+Attack
+	Name	Hypnose
+	Type	Electric
+	Power	11
+	NbUse	33
+	Fail	0.01
+EndAttack
+
+Attack
+	Name	Jackpot
+	Type	Plant
+	Power	44
+	NbUse	16
+	Fail	0.41
+EndAttack
+
+Attack
+	Name	Jet de Sable
+	Type	Normal
+	Power	11
+	NbUse	22
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Jet-Pierres
+	Type	Dirt
+	Power	10
+	NbUse	5
+	Fail	0.92
+EndAttack
+
+Attack
+	Name	Koud'Korne
+	Type	Dirt
+	Power	10
+	NbUse	6
+	Fail	0.28
+EndAttack
+
+Attack
+	Name	Lance-Flammes
+	Type	Insect
+	Power	166
+	NbUse	5
+	Fail	0.36
+EndAttack
+
+Attack
+	Name	Lance-Soleil
+	Type	Fire
+	Power	38
+	NbUse	6
+	Fail	0.27
+EndAttack
+
+Attack
+	Name	Laser Glace
+	Type	Normal
+	Power	134
+	NbUse	19
+	Fail	0.03
+EndAttack
+
+Attack
+	Name	Léchouille
+	Type	Electric
+	Power	93
+	NbUse	5
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Ligotage
+	Type	Fire
+	Power	37
+	NbUse	35
+	Fail	0.1
+EndAttack
+
+Attack
+	Name	Lilliput
+	Type	Normal
+	Power	16
+	NbUse	5
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Lutte
+	Type	Normal
+	Power	67
+	NbUse	5
+	Fail	0.05
+EndAttack
+
+Attack
+	Name	Mania
+	Type	Plant
+	Power	10
+	NbUse	23
+	Fail	0.75
+EndAttack
+
+Attack
+	Name	Massd'Os
+	Type	Water
+	Power	81
+	NbUse	5
+	Fail	0.08
+EndAttack
+
+Attack
+	Name	Mawashi Geri
+	Type	Electric
+	Power	19
+	NbUse	15
+	Fail	0.09
+EndAttack
+
+Attack
+	Name	Méga-Sangsue
+	Type	Water
+	Power	18
+	NbUse	5
+	Fail	0.72
+EndAttack
+
+Attack
+	Name	Météores
+	Type	Normal
+	Power	18
+	NbUse	8
+	Fail	0.01
+EndAttack
+
+Attack
+	Name	Métronome
+	Type	Dirt
+	Power	31
+	NbUse	10
+	Fail	0.03
+EndAttack
+
+Attack
+	Name	Mimi-Queue
+	Type	Fire
+	Power	10
+	NbUse	5
+	Fail	0.01
+EndAttack
+
+Attack
+	Name	Mimique
+	Type	Normal
+	Power	12
+	NbUse	8
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Morphing
+	Type	Water
+	Power	47
+	NbUse	5
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Morsure
+	Type	Normal
+	Power	10
+	NbUse	7
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Mur Lumière
+	Type	Fire
+	Power	39
+	NbUse	35
+	Fail	0.39
+EndAttack
+
+Attack
+	Name	Ombre Nocturne
+	Type	Normal
+	Power	21
+	NbUse	17
+	Fail	0.31
+EndAttack
+
+Attack
+	Name	Onde Boréale
+	Type	Dirt
+	Power	53
+	NbUse	5
+	Fail	0.3
+EndAttack
+
+Attack
+	Name	Onde Folie
+	Type	Normal
+	Power	58
+	NbUse	5
+	Fail	0.29
+EndAttack
+
+Attack
+	Name	Osmerang
+	Type	Dirt
+	Power	88
+	NbUse	25
+	Fail	0.59
+EndAttack
+
+Attack
+	Name	Para-Spore
+	Type	Electric
+	Power	48
+	NbUse	5
+	Fail	0.88
+EndAttack
+
+Attack
+	Name	Patience
+	Type	Water
+	Power	10
+	NbUse	7
+	Fail	0.58
+EndAttack
+
+Attack
+	Name	Picanon
+	Type	Insect
+	Power	10
+	NbUse	13
+	Fail	0.87
+EndAttack
+
+Attack
+	Name	Picpic
+	Type	Electric
+	Power	124
+	NbUse	8
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Pied Sauté
+	Type	Insect
+	Power	10
+	NbUse	7
+	Fail	0.05
+EndAttack
+
+Attack
+	Name	Pied Voltige
+	Type	Fire
+	Power	100
+	NbUse	6
+	Fail	0.38
+EndAttack
+
+Attack
+	Name	Pilonnage
+	Type	Dirt
+	Power	13
+	NbUse	5
+	Fail	0.22
+EndAttack
+
+Attack
+	Name	Pince-Masse
+	Type	Electric
+	Power	60
+	NbUse	9
+	Fail	0.59
+EndAttack
+
+Attack
+	Name	Piqué
+	Type	Dirt
+	Power	48
+	NbUse	27
+	Fail	0.19
+EndAttack
+
+Attack
+	Name	Pistolet à O
+	Type	Electric
+	Power	99
+	NbUse	30
+	Fail	0.39
+EndAttack
+
+Attack
+	Name	Plaquage
+	Type	Plant
+	Power	67
+	NbUse	5
+	Fail	0.78
+EndAttack
+
+Attack
+	Name	Poing Comète
+	Type	Electric
+	Power	10
+	NbUse	25
+	Fail	0.52
+EndAttack
+
+Attack
+	Name	Poing Éclair
+	Type	Normal
+	Power	114
+	NbUse	17
+	Fail	0.33
+EndAttack
+
+Attack
+	Name	Poing Feu
+	Type	Fire
+	Power	28
+	NbUse	8
+	Fail	0.28
+EndAttack
+
+Attack
+	Name	Poing Glace
+	Type	Electric
+	Power	159
+	NbUse	7
+	Fail	0.1
+EndAttack
+
+Attack
+	Name	Poing Karaté
+	Type	Water
+	Power	122
+	NbUse	7
+	Fail	0.03
+EndAttack
+
+Attack
+	Name	Poudre Dodo
+	Type	Fire
+	Power	10
+	NbUse	6
+	Fail	0.16
+EndAttack
+
+Attack
+	Name	Poudre Toxik
+	Type	Water
+	Power	11
+	NbUse	20
+	Fail	0.3
+EndAttack
+
+Attack
+	Name	Protection
+	Type	Insect
+	Power	10
+	NbUse	6
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Psyko
+	Type	Normal
+	Power	20
+	NbUse	6
+	Fail	0.05
+EndAttack
+
+Attack
+	Name	Puissance
+	Type	Normal
+	Power	63
+	NbUse	10
+	Fail	0.19
+EndAttack
+
+Attack
+	Name	Purédpois
+	Type	Electric
+	Power	45
+	NbUse	5
+	Fail	0.87
+EndAttack
+
+Attack
+	Name	Rafale Psy
+	Type	Water
+	Power	11
+	NbUse	39
+	Fail	0.03
+EndAttack
+
+Attack
+	Name	Reflet
+	Type	Normal
+	Power	12
+	NbUse	5
+	Fail	0.88
+EndAttack
+
+Attack
+	Name	Regard Médusant
+	Type	Normal
+	Power	136
+	NbUse	5
+	Fail	0.19
+EndAttack
+
+Attack
+	Name	Repli
+	Type	Fire
+	Power	87
+	NbUse	39
+	Fail	0.09
+EndAttack
+
+Attack
+	Name	Repos
+	Type	Electric
+	Power	10
+	NbUse	11
+	Fail	0.47
+EndAttack
+
+Attack
+	Name	Riposte
+	Type	Normal
+	Power	76
+	NbUse	38
+	Fail	0.88
+EndAttack
+
+Attack
+	Name	Rugissement
+	Type	Electric
+	Power	11
+	NbUse	6
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Sacrifice
+	Type	Normal
+	Power	13
+	NbUse	5
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Sécrétion
+	Type	Plant
+	Power	92
+	NbUse	5
+	Fail	0.02
+EndAttack
+
+Attack
+	Name	Séisme
+	Type	Dirt
+	Power	11
+	NbUse	6
+	Fail	0.02
+EndAttack
+
+Attack
+	Name	Soin
+	Type	Plant
+	Power	10
+	NbUse	35
+	Fail	0.03
+EndAttack
+
+Attack
+	Name	Sonic Boom
+	Type	Electric
+	Power	14
+	NbUse	9
+	Fail	0.67
+EndAttack
+
+Attack
+	Name	Souplesse
+	Type	Water
+	Power	10
+	NbUse	22
+	Fail	0.01
+EndAttack
+
+Attack
+	Name	Spore
+	Type	Normal
+	Power	27
+	NbUse	5
+	Fail	0.61
+EndAttack
+
+Attack
+	Name	Surf
+	Type	Water
+	Power	102
+	NbUse	15
+	Fail	0.72
+EndAttack
+
+Attack
+	Name	Télékinésie
+	Type	Water
+	Power	11
+	NbUse	37
+	Fail	0.25
+EndAttack
+
+Attack
+	Name	Téléport
+	Type	Water
+	Power	135
+	NbUse	7
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Tonnerre
+	Type	Insect
+	Power	13
+	NbUse	5
+	Fail	0.01
+EndAttack
+
+Attack
+	Name	Torgnoles
+	Type	Electric
+	Power	81
+	NbUse	13
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Tornade
+	Type	Normal
+	Power	73
+	NbUse	5
+	Fail	0.02
+EndAttack
+
+Attack
+	Name	Toxik
+	Type	Plant
+	Power	99
+	NbUse	6
+	Fail	0.19
+EndAttack
+
+Attack
+	Name	Tranch'Herbe
+	Type	Dirt
+	Power	25
+	NbUse	5
+	Fail	0.11
+EndAttack
+
+Attack
+	Name	Tranche
+	Type	Water
+	Power	15
+	NbUse	24
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Trempette
+	Type	Insect
+	Power	10
+	NbUse	5
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Triplattaque
+	Type	Normal
+	Power	26
+	NbUse	12
+	Fail	0.05
+EndAttack
+
+Attack
+	Name	Tunnel
+	Type	Normal
+	Power	74
+	NbUse	28
+	Fail	0.46
+EndAttack
+
+Attack
+	Name	Ultimapoing
+	Type	Water
+	Power	10
+	NbUse	28
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Ultimawashi
+	Type	Normal
+	Power	56
+	NbUse	8
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Ultralaser
+	Type	Fire
+	Power	10
+	NbUse	8
+	Fail	0.05
+EndAttack
+
+Attack
+	Name	Ultrason
+	Type	Dirt
+	Power	79
+	NbUse	32
+	Fail	0.43
+EndAttack
+
+Attack
+	Name	Uppercut
+	Type	Electric
+	Power	68
+	NbUse	5
+	Fail	0.07
+EndAttack
+
+Attack
+	Name	Vague Psy
+	Type	Electric
+	Power	10
+	NbUse	14
+	Fail	0.21
+EndAttack
+
+Attack
+	Name	Vampigraine
+	Type	Water
+	Power	17
+	NbUse	20
+	Fail	0.41
+EndAttack
+
+Attack
+	Name	Vampirisme
+	Type	Electric
+	Power	15
+	NbUse	5
+	Fail	0.33
+EndAttack
+
+Attack
+	Name	Vive-Attaque
+	Type	Dirt
+	Power	48
+	NbUse	6
+	Fail	0.01
+EndAttack
+
+Attack
+	Name	Vol
+	Type	Water
+	Power	24
+	NbUse	16
+	Fail	0.08
+EndAttack
+
+Attack
+	Name	Vole-Vie
+	Type	Electric
+	Power	87
+	NbUse	31
+	Fail	0.0
+EndAttack
+
+Attack
+	Name	Yoga
+	Type	Electric
+	Power	10
+	NbUse	5
+	Fail	0.38
+EndAttack
+
