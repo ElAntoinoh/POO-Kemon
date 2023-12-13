@@ -22,8 +22,8 @@ public class Controller {
         new PokemonsFileReader(this, POKEMONS_FILE_PATH).readFile();
         new AttacksFileReader (this, ATTACKS_FILE_PATH ).readFile();
 
-        Player player1 = new Player(this);
-        Player player2 = new Player(this);
+        Player player1 = new Player(this, "Antoine");
+        Player player2 = new Player(this, "Jules");
 
         System.out.println(player1);
         System.out.println(player2);
