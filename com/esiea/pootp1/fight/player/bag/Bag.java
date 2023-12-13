@@ -22,7 +22,7 @@ public class Bag {
     }
 
     public void setRandomElements() {
-        ArrayList<Consumable> consumableList = this.player.getController().getConsumableDex().getConsumableList();
+        ArrayList<Consumable> consumableList = this.player.getController().getGlobalBag().getConsumableList();
 
         Collections.shuffle(consumableList);
 

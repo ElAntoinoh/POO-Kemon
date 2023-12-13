@@ -13,6 +13,8 @@ import com.esiea.pootp1.models.pokemons.GenericPokemon;
 import com.esiea.pootp1.reader.AttacksFileReader;
 import com.esiea.pootp1.reader.ConsumablesFileReader;
 import com.esiea.pootp1.reader.PokemonsFileReader;
+import com.esiea.pootp1.vue.ConsoleInterface;
+import com.esiea.pootp1.vue.DataCollectionInterface;
 
 public class Controller {
     private final static String POKEMONS_FILE_PATH    = "res/pokemons.txt";
@@ -21,15 +23,21 @@ public class Controller {
 
     private PokeDex pokeDex;
     private AttackDex attackDex;
-    private GlobalBag consumableDex;
+    private GlobalBag globalBag;
+
+    private ConsoleInterface consoleInterface;
 
     public Controller() {
         init();
 
         ArrayList<Player> players = new ArrayList<>();
 
-        for (String s : new String[] {"Antoine", "Jules", "Nathan"}) {
-            players.add(new Player(this, s));
+        for (String string : this.consoleInterface.askNames()) {
+            players.add(new Player(this, string));
+        }
+
+        for (Player p : players) {
+            this.consoleInterface.askTeam(p);
         }
 
         Fight fight = new Fight(this, players);
@@ -42,11 +50,13 @@ public class Controller {
     private void init() {
         this.pokeDex       = new PokeDex();
         this.attackDex     = new AttackDex();
-        this.consumableDex = new GlobalBag();
+        this.globalBag = new GlobalBag();
 
         new PokemonsFileReader   (this, POKEMONS_FILE_PATH   ).readFile();
         new AttacksFileReader    (this, ATTACKS_FILE_PATH    ).readFile();
         new ConsumablesFileReader(this, CONSUMABLES_FILE_PATH).readFile();
+
+        this.consoleInterface = new ConsoleInterface(this);
     }
 
     public void addPokemon(GenericPokemon pokemon) {
@@ -58,7 +68,7 @@ public class Controller {
     }
 
     public void addConsumable(Consumable consumable) {
-        this.consumableDex.addConsumable(consumable);
+        this.globalBag.addConsumable(consumable);
     }
 
     public PokeDex getPokeDex() {
@@ -69,7 +79,7 @@ public class Controller {
         return this.attackDex;
     }
 
-    public GlobalBag getConsumableDex() {
-        return this.consumableDex;
+    public GlobalBag getGlobalBag() {
+        return this.globalBag;
     }
 }

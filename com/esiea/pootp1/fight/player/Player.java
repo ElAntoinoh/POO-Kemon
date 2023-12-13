@@ -5,7 +5,7 @@ import com.esiea.pootp1.fight.player.bag.Bag;
 import com.esiea.pootp1.fight.player.team.Team;
 
 public class Player {
-    private static int NB_PLAYERS = 0;
+    private static int NB_PLAYERS = 1;
 
     private Controller controller;
 
@@ -31,6 +31,14 @@ public class Player {
 
     public Controller getController() {
         return this.controller;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Team getTeam() {
+        return this.team;
     }
 
     public String toString() {

@@ -38,4 +38,9 @@ com/esiea/pootp1/reader/AttacksFileReader.java
 com/esiea/pootp1/reader/ConsumablesFileReader.java
 com/esiea/pootp1/reader/PokemonsFileReader.java
 
+com/esiea/pootp1/vue/BagFillingInterface.java
+com/esiea/pootp1/vue/ConsoleInterface.java
+com/esiea/pootp1/vue/DataCollectionInterface.java
+com/esiea/pootp1/vue/TeamBuildingInterface.java
+
 com/esiea/pootp1/POOKemon.java

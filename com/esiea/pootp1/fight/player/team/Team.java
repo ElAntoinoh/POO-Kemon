@@ -8,7 +8,7 @@ import com.esiea.pootp1.fight.player.team.members.Pokemon;
 import com.esiea.pootp1.models.pokemons.GenericPokemon;
 
 public class Team {
-    private final static int MAXIMUM_NUMBER_OF_MEMBERS = 3;
+    public final static int MAXIMUM_NUMBER_OF_MEMBERS = 3;
 
     private Player player;
 
@@ -28,7 +28,18 @@ public class Team {
         Collections.shuffle(pokemonList);
 
         for (int i = 0; i < MAXIMUM_NUMBER_OF_MEMBERS; i++) {
-            members.set(i, new Pokemon(this, pokemonList.get(i)));
+            this.members.set(i, new Pokemon(this, pokemonList.get(i)));
+        }
+    }
+
+    public void setMembers(ArrayList<Pokemon> newMembers) {
+        assert newMembers.size() == MAXIMUM_NUMBER_OF_MEMBERS;
+
+        for (int i = 0; i < MAXIMUM_NUMBER_OF_MEMBERS; i++) {
+            Pokemon newMember = newMembers.get(i);
+            
+            newMember.setTeam(this);
+            this.members.set(i, newMember);
         }
     }
 
