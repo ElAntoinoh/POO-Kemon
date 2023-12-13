@@ -1,0 +1,41 @@
+Consumable
+	Name	Petite potion de soin
+	Type	Potion
+	Power	10
+	Quantity	10
+EndConsumable
+
+Consumable
+	Name	Potion de soin
+	Type	Potion
+	Power	20
+	Quantity	5
+EndConsumable
+
+Consumable
+	Name	Grande potion de soin
+	Type	Potion
+	Power	50
+	Quantity	1
+EndConsumable
+
+Consumable
+	Name	Antipoison
+	Type	Medecine
+	Status  Poisoned
+	Quantity	2
+EndConsumable
+
+Consumable
+	Name	Antiparalysie
+	Type	Medecine
+	Status  Paralyzed
+	Quantity	2
+EndConsumable
+
+Consumable
+	Name	Antibrûlure
+	Type	Medecine
+	Status  Burned
+	Quantity	2
+EndConsumable

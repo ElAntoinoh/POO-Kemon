@@ -4,30 +4,31 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.esiea.pootp1.fight.player.Player;
-import com.esiea.pootp1.models.pokemons.Pokemon;
+import com.esiea.pootp1.fight.player.team.members.Pokemon;
+import com.esiea.pootp1.models.pokemons.GenericPokemon;
 
 public class Team {
     private final static int MAXIMUM_NUMBER_OF_MEMBERS = 3;
 
     private Player player;
 
-    private ArrayList<PokemonBeing> members = new ArrayList<>();
+    private ArrayList<Pokemon> members = new ArrayList<>();
 
     public Team(Player player) {
         this.player = player;
 
         for (int i = 0; i < MAXIMUM_NUMBER_OF_MEMBERS; i++) this.members.add(null);
 
-        changeMembers();
+        setRandomMembers();
     }
 
-    public void changeMembers() {
-        ArrayList<Pokemon> pokemonList = this.player.getController().getPokeDex().getPokemonList();
+    public void setRandomMembers() {
+        ArrayList<GenericPokemon> pokemonList = this.player.getController().getPokeDex().getPokemonList();
 
         Collections.shuffle(pokemonList);
 
         for (int i = 0; i < MAXIMUM_NUMBER_OF_MEMBERS; i++) {
-            members.set(i, new PokemonBeing(this, pokemonList.get(i)));
+            members.set(i, new Pokemon(this, pokemonList.get(i)));
         }
     }
 
@@ -38,9 +39,7 @@ public class Team {
     public String toString() {
         String str = "Team :\n";
 
-        for (PokemonBeing p : this.members) {
-            str += p.toString() + '\n';
-        }
+        for (Pokemon p : this.members) str += p.toString() + '\n';
 
         return str;
     }

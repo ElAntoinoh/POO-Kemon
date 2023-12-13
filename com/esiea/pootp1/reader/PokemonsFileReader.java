@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 
 import com.esiea.pootp1.controller.Controller;
 import com.esiea.pootp1.models.Type;
-import com.esiea.pootp1.models.pokemons.Pokemon;
+import com.esiea.pootp1.models.pokemons.GenericPokemon;
 
 public class PokemonsFileReader {
     // Configuration file's key words
@@ -23,9 +23,9 @@ public class PokemonsFileReader {
     Controller controller;
     File file;
 
-    public PokemonsFileReader(Controller controller, String lien) {
+    public PokemonsFileReader(Controller controller, String link) {
         this.controller = controller;
-        this.file = new File(lien);
+        this.file = new File(link);
     }
 
     public void readFile() {
@@ -33,7 +33,7 @@ public class PokemonsFileReader {
             String line;
             String[] words;
 
-            Pokemon currentPokemon = null;
+            GenericPokemon currentPokemon = null;
 
             while ((line = br.readLine()) != null) {
                 if (line.equals("")) continue;
@@ -44,7 +44,7 @@ public class PokemonsFileReader {
 
                 switch (words[0]) {
                     case START_MONSTER -> {
-                        currentPokemon = new Pokemon();
+                        currentPokemon = new GenericPokemon();
                     }
 
                     case END_MONSTER -> {
@@ -103,7 +103,7 @@ public class PokemonsFileReader {
         }
     }
 
-    private void addPokemon(Pokemon pokemon) {
+    private void addPokemon(GenericPokemon pokemon) {
         this.controller.addPokemon(pokemon);
     }
 }

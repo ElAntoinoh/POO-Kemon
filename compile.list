@@ -2,26 +2,40 @@
 
 com/esiea/pootp1/controller/Controller.java
 
+com/esiea/pootp1/fight/player/bag/Bag.java
+
+com/esiea/pootp1/fight/player/team/members/moves/Move.java
+com/esiea/pootp1/fight/player/team/members/moves/MoveSet.java
+
+com/esiea/pootp1/fight/player/team/members/Pokemon.java
+
+com/esiea/pootp1/fight/player/team/Team.java
+
+com/esiea/pootp1/fight/player/Player.java
+
 com/esiea/pootp1/fight/Fight.java
 
 com/esiea/pootp1/fight/player/Player.java
 
-com/esiea/pootp1/fight/player/team/PokemonBeing.java
+com/esiea/pootp1/fight/Fight.java
 
 com/esiea/pootp1/models/attacks/Attack.java
 com/esiea/pootp1/models/attacks/AttackDex.java
 
+com/esiea/pootp1/models/consumables/healings/Medecine.java
+com/esiea/pootp1/models/consumables/healings/Potion.java
+
 com/esiea/pootp1/models/consumables/Consumable.java
-com/esiea/pootp1/models/consumables/Medecine.java
-com/esiea/pootp1/models/consumables/Potions.java
+com/esiea/pootp1/models/consumables/GlobalBag.java
 
-com/esiea/pootp1/models/pokemons/Pokedex.java
-com/esiea/pootp1/models/pokemons/Pokemon.java
+com/esiea/pootp1/models/pokemons/GenericPokemon.java
+com/esiea/pootp1/models/pokemons/PokeDex.java
 
-com/esiea/pootp1/models/State.java
+com/esiea/pootp1/models/Status.java
 com/esiea/pootp1/models/Type.java
 
 com/esiea/pootp1/reader/AttacksFileReader.java
+com/esiea/pootp1/reader/ConsumablesFileReader.java
 com/esiea/pootp1/reader/PokemonsFileReader.java
 
 com/esiea/pootp1/POOKemon.java

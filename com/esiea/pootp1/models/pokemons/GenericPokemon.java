@@ -2,7 +2,7 @@ package com.esiea.pootp1.models.pokemons;
 
 import com.esiea.pootp1.models.Type;
 
-public class Pokemon {
+public class GenericPokemon {
     private String name;
 
     private Type type;

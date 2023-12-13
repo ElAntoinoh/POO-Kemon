@@ -1,12 +1,10 @@
 package com.esiea.pootp1.fight.player;
 
 import com.esiea.pootp1.controller.Controller;
+import com.esiea.pootp1.fight.player.bag.Bag;
 import com.esiea.pootp1.fight.player.team.Team;
-import com.esiea.pootp1.models.consumables.Consumable;
 
 public class Player {
-    private final static int MAX_BAG_CAPACITY = 5;
-
     private static int NB_PLAYERS = 0;
 
     private Controller controller;
@@ -17,7 +15,7 @@ public class Player {
 
     private Team team;
 
-    private Consumable  [] bag;
+    private Bag bag;
 
     public Player(Controller controller, String name) {
         this.controller = controller;
@@ -28,7 +26,7 @@ public class Player {
 
         this.team = new Team(this);
 
-        this.bag  = new Consumable  [MAX_BAG_CAPACITY];
+        this.bag = new Bag(this);
     }
 
     public Controller getController() {
@@ -36,6 +34,6 @@ public class Player {
     }
 
     public String toString() {
-        return "Player :\n" + this.team.toString();
+        return this.name + " (" + this.numJoueur + ") :\n" + this.team.toString() + '\n' + this.bag.toString();
     }
 }
