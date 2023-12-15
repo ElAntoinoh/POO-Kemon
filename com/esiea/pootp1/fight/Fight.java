@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.esiea.pootp1.controller.Controller;
 import com.esiea.pootp1.fight.player.Player;
+import com.esiea.pootp1.fight.player.team.members.Pokemon;
 
 public class Fight {
     private Controller controller;

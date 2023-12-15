@@ -41,6 +41,10 @@ public class Player {
         return this.team;
     }
 
+    public Bag getBag() {
+        return this.bag;
+    }
+
     public String toString() {
         return this.name + " (" + this.numJoueur + ") :\n" + this.team.toString() + '\n' + this.bag.toString();
     }

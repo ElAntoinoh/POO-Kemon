@@ -7,34 +7,45 @@ import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.models.consumables.Consumable;
 
 public class Bag {
-    private final static int MAXIMUM_NUMBER_OF_ELEMENTS = 5;
+    public final static int MAXIMUM_NUMBER_OF_ITEMS = 5;
 
     private Player player;
 
-    private ArrayList<Item> elements = new ArrayList<>();
+    private ArrayList<Item> items = new ArrayList<>();
 
     public Bag(Player player) {
         this.player = player;
 
-        for (int i = 0; i < MAXIMUM_NUMBER_OF_ELEMENTS; i++) this.elements.add(null);
+        for (int i = 0; i < MAXIMUM_NUMBER_OF_ITEMS; i++) this.items.add(null);
 
-        setRandomElements();
+        setRandomItems();
     }
 
-    public void setRandomElements() {
+    public void setRandomItems() {
         ArrayList<Consumable> consumableList = this.player.getController().getGlobalBag().getConsumableList();
 
         Collections.shuffle(consumableList);
 
-        for (int i = 0; i < MAXIMUM_NUMBER_OF_ELEMENTS; i++) {
-            elements.set(i, new Item(consumableList.get(i)));
+        for (int i = 0; i < MAXIMUM_NUMBER_OF_ITEMS; i++) {
+            items.set(i, new Item(this, consumableList.get(i)));
+        }
+    }
+
+    public void setItems(ArrayList<Item> newItems) {
+        assert newItems.size() == MAXIMUM_NUMBER_OF_ITEMS;
+
+        for (int i = 0; i < MAXIMUM_NUMBER_OF_ITEMS; i++) {
+            Item newItem = newItems.get(i);
+
+            newItem.setBag(this);
+            this.items.set(i, newItem);
         }
     }
 
     public String toString() {
         String str = "Sac :\n";
 
-        for (Item i : this.elements) str += i.toString() + '\n';
+        for (Item i : this.items) str += i.toString() + '\n';
 
         return str;
     }

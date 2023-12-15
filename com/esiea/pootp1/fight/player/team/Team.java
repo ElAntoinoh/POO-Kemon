@@ -47,6 +47,10 @@ public class Team {
         return this.player;
     }
 
+    public ArrayList<Pokemon> getMembers() {
+        return this.members;
+    }
+
     public String toString() {
         String str = "Team :\n";
 

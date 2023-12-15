@@ -31,6 +31,10 @@ public class Pokemon {
         this.moveSet = new MoveSet(this);
     }
 
+    public boolean isAlive() {
+        return this.hp != 0;
+    }
+
     public void setTeam(Team team) {
         this.team = team;
     }

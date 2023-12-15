@@ -33,6 +33,10 @@ public class ConsoleInterface {
         this.teamBuildingInterface.askTeam(p);
     }
 
+    public void askBag(Player p) {
+        this.bagFillingInterface.askBag(p);
+    }
+
     public Controller getController() {
         return this.controller;
     }

@@ -36,9 +36,8 @@ public class Controller {
             players.add(new Player(this, string));
         }
 
-        for (Player p : players) {
-            this.consoleInterface.askTeam(p);
-        }
+        for (Player p : players) this.consoleInterface.askTeam(p);
+        for (Player p : players) this.consoleInterface.askBag(p);
 
         Fight fight = new Fight(this, players);
 

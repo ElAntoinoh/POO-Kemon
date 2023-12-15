@@ -1,6 +1,5 @@
 package com.esiea.pootp1.vue;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -74,9 +73,16 @@ public class TeamBuildingInterface {
             input = scanner.next();
 
             if (PATTERN_IS_NUMERIC.matcher(input).matches()) {
-                int output = Integer.parseInt(input);
+                int intInput = Integer.parseInt(input);
 
-                if (output > 0 && output < pokemonsList.size()) break;
+                if (intInput >= 0 && intInput < pokemonsList.size() + 1) {
+                    if (intInput == 0) {
+                        intInput = (int) (Math.random() * (pokemonsList.size() - 1)) + 1;
+                        input = Integer.toString(intInput);
+                    }
+
+                    break;
+                }
             }
             
             else if (PATTERN_GO_TO_PAGE.matcher(input).matches()) {
@@ -89,7 +95,7 @@ public class TeamBuildingInterface {
             else if (input.equals("s")) numPage += numPage == nbPages - 1 ? 0 : 1;
         }
 
-        return new Pokemon(team, pokemonsList.get(Integer.parseInt(input)));
+        return new Pokemon(team, pokemonsList.get(Integer.parseInt(input) - 1));
     }
 
     private void printMemberChoiceHelp() {
