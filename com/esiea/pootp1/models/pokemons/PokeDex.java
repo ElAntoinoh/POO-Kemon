@@ -13,6 +13,20 @@ public class PokeDex {
         this.pokemonsList.add(pokemon);
     }
 
+    public int getMaxNameLength() {
+        int maxLength = 0;
+
+        for (GenericPokemon pokemon : this.pokemonsList) {
+            int pokemonNameLength = pokemon.getName().length();
+
+            if (pokemonNameLength > maxLength) {
+                maxLength = pokemonNameLength;
+            }
+        }
+
+        return maxLength;
+    }
+
     public ArrayList<GenericPokemon> getPokemonList() {
         return this.pokemonsList;
     }

@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.Team;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
+import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.pokemons.GenericPokemon;
 
 public class TeamBuildingInterface {
@@ -110,7 +111,16 @@ public class TeamBuildingInterface {
 
     private void printPokemonListPage(ArrayList<GenericPokemon> pokemonsList, int numPage, int nbPages) {        
         for (int i = numPage * NUMBER_OF_POKEMONS_PER_PAGE; i < (numPage + 1) * NUMBER_OF_POKEMONS_PER_PAGE && i < pokemonsList.size(); i++) {
-            System.out.format("[%" + Integer.toString(pokemonsList.size()).length() + "d] %s\n", i + 1, pokemonsList.get(i).getName());
+            GenericPokemon pokemon = pokemonsList.get(i);
+
+            int nbCharNum = Integer.toString(pokemonsList.size()).length();
+            int nbCharName = this.consoleInterface.getController().getPokeDex().getMaxNameLength();
+
+            int pokemonNum = i + 1;
+            String pokemonName = pokemon.getName();
+            String pokemonType = Type.getTypeDisplayText().get(pokemon.getType());
+
+            System.out.format("[%" + nbCharNum + "d] %-" + nbCharName + "s | %s\n", pokemonNum, pokemonName, pokemonType);
         }
 
         System.out.format("\nPage (%d/%d)\n", numPage + 1, nbPages);

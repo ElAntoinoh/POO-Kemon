@@ -3,6 +3,7 @@ package com.esiea.pootp1.models;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public enum Type {
     NORMAL,                          // Normal type
@@ -115,6 +116,20 @@ public enum Type {
                 Type.usableTypes.add(t);
             }
         }
+    }
+
+    public static int getMaxNameLength() {
+        int maxLength = 0;
+
+        for (String displayNames : Type.typeDisplayText.values()) {
+            int typeNameLength = displayNames.length();
+
+            if (typeNameLength > maxLength) {
+                maxLength = typeNameLength;
+            }
+        }
+
+        return maxLength;
     }
 
     /* ---------------------------------------- */
