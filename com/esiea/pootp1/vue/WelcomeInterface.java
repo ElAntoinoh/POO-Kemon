@@ -16,6 +16,8 @@ public class WelcomeInterface {
      |___|                                                           |___| 
     (_____)---------------------------------------------------------(_____)""";
 
+    private final static String WELCOME_MESSAGE = "\nBONJOUR ET BIENVENUE DANS POO-KEMON !\nAppuyez sur \"entrée\" pour commencer à jouer ";
+
     private final static int LOGOS_COLUMNS_WIDTH = 7;
 
     private ConsoleInterface consoleInterface;
@@ -60,5 +62,9 @@ public class WelcomeInterface {
         }
 
         return nbCharMax;
+    }
+
+    public void printWelcomeMessage() {
+        System.out.print(WELCOME_MESSAGE);
     }
 }

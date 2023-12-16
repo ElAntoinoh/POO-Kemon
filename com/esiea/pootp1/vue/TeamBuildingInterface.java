@@ -25,27 +25,43 @@ public class TeamBuildingInterface {
         this.consoleInterface = consoleInterface;
     }
 
-    public void askTeam(Player p) {
+    public void askTeam(Player player) {
+        printTypeOfTeamChoice(player);
+
         Scanner scanner = this.consoleInterface.getScanner();
 
-        System.out.println("Choisis ton équipe de combat !");
+        int choice;
 
-        printTypeOfTeamChoice();
+        while (true) {
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
 
-        while (!scanner.hasNextInt()) {
-            System.out.println("Cette valeur doit être un entier.");
-            printTypeOfTeamChoice();
-            scanner.next();
+                if (choice == 1 || choice == 2) break;
+            }
+
+            scanner.nextLine();
+
+            printTypeOfTeamChoice(player);
         }
 
-        switch (scanner.nextInt()) {
-            case 1 -> p.getTeam().setRandomMembers();
-            case 2 -> p.getTeam().setMembers(askMembers(p.getTeam()));
+        switch (choice) {
+            case 1 -> player.getTeam().setRandomMembers();
+            case 2 -> player.getTeam().setMembers(askMembers(player.getTeam()));
         }
     }
 
-    private void printTypeOfTeamChoice() {
-        System.out.println("[1] Équipe aléatoire\n[2] Équipe personalisée");
+    private void printTypeOfTeamChoice(Player player) {
+        this.consoleInterface.clearConsole();
+        this.consoleInterface.printWelcomePlayer(player);
+
+        String str = "\nChoisis ton équipe de combat !\n\n";
+        
+        str += "[1] Équipe aléatoire\n";
+        str += "[2] Équipe personalisée\n";
+
+        str += "\nChoix : ";
+
+        System.out.print(str);
     }
 
     private ArrayList<Pokemon> askMembers(Team team) {
@@ -101,11 +117,14 @@ public class TeamBuildingInterface {
     }
 
     private void printMemberChoiceHelp() {
+        this.consoleInterface.clearConsole();
+
         String str = "Choisissez un pokémon en entrant son numéro\n\n";
 
         str += String.format("%-24s : %s\n", "Afficher page n"         , "Pn");
         str += String.format("%-24s : %s\n", "Afficher page précédente", "p" );
         str += String.format("%-24s : %s\n", "Afficher page suivante"  , "s" );
+        str += String.format("%-24s : %s\n", "Pokémon aléatoire"       , "0" );
 
         System.out.println(str);
     }
@@ -124,6 +143,6 @@ public class TeamBuildingInterface {
             System.out.format("[%" + nbCharNum + "d] %-" + nbCharName + "s | %s\n", pokemonNum, pokemonName, pokemonType);
         }
 
-        System.out.format("\nPage (%d/%d)\n", numPage + 1, nbPages);
+        System.out.format("\nPage (%d/%d)\n\n", numPage + 1, nbPages);
     }
 }

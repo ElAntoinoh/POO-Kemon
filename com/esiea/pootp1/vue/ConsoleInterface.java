@@ -34,12 +34,24 @@ public class ConsoleInterface {
         System.out.flush();
     }
 
+    public void waitForAction() {
+        this.scanner.nextLine();
+    }
+
     public void printWelcomeAnimation() {
         this.welcomeInterface.printWelcomeAnimation();
     }
 
+    public void printWelcomeMessage() {
+        this.welcomeInterface.printWelcomeMessage();
+    }
+
     public ArrayList<String> askNames() {
         return this.dataCollectionInterface.askNames();
+    }
+
+    public void printWelcomePlayer(Player player) {
+        System.out.format("Bienvenue, %s (%d) !\n", player.getName(), player.getNum());
     }
     
     public void askTeam(Player p) {

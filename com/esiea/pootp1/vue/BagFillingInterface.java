@@ -25,27 +25,43 @@ public class BagFillingInterface {
         this.consoleInterface = consoleInterface;
     }
 
-    public void askBag(Player p) {
+    public void askBag(Player player) {
+        printTypeOfBagChoice(player);
+
         Scanner scanner = this.consoleInterface.getScanner();
 
-        System.out.println("Remplis ton sac d'objets !");
+        int choice;
 
-        printTypeOfBagChoice();
+        while (true) {
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
 
-        while (!scanner.hasNextInt()) {
-            System.out.println("Cette valeur doit être un entier.");
-            printTypeOfBagChoice();
-            scanner.next();
+                if (choice == 1 || choice == 2) break;
+            }
+
+            scanner.nextLine();
+
+            printTypeOfBagChoice(player);
         }
 
-        switch (scanner.nextInt()) {
-            case 1 -> p.getBag().setRandomItems();
-            case 2 -> p.getBag().setItems(askItems(p.getBag()));
+        switch (choice) {
+            case 1 -> player.getBag().setRandomItems();
+            case 2 -> player.getBag().setItems(askItems(player.getBag()));
         }
     }
 
-    private void printTypeOfBagChoice() {
-        System.out.println("[1] Sac aléatoire\n[2] Sac personalisé");
+    private void printTypeOfBagChoice(Player player) {
+        this.consoleInterface.clearConsole();
+        this.consoleInterface.printWelcomePlayer(player);
+
+        String str = "\nRemplis ton sac !\n\n";
+
+        str += "[1] Sac aléatoire\n";
+        str += "[2] Sac personalisé\n";
+
+        str += "\nChoix : ";
+
+        System.out.print(str);
     }
 
     private ArrayList<Item> askItems(Bag bag) {
@@ -107,11 +123,14 @@ public class BagFillingInterface {
     }
 
     private void printBagChoiceHelp() {
+        this.consoleInterface.clearConsole();
+
         String str = "Choisissez un objet en entrant son numéro\n\n";
 
         str += String.format("%-24s : %s\n", "Afficher page n"         , "Pn");
         str += String.format("%-24s : %s\n", "Afficher page précédente", "p" );
         str += String.format("%-24s : %s\n", "Afficher page suivante"  , "s" );
+        str += String.format("%-24s : %s\n", "Objet aléatoire"       , "0" );
 
         System.out.println(str);
     }
@@ -121,6 +140,6 @@ public class BagFillingInterface {
             System.out.format("[%" + Integer.toString(consumablesList.size()).length() + "d] %s\n", i + 1, consumablesList.get(i).getName());
         }
 
-        System.out.format("\nPage (%d/%d)\n", numPage + 1, nbPages);
+        System.out.format("\nPage (%d/%d)\n\n", numPage + 1, nbPages);
     }
 }

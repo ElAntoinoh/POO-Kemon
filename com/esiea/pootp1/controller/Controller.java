@@ -15,7 +15,6 @@ import com.esiea.pootp1.reader.AttacksFileReader;
 import com.esiea.pootp1.reader.ConsumablesFileReader;
 import com.esiea.pootp1.reader.PokemonsFileReader;
 import com.esiea.pootp1.vue.ConsoleInterface;
-import com.esiea.pootp1.vue.DataCollectionInterface;
 
 public class Controller {
     private final static String POKEMONS_FILE_PATH    = "res/pokemons.txt";
@@ -31,19 +30,24 @@ public class Controller {
     public Controller() {
         init();
 
+        this.consoleInterface.printWelcomeAnimation();
+        this.consoleInterface.printWelcomeMessage();
+
+        this.consoleInterface.waitForAction();
+
+        this.consoleInterface.clearConsole();
+
         ArrayList<Player> players = new ArrayList<>();
 
-        this.consoleInterface.printWelcomeAnimation();
-
-        for (String name : this.consoleInterface.askNames()) {
-            players.add(new Player(this, name));
-        }
+        for (String name : this.consoleInterface.askNames()) players.add(new Player(this, name));
 
         for (Player player : players) {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-            System.out.println("Bienvenue, " + player.getName() + " !");
+            this.consoleInterface.clearConsole();
+            this.consoleInterface.printWelcomePlayer(player);
             this.consoleInterface.askTeam(player);
+
+            this.consoleInterface.clearConsole();
+            this.consoleInterface.printWelcomePlayer(player);
             this.consoleInterface.askBag(player);
         }
 
@@ -51,8 +55,8 @@ public class Controller {
     }
 
     private void init() {
-        this.pokeDex       = new PokeDex();
-        this.attackDex     = new AttackDex();
+        this.pokeDex   = new PokeDex();
+        this.attackDex = new AttackDex();
         this.globalBag = new GlobalBag();
 
         new PokemonsFileReader   (this, POKEMONS_FILE_PATH   ).readFile();
