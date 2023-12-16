@@ -11,18 +11,31 @@ public class ConsoleInterface {
     
     private Scanner scanner;
     
+    private WelcomeInterface        welcomeInterface;
     private DataCollectionInterface dataCollectionInterface;
     private TeamBuildingInterface   teamBuildingInterface;
     private BagFillingInterface     bagFillingInterface;
+    private FightChoiceInterface    fightChoiceInterface;
 
     public ConsoleInterface(Controller controller) {
         this.controller = controller;
 
         this.scanner = new Scanner(System.in);
 
+        this.welcomeInterface        = new WelcomeInterface       (this);
         this.dataCollectionInterface = new DataCollectionInterface(this);
         this.teamBuildingInterface   = new TeamBuildingInterface  (this);
         this.bagFillingInterface     = new BagFillingInterface    (this);
+        this.fightChoiceInterface    = new FightChoiceInterface   (this);
+    }
+
+    public void clearConsole() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public void printWelcomeAnimation() {
+        this.welcomeInterface.printWelcomeAnimation();
     }
 
     public ArrayList<String> askNames() {
@@ -35,6 +48,10 @@ public class ConsoleInterface {
 
     public void askBag(Player p) {
         this.bagFillingInterface.askBag(p);
+    }
+
+    public void askChoice(Player p) {
+        this.fightChoiceInterface.askChoice(p);
     }
 
     public Controller getController() {

@@ -28,7 +28,8 @@ public class TeamBuildingInterface {
     public void askTeam(Player p) {
         Scanner scanner = this.consoleInterface.getScanner();
 
-        System.out.println("Bienvenue, " + p.getName() + " ! Choisis ton équipe de combat !");
+        System.out.println("Choisis ton équipe de combat !");
+
         printTypeOfTeamChoice();
 
         while (!scanner.hasNextInt()) {

@@ -3,7 +3,6 @@ package com.esiea.pootp1.models;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public enum Type {
     NORMAL,                          // Normal type

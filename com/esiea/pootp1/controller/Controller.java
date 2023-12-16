@@ -1,5 +1,6 @@
 package com.esiea.pootp1.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import com.esiea.pootp1.fight.Fight;
@@ -32,13 +33,18 @@ public class Controller {
 
         ArrayList<Player> players = new ArrayList<>();
 
-        for (String string : this.consoleInterface.askNames()) {
-            players.add(new Player(this, string));
+        this.consoleInterface.printWelcomeAnimation();
+
+        for (String name : this.consoleInterface.askNames()) {
+            players.add(new Player(this, name));
         }
 
-        for (Player p : players) {
-            this.consoleInterface.askTeam(p);
-            this.consoleInterface.askBag(p);
+        for (Player player : players) {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+            System.out.println("Bienvenue, " + player.getName() + " !");
+            this.consoleInterface.askTeam(player);
+            this.consoleInterface.askBag(player);
         }
 
         Fight fight = new Fight(this, players);
@@ -78,5 +84,9 @@ public class Controller {
 
     public GlobalBag getGlobalBag() {
         return this.globalBag;
+    }
+
+    public ConsoleInterface getConsoleInterface() {
+        return this.consoleInterface;
     }
 }

@@ -21,8 +21,12 @@ public class Fight {
     }
 
     private void startFight() {
+        int playerIndex = 0;
+
         while (!isOver()) {
+            this.controller.getConsoleInterface().askChoice(this.livingPlayers.get(playerIndex));
             
+            if (++playerIndex >= this.livingPlayers.size()) playerIndex = 0;
 
             updateLivingPlayersList();
         }
