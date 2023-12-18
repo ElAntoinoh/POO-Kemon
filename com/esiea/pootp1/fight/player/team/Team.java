@@ -51,6 +51,25 @@ public class Team {
         return this.members;
     }
 
+    public ArrayList<Pokemon> getAlivePokemons() {
+        ArrayList<Pokemon> alivePokemons = new ArrayList<>();
+
+        for (Pokemon pokemon : this.members) {
+            if (pokemon.isAlive()) {
+                alivePokemons.add(pokemon);
+            }
+        }
+
+        return alivePokemons;
+    }
+
+    public void switchPokemons(int i, int newIndex) {
+        Pokemon tmp = this.members.get(i);
+
+        this.members.set(i, this.members.get(newIndex));
+        this.members.set(newIndex, tmp);
+    }
+
     public String toString() {
         String str = "Team :\n";
 
