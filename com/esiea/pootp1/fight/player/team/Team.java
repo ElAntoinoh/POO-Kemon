@@ -63,10 +63,12 @@ public class Team {
         return alivePokemons;
     }
 
-    public int getLongestMemberName() {
+    public int getLongestMemberNameLength(boolean withFightingPokemon) {
         int maxLength = 0;
 
         for (Pokemon pokemon : this.members) {
+            if (!withFightingPokemon && pokemon.equals(this.player.getFightingPokemon())) continue;
+            
             int pokemonNameLength = pokemon.getName().length();
 
             if (pokemonNameLength > maxLength) {

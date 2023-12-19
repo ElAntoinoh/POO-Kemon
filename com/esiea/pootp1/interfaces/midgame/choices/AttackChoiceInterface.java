@@ -1,5 +1,6 @@
 package com.esiea.pootp1.interfaces.midgame.choices;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -69,28 +70,24 @@ public class AttackChoiceInterface {
     private void printAttackChoice(Player player) {
         this.fightChoiceInterface.getConsoleInterface().clearConsole();
 
-        String str = String.format("Quelle attaque doit lancer %s ?\n\n", player.getFightingPokemon().getName());
+        String title = String.format("Quelle attaque doit lancer %s ?", player.getFightingPokemon().getName());
 
-        str += "Retour : r\n\n";
+        String indication = "Retour : r";
 
-        int nameLength = this.fightChoiceInterface.getConsoleInterface().getController().getAttackDex().getLongestAttackName();
-        int typeLength = Type.getMaxNameLength();
+        int nameLength = player.getFightingPokemon().getLongestMoveNameLength();
+        int typeLength = player.getFightingPokemon().getLongestMoveTypeLength();
 
-        int i = 1;
+        ArrayList<String> options = new ArrayList<>();
 
         for (Move move : player.getFightingPokemon().getMoveSet().getMoves()) {
-            String name = move.getName();
-
             String type = Type.getTypeDisplayText().get(move.getType());
 
-            int nbUsesLeft = move.getNbUsesLeft();
+            int index = player.getFightingPokemon().getMoveSet().getMoves().indexOf(move) + 1;
 
-            int nbUsesMax = move.getMaxNbUses();
-
-            str += String.format("[%d] %-" + nameLength + "s | %-" + typeLength + "s | %d/%d\n", i++, name, type, nbUsesLeft, nbUsesMax);
+            options.add(String.format("[%d] %-" + nameLength + "s | %-" + typeLength + "s | %d/%d", index, move.getName(), type, move.getNbUsesLeft(), move.getMaxNbUses()));
         }
 
-        System.out.format("%s\nChoix : ", str);
+        this.fightChoiceInterface.printFightChoice(title, indication, options);
     }
 
     private Player askTargetChoice(Player player) {
@@ -130,24 +127,26 @@ public class AttackChoiceInterface {
     private void printTargetChoice(Player player) {
         this.fightChoiceInterface.getConsoleInterface().clearConsole();
 
-        String str = String.format("Qui doit attaquer %s ?\n\n", player.getFightingPokemon().getName());
+        String title = String.format("Qui doit attaquer %s ?", player.getFightingPokemon().getName());
 
-        str += "Retour : r\n\n";
-
+        String indication = "Retour : r";
+        
         Fight fight = this.fightChoiceInterface.getConsoleInterface().getController().getFight();
 
         int idLength = Integer.toString(fight.getLivingPlayersList().size()).length();
         int nameLength = fight.getLongestPlayerName();
+
+        ArrayList<String> options = new ArrayList<>();
 
         for (Player p : fight.getLivingPlayersList()) {
             if (!player.equals(p)) {
                 String pokemonName = p.getFightingPokemon().getName();
                 String pokemonType = Type.getTypeDisplayText().get(p.getFightingPokemon().getType());
 
-                str += String.format("[%" + idLength + "d] %" + nameLength + "s | %s (%s)\n", p.getNum(), p.getName(), pokemonName, pokemonType);
+                options.add(String.format("[%" + idLength + "d] %" + nameLength + "s | %s (%s)", p.getNum(), p.getName(), pokemonName, pokemonType));
             }
         }
 
-        System.out.format("%s\nChoix : ", str);
+        this.fightChoiceInterface.printFightChoice(title, indication, options);
     }
 }

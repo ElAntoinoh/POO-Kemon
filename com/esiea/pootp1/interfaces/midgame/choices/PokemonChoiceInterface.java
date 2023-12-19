@@ -1,5 +1,6 @@
 package com.esiea.pootp1.interfaces.midgame.choices;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -71,9 +72,13 @@ public class PokemonChoiceInterface {
     private void printPokemonChoice(Player player) {
         this.fightChoiceInterface.getConsoleInterface().clearConsole();
 
-        String str = String.format("Avez qui %s doit échanger sa place ?\n\nRetour : r\n\n", player.getFightingPokemon().getName());
+        String title = String.format("Avez qui %s doit échanger sa place ?", player.getFightingPokemon().getName());
+        
+        String indication = "Retour : r";
 
-        int nameLength = player.getTeam().getLongestMemberName();
+        int nameLength = player.getTeam().getLongestMemberNameLength(false);
+
+        ArrayList<String> options = new ArrayList<>();
 
         int i = 1;
 
@@ -82,10 +87,10 @@ public class PokemonChoiceInterface {
                 String name = pokemon.getName();
                 String type = Type.getTypeDisplayText().get(pokemon.getType());
 
-                str += String.format("[%d] %-" + nameLength + "s | %s\n", i++, name, type);
+                options.add(String.format("[%d] %-" + nameLength + "s | %s", i++, name, type));
             }
         }
 
-        System.out.format("%s\nChoix : ", str);
+        this.fightChoiceInterface.printFightChoice(title, indication, options);
     }
 }

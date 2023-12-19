@@ -1,5 +1,6 @@
 package com.esiea.pootp1.interfaces.midgame.choices;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -68,19 +69,21 @@ public class ObjectChoiceInterface {
     private void printObjectChoice(Player player) {
         this.fightChoiceInterface.getConsoleInterface().clearConsole();
 
-        String str = "Que voulez-vous utiliser ?\n\nRetour : r\n\n";
+        String title = "Que voulez-vous utiliser ?";
+        
+        String indication = "Retour : r";
 
         int nameLength = player.getBag().getLongestItemName();
+
+        ArrayList<String> options = new ArrayList<>();
 
         int i = 1;
 
         for (Item item : player.getBag().getItems()) {
-            String name = item.getName();
-
-            str += String.format("[%d] %-" + nameLength + "s\n", i++, name);
+            options.add(String.format("[%d] %-" + nameLength + "s", i++, item.getName()));
         }
 
-        System.out.format("%s\nChoix : ", str);
+        this.fightChoiceInterface.printFightChoice(title, indication, options);
     }
 
     private Pokemon askTargetChoice(Player player) {
@@ -120,14 +123,18 @@ public class ObjectChoiceInterface {
     private void printTargetChoice(Player player) {
         this.fightChoiceInterface.getConsoleInterface().clearConsole();
 
-        String str = "Qui doit recevoir l'objet ?\n\nRetour : r\n\n";
+        String title = "Qui doit recevoir l'objet ?";
+        
+        String indication = "Retour : r";
+
+        ArrayList<String> options = new ArrayList<>();
 
         int i = 1;
 
         for (Pokemon pokemon : player.getAlivePokemons()) {
-            str += String.format("[%d] %s\n", i++, pokemon.getName());
+            options.add(String.format("[%d] %s", i++, pokemon.getName()));
         }
 
-        System.out.format("%s\nChoix : ", str);
+        this.fightChoiceInterface.printFightChoice(title, indication, options);
     }
 }
