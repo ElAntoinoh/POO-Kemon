@@ -43,6 +43,14 @@ public class Team {
         }
     }
 
+    public void switchPokemons(Pokemon firstPokemon, Pokemon secondPokemon) {
+        int firstPokemonIndex  = this.members.indexOf(firstPokemon );
+        int secondPokemonIndex = this.members.indexOf(secondPokemon);
+
+        this.members.set(firstPokemonIndex, secondPokemon);
+        this.members.set(secondPokemonIndex, firstPokemon);
+    }
+
     public ArrayList<Pokemon> getAlivePokemons() {
         ArrayList<Pokemon> alivePokemons = new ArrayList<>();
 

@@ -1,16 +1,25 @@
 package com.esiea.pootp1.fight;
 
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map; 
 
 import com.esiea.pootp1.controller.Controller;
 import com.esiea.pootp1.fight.actions.Action;
+import com.esiea.pootp1.fight.actions.AttackAction;
+import com.esiea.pootp1.fight.actions.ChangePokemonAction;
+import com.esiea.pootp1.fight.actions.UseObjectAction;
 import com.esiea.pootp1.fight.player.Player;
 
 public class Fight {
-    private Controller controller;
+    private static Comparator<Player> speedComparator = new Comparator<Player>() {
+        public int compare(Player p1, Player p2) {
+            return p2.getFightingPokemon().getSpeed() - p1.getFightingPokemon().getSpeed();
+        }
+    };
 
-    private ArrayList<Turn> turns = new ArrayList<>();
+    private Controller controller;
 
     private ArrayList<Player> players, livingPlayers;
 
@@ -34,13 +43,9 @@ public class Fight {
                 System.out.println(entry.getValue());
             }
 
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
             if (playerIndex >= this.livingPlayers.size()) {
+                processTurn(turn);
+
                 playerIndex = 0;
                 turn = new Turn();
             }
@@ -49,6 +54,65 @@ public class Fight {
         }
 
         System.out.println("Gagnant : " + this.getWinner().getName() + " (" + this.getWinner().getNum() + ")");
+    }
+
+    public void processTurn(Turn turn) {
+        processChangePokemonActions(turn);
+        processUseObjectActions    (turn);
+        processAttackActions       (turn);
+
+        updateLivingPlayersList();
+    }
+
+    private void processChangePokemonActions(Turn turn) {
+        ArrayList<Player> players = this.livingPlayers;
+        players.sort(Fight.speedComparator);
+
+        HashMap<Player, ChangePokemonAction> changePokemonActions = turn.getChangePokemonActions();
+
+        for (Player player : players) {
+            if (changePokemonActions.containsKey(player)) {
+                processChangePokemonAction(changePokemonActions.get(player));
+            }
+        }
+    }
+
+    private void processChangePokemonAction(ChangePokemonAction action) {
+        action.getPlayer().switchPokemons(action.getFirstPokemon(), action.getSecondPokemon());
+    }
+
+    private void processUseObjectActions(Turn turn) {
+        ArrayList<Player> players = this.livingPlayers;
+        players.sort(Fight.speedComparator);
+
+        HashMap<Player, UseObjectAction> useObjectActions = turn.getUseObjectActions();
+
+        for (Player player : players) {
+            if (useObjectActions.containsKey(player)) {
+                processUseObjectAction(useObjectActions.get(player));
+            }
+        }
+    }
+
+    private void processUseObjectAction(UseObjectAction action) {
+
+    }
+
+    private void processAttackActions(Turn turn) {
+        ArrayList<Player> players = this.livingPlayers;
+        players.sort(Fight.speedComparator);
+
+        HashMap<Player, AttackAction> attackActions = turn.getAttackActions();
+
+        for (Player player : players) {
+            if (attackActions.containsKey(player)) {
+                processAttackAction(attackActions.get(player));
+            }
+        }
+    }
+
+    private void processAttackAction(AttackAction action) {
+        
     }
 
     private void updateLivingPlayersList() {

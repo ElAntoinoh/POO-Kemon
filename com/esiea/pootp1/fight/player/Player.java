@@ -32,6 +32,10 @@ public class Player {
         this.bag = new Bag(this);
     }
 
+    public void switchPokemons(Pokemon firstPokemon, Pokemon secondPokemon) {
+        this.team.switchPokemons(firstPokemon, secondPokemon);
+    }
+
     public ArrayList<Pokemon> getAlivePokemons() {
         return this.team.getAlivePokemons();
     }
