@@ -1,5 +1,6 @@
 package com.esiea.pootp1.fight.player.team.members.moves;
 
+import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.attacks.Attack;
 
 public class Move {
@@ -10,7 +11,7 @@ public class Move {
     public Move(Attack attack) {
         this.attack = attack;
 
-        this.nbUseLeft = this.attack.getNbUtilisations();
+        this.nbUseLeft = this.attack.getMaxNbUses();
     }
 
     public boolean canBeUsed() {
@@ -21,7 +22,19 @@ public class Move {
         this.nbUseLeft--;
     }
 
-    public String toString() {
-        return this.attack.getName() + " (" + this.nbUseLeft + "/" + this.attack.getNbUtilisations() + ")";
+    public int getNbUsesLeft() {
+        return this.nbUseLeft;
+    }
+
+    public int getMaxNbUses() {
+        return this.attack.getMaxNbUses();
+    }
+
+    public String getName() {
+        return this.attack.getName();
+    }
+
+    public Type getType() {
+        return this.attack.getType();
     }
 }

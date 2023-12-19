@@ -63,7 +63,7 @@ public class AttacksFileReader {
                     }
 
                     case NB_USE -> {
-                        currentAttack.setNbUtilisations(Integer.parseInt(words[1]));
+                        currentAttack.setMaxNbUses(Integer.parseInt(words[1]));
                     }
 
                     case FAIL_PROBABILITY -> {

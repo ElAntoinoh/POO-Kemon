@@ -7,8 +7,7 @@ public class Attack {
 
     private Type type;
 
-    private int nbUtilisations;
-    private int power;
+    private int maxNbUses, power;
 
     private double failureProbability;
 
@@ -20,8 +19,8 @@ public class Attack {
         this.type = type;
     }
 
-    public void setNbUtilisations(int nbUtilisations) {
-        this.nbUtilisations = nbUtilisations;
+    public void setMaxNbUses(int maxNbUses) {
+        this.maxNbUses = maxNbUses;
     }
 
     public void setPower(int power) {
@@ -40,8 +39,8 @@ public class Attack {
         return this.type;
     }
 
-    public int getNbUtilisations() {
-        return this.nbUtilisations;
+    public int getMaxNbUses() {
+        return this.maxNbUses;
     }
 
     public int getPower() {

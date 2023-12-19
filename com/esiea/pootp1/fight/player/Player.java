@@ -6,7 +6,6 @@ import com.esiea.pootp1.controller.Controller;
 import com.esiea.pootp1.fight.player.bag.Bag;
 import com.esiea.pootp1.fight.player.team.Team;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
-import com.esiea.pootp1.models.Type;
 
 public class Player {
     private static int NB_PLAYERS = 1;
@@ -43,22 +42,6 @@ public class Player {
 
     public Pokemon getFightingPokemon() {
         return this.team.getMembers().get(0);
-    }
-
-    public void setFightingPokemon(int newIndex) {
-        this.team.switchPokemons(0, newIndex);
-    }
-
-    public void changeFightingPokemon(int indice) {
-        int nbNotFightingPokemons = 0;
-
-        ArrayList<Pokemon> alivePokemons = getAlivePokemons();
-
-        for (int i = 0; i < alivePokemons.size(); i++) {
-            if (!alivePokemons.get(i).equals(this.getFightingPokemon())) nbNotFightingPokemons++;
-
-            if (nbNotFightingPokemons == indice) this.setFightingPokemon(i);
-        }
     }
 
     public Controller getController() {

@@ -43,14 +43,6 @@ public class Team {
         }
     }
 
-    public Player getPlayer() {
-        return this.player;
-    }
-
-    public ArrayList<Pokemon> getMembers() {
-        return this.members;
-    }
-
     public ArrayList<Pokemon> getAlivePokemons() {
         ArrayList<Pokemon> alivePokemons = new ArrayList<>();
 
@@ -63,11 +55,26 @@ public class Team {
         return alivePokemons;
     }
 
-    public void switchPokemons(int i, int newIndex) {
-        Pokemon tmp = this.members.get(i);
+    public int getLongestMemberName() {
+        int maxLength = 0;
 
-        this.members.set(i, this.members.get(newIndex));
-        this.members.set(newIndex, tmp);
+        for (Pokemon pokemon : this.members) {
+            int pokemonNameLength = pokemon.getName().length();
+
+            if (pokemonNameLength > maxLength) {
+                maxLength = pokemonNameLength;
+            }
+        }
+
+        return maxLength;
+    }
+
+    public Player getPlayer() {
+        return this.player;
+    }
+
+    public ArrayList<Pokemon> getMembers() {
+        return this.members;
     }
 
     public String toString() {

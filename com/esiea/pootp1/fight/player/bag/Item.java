@@ -5,18 +5,11 @@ import com.esiea.pootp1.models.consumables.Consumable;
 public class Item {
     private Consumable consumable;
 
-    private Bag bag;
-
-    public Item(Bag bag, Consumable consumable) {
-        this.bag = bag;
+    public Item(Consumable consumable) {
         this.consumable = consumable;
     }
 
-    public void setBag(Bag bag) {
-        this.bag = bag;
-    }
-
-    public String toString() {
+    public String getName() {
         return this.consumable.getName();
     }
 }

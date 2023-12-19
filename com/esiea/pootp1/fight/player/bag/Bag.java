@@ -16,9 +16,15 @@ public class Bag {
     public Bag(Player player) {
         this.player = player;
 
-        for (int i = 0; i < MAXIMUM_NUMBER_OF_ITEMS; i++) this.items.add(null);
+        fillVoidBag();
 
         setRandomItems();
+    }
+
+    private void fillVoidBag() {
+        for (int i = 0; i < MAXIMUM_NUMBER_OF_ITEMS; i++) {
+            this.items.add(null);
+        }
     }
 
     public void setRandomItems() {
@@ -27,7 +33,7 @@ public class Bag {
         Collections.shuffle(consumableList);
 
         for (int i = 0; i < MAXIMUM_NUMBER_OF_ITEMS; i++) {
-            items.set(i, new Item(this, consumableList.get(i)));
+            items.set(i, new Item(consumableList.get(i)));
         }
     }
 
@@ -37,11 +43,33 @@ public class Bag {
         for (int i = 0; i < MAXIMUM_NUMBER_OF_ITEMS; i++) {
             Item newItem = newItems.get(i);
 
-            newItem.setBag(this);
             this.items.set(i, newItem);
         }
     }
 
+    public int getLongestItemName() {
+        int maxLength = 0;
+
+        for (Item item : this.items) {
+            int itemNameLength = item.getName().length();
+
+            if (itemNameLength > maxLength) {
+                maxLength = itemNameLength;
+            }
+        }
+
+        return maxLength;
+    }
+
+    public boolean contains(Item item) {
+        return this.items.contains(item);
+    }
+
+    public ArrayList<Item> getItems() {
+        return this.items;
+    }
+
+    @Override
     public String toString() {
         String str = "Sac :\n";
 

@@ -1,10 +1,16 @@
-package com.esiea.pootp1.vue;
+package com.esiea.pootp1.interfaces;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.esiea.pootp1.controller.Controller;
+import com.esiea.pootp1.fight.actions.Action;
 import com.esiea.pootp1.fight.player.Player;
+import com.esiea.pootp1.interfaces.earlygame.BagFillingInterface;
+import com.esiea.pootp1.interfaces.earlygame.DataCollectionInterface;
+import com.esiea.pootp1.interfaces.earlygame.TeamBuildingInterface;
+import com.esiea.pootp1.interfaces.earlygame.WelcomeInterface;
+import com.esiea.pootp1.interfaces.midgame.FightChoiceInterface;
 
 public class ConsoleInterface {
     private Controller controller;
@@ -62,8 +68,8 @@ public class ConsoleInterface {
         this.bagFillingInterface.askBag(p);
     }
 
-    public void askChoice(Player p) {
-        this.fightChoiceInterface.askChoice(p);
+    public Action askActionChoice(Player p) {
+        return this.fightChoiceInterface.askGlobalChoice(p);
     }
 
     public Controller getController() {

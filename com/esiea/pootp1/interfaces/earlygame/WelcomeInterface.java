@@ -1,7 +1,9 @@
-package com.esiea.pootp1.vue;
+package com.esiea.pootp1.interfaces.earlygame;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import com.esiea.pootp1.interfaces.ConsoleInterface;
 
 public class WelcomeInterface {
     private final static String LOGO = """

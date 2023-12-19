@@ -1,7 +1,9 @@
-package com.esiea.pootp1.vue;
+package com.esiea.pootp1.interfaces.earlygame;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.esiea.pootp1.interfaces.ConsoleInterface;
 
 public class DataCollectionInterface {
     private ConsoleInterface consoleInterface;

@@ -1,4 +1,4 @@
-package com.esiea.pootp1.vue;
+package com.esiea.pootp1.interfaces.earlygame;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.bag.Bag;
 import com.esiea.pootp1.fight.player.bag.Item;
+import com.esiea.pootp1.interfaces.ConsoleInterface;
 import com.esiea.pootp1.models.consumables.Consumable;
 
 public class BagFillingInterface {
@@ -115,7 +116,7 @@ public class BagFillingInterface {
             else if (input.equals("s")) numPage += numPage == nbPages - 1 ? 0 : 1;
         }
 
-        Item item = new Item(bag, consumablesList.get(Integer.parseInt(input) - 1));
+        Item item = new Item(consumablesList.get(Integer.parseInt(input) - 1));
 
         consumablesList.remove(Integer.parseInt(input) - 1);
 

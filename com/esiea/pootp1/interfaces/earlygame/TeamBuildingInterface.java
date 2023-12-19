@@ -1,4 +1,4 @@
-package com.esiea.pootp1.vue;
+package com.esiea.pootp1.interfaces.earlygame;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.Team;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
+import com.esiea.pootp1.interfaces.ConsoleInterface;
 import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.pokemons.GenericPokemon;
 

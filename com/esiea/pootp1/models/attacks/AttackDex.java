@@ -26,4 +26,18 @@ public class AttackDex {
 
         return attacks;
     }
+
+    public int getLongestAttackName() {
+        int maxLength = 0;
+
+        for (Attack attack : this.attacksList) {
+            int attackNameLength = attack.getName().length();
+
+            if (attackNameLength > maxLength) {
+                maxLength = attackNameLength;
+            }
+        }
+
+        return maxLength;
+    }
 }
