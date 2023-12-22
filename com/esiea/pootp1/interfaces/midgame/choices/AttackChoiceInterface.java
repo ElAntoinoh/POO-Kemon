@@ -1,8 +1,11 @@
 package com.esiea.pootp1.interfaces.midgame.choices;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import com.esiea.pootp1.fight.Fight;
 import com.esiea.pootp1.fight.actions.AttackAction;
@@ -95,6 +98,13 @@ public class AttackChoiceInterface {
 
         Scanner scanner = this.fightChoiceInterface.getConsoleInterface().getScanner();
 
+        List<Player> players = this.fightChoiceInterface.getConsoleInterface().getController().getFight().getLivingPlayersList();
+
+        List<Integer> playersNumbers = players.stream()
+            .filter(p -> p.getNum() != player.getNum()) // Current player removal
+            .map(Player::getNum)                        // Replacing players by their number
+            .collect(Collectors.toList());              // Convertion to List
+
         String input;
 
         while (true) {
@@ -104,7 +114,7 @@ public class AttackChoiceInterface {
                 if (PATTERN_IS_NUMERIC.matcher(input).matches()) {
                     int intInput = Integer.parseInt(input);
 
-                    if (intInput >= 1 && intInput <= this.fightChoiceInterface.getConsoleInterface().getController().getFight().getLivingPlayersList().size()) break;
+                    if (playersNumbers.contains(intInput)) break;
                 }
 
                 else if (input.equals("r")) break;

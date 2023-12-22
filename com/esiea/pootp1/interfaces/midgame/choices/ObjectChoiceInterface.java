@@ -100,7 +100,7 @@ public class ObjectChoiceInterface {
                 if (PATTERN_IS_NUMERIC.matcher(input).matches()) {
                     int intInput = Integer.parseInt(input);
 
-                    if (intInput >= 1 && intInput <= Bag.MAXIMUM_NUMBER_OF_ITEMS) break;
+                    if (intInput >= 1 && intInput <= player.getAlivePokemons().size()) break;
                 }
 
                 else if (input.equals("r")) break;
