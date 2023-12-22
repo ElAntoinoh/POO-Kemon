@@ -16,28 +16,10 @@ public class AttackDex {
     }
 
     public ArrayList<Attack> getAttacksFromType(Type searchedType) {
-        ArrayList<Attack> attacks = new ArrayList<>();
-
-        for (Attack a : this.attacksList) {
-            if (a.getType().equals(searchedType)) {
-                attacks.add(a);
-            }
-        }
-
-        return attacks;
-    }
-
-    public int getLongestAttackName() {
-        int maxLength = 0;
-
-        for (Attack attack : this.attacksList) {
-            int attackNameLength = attack.getName().length();
-
-            if (attackNameLength > maxLength) {
-                maxLength = attackNameLength;
-            }
-        }
-
-        return maxLength;
+        return new ArrayList<>(
+            this.attacksList.stream()
+                .filter(attack -> attack.getType().equals(searchedType))
+                .toList()
+        );
     }
 }

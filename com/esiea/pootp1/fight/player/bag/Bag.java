@@ -22,9 +22,7 @@ public class Bag {
     }
 
     private void fillVoidBag() {
-        for (int i = 0; i < MAXIMUM_NUMBER_OF_ITEMS; i++) {
-            this.items.add(null);
-        }
+        for (int i = 0; i < MAXIMUM_NUMBER_OF_ITEMS; i++) this.items.add(null);
     }
 
     public void setRandomItems() {
@@ -48,17 +46,10 @@ public class Bag {
     }
 
     public int getLongestItemName() {
-        int maxLength = 0;
-
-        for (Item item : this.items) {
-            int itemNameLength = item.getName().length();
-
-            if (itemNameLength > maxLength) {
-                maxLength = itemNameLength;
-            }
-        }
-
-        return maxLength;
+        return this.items.stream()
+            .mapToInt(item -> item.getName().length())
+            .max()
+            .orElse(0);
     }
 
     public boolean contains(Item item) {

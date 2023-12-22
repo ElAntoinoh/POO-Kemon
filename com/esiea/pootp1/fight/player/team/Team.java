@@ -52,31 +52,19 @@ public class Team {
     }
 
     public ArrayList<Pokemon> getAlivePokemons() {
-        ArrayList<Pokemon> alivePokemons = new ArrayList<>();
-
-        for (Pokemon pokemon : this.members) {
-            if (pokemon.isAlive()) {
-                alivePokemons.add(pokemon);
-            }
-        }
-
-        return alivePokemons;
+        return new ArrayList<>(
+            this.members.stream()
+            .filter(Pokemon::isAlive)
+            .toList()
+        );
     }
 
-    public int getLongestMemberNameLength(boolean withFightingPokemon) {
-        int maxLength = 0;
-
-        for (Pokemon pokemon : this.members) {
-            if (!withFightingPokemon && pokemon.equals(this.player.getFightingPokemon())) continue;
-            
-            int pokemonNameLength = pokemon.getName().length();
-
-            if (pokemonNameLength > maxLength) {
-                maxLength = pokemonNameLength;
-            }
-        }
-
-        return maxLength;
+    public int getLongestMemberNameLength(Pokemon excludedPokemon) {
+        return this.members.stream()
+            .filter(pokemon -> !pokemon.equals(excludedPokemon))
+            .mapToInt(pokemon -> pokemon.getName().length())
+            .max()
+            .orElse(0);
     }
 
     public Player getPlayer() {

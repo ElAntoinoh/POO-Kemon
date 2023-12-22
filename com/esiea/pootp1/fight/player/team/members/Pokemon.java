@@ -1,7 +1,6 @@
 package com.esiea.pootp1.fight.player.team.members;
 
 import com.esiea.pootp1.fight.player.team.Team;
-import com.esiea.pootp1.fight.player.team.members.moves.Move;
 import com.esiea.pootp1.fight.player.team.members.moves.MoveSet;
 import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.pokemons.GenericPokemon;
@@ -39,31 +38,11 @@ public class Pokemon {
     }
 
     public int getLongestMoveNameLength() {
-        int maxLength = 0;
-
-        for (Move move : this.moveSet.getMoves()) {
-            int moveNameLength = move.getName().length();
-
-            if (moveNameLength > maxLength) {
-                maxLength = moveNameLength;
-            }
-        }
-
-        return maxLength;
+        return this.moveSet.getLongestMoveNameLength();
     }
 
     public int getLongestMoveTypeLength() {
-        int maxLength = 0;
-
-        for (Move move : this.moveSet.getMoves()) {
-            int moveTypeLength = Type.getTypeDisplayText().get(move.getType()).length();
-
-            if (moveTypeLength > maxLength) {
-                maxLength = moveTypeLength;
-            }
-        }
-
-        return maxLength;
+        return this.moveSet.getLongestMoveTypeLength();
     }
 
     public void setTeam(Team team) {

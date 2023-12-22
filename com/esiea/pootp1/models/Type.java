@@ -109,26 +109,12 @@ public enum Type {
         NATURE.isUsable = false;
     }
 
-    private static void fillUsableTypesList() {
-        for (Type t : Type.values()) {
-            if (t.isUsable) {
-                Type.usableTypes.add(t);
-            }
-        }
-    }
-
-    public static int getMaxNameLength() {
-        int maxLength = 0;
-
-        for (String displayNames : Type.typeDisplayText.values()) {
-            int typeNameLength = displayNames.length();
-
-            if (typeNameLength > maxLength) {
-                maxLength = typeNameLength;
-            }
-        }
-
-        return maxLength;
+    private static void fillUsableTypesList() {        
+        Type.usableTypes.addAll(
+            Arrays.asList(Type.values()).stream()
+                .filter(type -> type.isUsable)
+                .toList()
+        );
     }
 
     /* ---------------------------------------- */

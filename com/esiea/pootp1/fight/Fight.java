@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 import com.esiea.pootp1.controller.Controller;
 import com.esiea.pootp1.fight.actions.Action;
@@ -117,21 +116,13 @@ public class Fight {
     }
 
     private void updateLivingPlayersList() {
-        ArrayList<Player> newLivingPlayers = new ArrayList<>();
-
-        for (Player player : this.players) {
-            if (player.hasAlivePokemons()) {
-                newLivingPlayers.add(player);
-            }
-        }
-
-        this.livingPlayers = newLivingPlayers;
+        this.livingPlayers = new ArrayList<>(this.players.stream().filter(p -> p.hasAlivePokemons()).toList());
     }
 
     public int getLongestPlayerName(Player excludedPlayer) {
         return this.livingPlayers.stream()
-            .filter(p -> !p.equals(excludedPlayer))
-            .mapToInt(p -> p.getName().length())
+            .filter(player -> !player.equals(excludedPlayer))
+            .mapToInt(player -> player.getName().length())
             .max()
             .orElse(0);
     }

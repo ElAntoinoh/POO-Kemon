@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.esiea.pootp1.fight.Fight;
@@ -101,9 +100,9 @@ public class AttackChoiceInterface {
         List<Player> players = this.fightChoiceInterface.getConsoleInterface().getController().getFight().getLivingPlayersList();
 
         List<Integer> playersNumbers = players.stream()
-            .filter(p -> p.getNum() != player.getNum()) // Current player removal
-            .map(Player::getNum)                        // Replacing players by their number
-            .collect(Collectors.toList());              // Convertion to List
+            .filter(p -> p.getNum() != player.getNum())
+            .map(Player::getNum)
+            .collect(Collectors.toList());
 
         String input;
 

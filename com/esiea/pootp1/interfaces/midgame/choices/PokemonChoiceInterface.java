@@ -76,7 +76,7 @@ public class PokemonChoiceInterface {
         
         String indication = "Retour : r";
 
-        int nameLength = player.getTeam().getLongestMemberNameLength(false);
+        int nameLength = player.getTeam().getLongestMemberNameLength(player.getFightingPokemon());
 
         ArrayList<String> options = new ArrayList<>();
 

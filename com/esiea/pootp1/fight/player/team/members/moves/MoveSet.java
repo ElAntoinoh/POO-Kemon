@@ -23,9 +23,7 @@ public class MoveSet {
     }
 
     private void fillVoidMoveSet() {
-        for (int i = 0; i < MAXIMUM_NUMBER_OF_MOVES; i++) {
-            this.moves.add(null);
-        }
+        for (int i = 0; i < MAXIMUM_NUMBER_OF_MOVES; i++) this.moves.add(null);
     }
 
     public void setRandomAttacks() {
@@ -39,6 +37,19 @@ public class MoveSet {
         for (int i = 0; i < MAXIMUM_NUMBER_OF_MOVES; i++) {
             this.moves.set(i, new Move(learnableAttacks.get(i)));
         }
+    }
+
+    public int getLongestMoveNameLength() {
+        return this.moves.stream()
+            .mapToInt(move -> move.getName().length())
+            .max()
+            .orElse(0);
+    }
+
+    public int getLongestMoveTypeLength() {
+        return this.moves.stream()
+            .mapToInt(move -> Type.getTypeDisplayText().get(move.getType()).length())
+            .max().orElse(0);
     }
 
     public boolean contains(Move move) {
