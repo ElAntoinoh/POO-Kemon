@@ -21,10 +21,23 @@ public class ChangePokemonAction extends Action {
         return new ChangePokemonAction(player, firstPokemon, secondPokemon);
     }
 
-    public void print() {
-        System.out.format("%s retire %s et envoie %s sur le terrain !", this.player.getName(), this.firstPokemon.getName(), this.secondPokemon.getName());
+    @Override
+    public void activate() {
+        this.player.switchPokemons(this.firstPokemon, this.secondPokemon);
+    }
 
-        player.getController().getConsoleInterface().getScanner().nextLine();
+    @Override
+    public void print() {
+        String format = "%s retire %s et envoie %s sur le terrain !";
+
+        System.out.format(
+            format,
+            this.player.getName(),
+            this.firstPokemon.getName(),
+            this.secondPokemon.getName()
+        );
+
+        this.player.getController().getConsoleInterface().getScanner().nextLine();
     }
 
     public Player getPlayer() {

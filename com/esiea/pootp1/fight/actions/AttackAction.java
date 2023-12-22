@@ -20,6 +20,27 @@ public class AttackAction extends Action {
         return new AttackAction(attacker, target, move);
     }
 
+    @Override
+    public void activate() {
+        
+    }
+
+    @Override
+    public void print() {
+        String format = "Le %s de %s utilise %s sur le %s de %s !";
+
+        System.out.format(
+            format,
+            this.attacker.getFightingPokemon().getName(),
+            this.attacker.getName(),
+            this.move.getName(),
+            this.target.getFightingPokemon().getName(),
+            this.target.getName()
+        );
+
+        this.attacker.getController().getConsoleInterface().getScanner().nextLine();
+    }
+
     public Player getAttacker() {
         return this.attacker;
     }

@@ -72,17 +72,9 @@ public class Fight {
 
         for (Player player : speedSortedPlayers) {
             if (changePokemonActions.containsKey(player)) {
-                processChangePokemonAction(changePokemonActions.get(player));
+                processAction(changePokemonActions.get(player));
             }
         }
-    }
-
-    private void processChangePokemonAction(ChangePokemonAction action) {
-        this.controller.getConsoleInterface().clearConsole();
-
-        action.getPlayer().switchPokemons(action.getFirstPokemon(), action.getSecondPokemon());
-
-        action.print();
     }
 
     private void processUseObjectActions(Turn turn, ArrayList<Player> speedSortedPlayers) {
@@ -90,13 +82,9 @@ public class Fight {
 
         for (Player player : speedSortedPlayers) {
             if (useObjectActions.containsKey(player)) {
-                processUseObjectAction(useObjectActions.get(player));
+                processAction(useObjectActions.get(player));
             }
         }
-    }
-
-    private void processUseObjectAction(UseObjectAction action) {
-        
     }
 
     private void processAttackActions(Turn turn, ArrayList<Player> speedSortedPlayers) {
@@ -104,13 +92,16 @@ public class Fight {
 
         for (Player player : speedSortedPlayers) {
             if (attackActions.containsKey(player)) {
-                processAttackAction(attackActions.get(player));
+                processAction(attackActions.get(player));
             }
         }
     }
 
-    private void processAttackAction(AttackAction action) {
-        
+    private void processAction(Action action) {
+        this.controller.getConsoleInterface().clearConsole();
+
+        action.activate();
+        action.print();
     }
 
     private void updateLivingPlayersList() {

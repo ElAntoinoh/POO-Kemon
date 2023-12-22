@@ -24,6 +24,25 @@ public class UseObjectAction extends Action {
         return new UseObjectAction(player, target, item);
     }
 
+    @Override
+    public void activate() {
+
+    }
+
+    @Override
+    public void print() {
+        String format = "%s utilise %s sur %s !";
+
+        System.out.format(
+            format,
+            this.player.getName(),
+            item.getName(),
+            target.getName()
+        );
+
+        this.player.getController().getConsoleInterface().getScanner().nextLine();
+    }
+
     public Player getPlayer() {
         return this.player;
     }
