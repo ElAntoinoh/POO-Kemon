@@ -57,20 +57,20 @@ public class Fight {
     }
 
     public void processTurn(Turn turn) {
-        processChangePokemonActions(turn);
-        processUseObjectActions    (turn);
-        processAttackActions       (turn);
+        ArrayList<Player> speedSortedPlayers = this.livingPlayers;
+        speedSortedPlayers.sort(Fight.speedComparator);
+
+        processChangePokemonActions(turn, speedSortedPlayers);
+        processUseObjectActions    (turn, speedSortedPlayers);
+        processAttackActions       (turn, speedSortedPlayers);
 
         updateLivingPlayersList();
     }
 
-    private void processChangePokemonActions(Turn turn) {
-        ArrayList<Player> players = this.livingPlayers;
-        players.sort(Fight.speedComparator);
-
+    private void processChangePokemonActions(Turn turn, ArrayList<Player> speedSortedPlayers) {
         HashMap<Player, ChangePokemonAction> changePokemonActions = turn.getChangePokemonActions();
 
-        for (Player player : players) {
+        for (Player player : speedSortedPlayers) {
             if (changePokemonActions.containsKey(player)) {
                 processChangePokemonAction(changePokemonActions.get(player));
             }
@@ -78,16 +78,17 @@ public class Fight {
     }
 
     private void processChangePokemonAction(ChangePokemonAction action) {
+        this.controller.getConsoleInterface().clearConsole();
+
         action.getPlayer().switchPokemons(action.getFirstPokemon(), action.getSecondPokemon());
+
+        action.print();
     }
 
-    private void processUseObjectActions(Turn turn) {
-        ArrayList<Player> players = this.livingPlayers;
-        players.sort(Fight.speedComparator);
-
+    private void processUseObjectActions(Turn turn, ArrayList<Player> speedSortedPlayers) {
         HashMap<Player, UseObjectAction> useObjectActions = turn.getUseObjectActions();
 
-        for (Player player : players) {
+        for (Player player : speedSortedPlayers) {
             if (useObjectActions.containsKey(player)) {
                 processUseObjectAction(useObjectActions.get(player));
             }
@@ -95,16 +96,13 @@ public class Fight {
     }
 
     private void processUseObjectAction(UseObjectAction action) {
-
+        
     }
 
-    private void processAttackActions(Turn turn) {
-        ArrayList<Player> players = this.livingPlayers;
-        players.sort(Fight.speedComparator);
-
+    private void processAttackActions(Turn turn, ArrayList<Player> speedSortedPlayers) {
         HashMap<Player, AttackAction> attackActions = turn.getAttackActions();
 
-        for (Player player : players) {
+        for (Player player : speedSortedPlayers) {
             if (attackActions.containsKey(player)) {
                 processAttackAction(attackActions.get(player));
             }
@@ -116,7 +114,11 @@ public class Fight {
     }
 
     private void updateLivingPlayersList() {
-        this.livingPlayers = new ArrayList<>(this.players.stream().filter(p -> p.hasAlivePokemons()).toList());
+        this.livingPlayers = new ArrayList<>(
+            this.players.stream()
+                .filter(p -> p.hasAlivePokemons())
+                .toList()
+        );
     }
 
     public int getLongestPlayerName(Player excludedPlayer) {
