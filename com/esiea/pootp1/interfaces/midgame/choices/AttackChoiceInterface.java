@@ -144,7 +144,7 @@ public class AttackChoiceInterface {
         Fight fight = this.fightChoiceInterface.getConsoleInterface().getController().getFight();
 
         int idLength = Integer.toString(fight.getLivingPlayersList().size()).length();
-        int nameLength = fight.getLongestPlayerName();
+        int nameLength = fight.getLongestPlayerName(player);
 
         ArrayList<String> options = new ArrayList<>();
 

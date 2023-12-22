@@ -3,7 +3,8 @@ package com.esiea.pootp1.fight;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Map; 
+import java.util.Map;
+import java.util.stream.Stream;
 
 import com.esiea.pootp1.controller.Controller;
 import com.esiea.pootp1.fight.actions.Action;
@@ -127,18 +128,12 @@ public class Fight {
         this.livingPlayers = newLivingPlayers;
     }
 
-    public int getLongestPlayerName() {
-        int maxLength = 0;
-
-        for (Player player : this.livingPlayers) {
-            int playerNameLength = player.getName().length();
-
-            if (playerNameLength > maxLength) {
-                maxLength = playerNameLength;
-            }
-        }
-
-        return maxLength;
+    public int getLongestPlayerName(Player excludedPlayer) {
+        return this.livingPlayers.stream()
+            .filter(p -> !p.equals(excludedPlayer))
+            .mapToInt(p -> p.getName().length())
+            .max()
+            .orElse(0);
     }
 
     private boolean isOver() {
