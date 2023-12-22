@@ -53,6 +53,8 @@ public class FightChoiceInterface {
             case 3 -> action = this.pokemonChoiceInterface.askPokemonChoice(player);
         }
 
+        if (action == null) askGlobalChoice(player);
+
         return action;
     }
 

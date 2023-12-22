@@ -49,7 +49,7 @@ public class AttackChoiceInterface {
         AttackAction action = null;
 
         switch (input) {
-            case "r" -> action = (AttackAction) this.fightChoiceInterface.askGlobalChoice(player);
+            case "r" -> action = null;
 
             default -> {
                 Player target = askTargetChoice(player);
@@ -143,7 +143,7 @@ public class AttackChoiceInterface {
                 String pokemonName = p.getFightingPokemon().getName();
                 String pokemonType = Type.getTypeDisplayText().get(p.getFightingPokemon().getType());
 
-                options.add(String.format("[%" + idLength + "d] %" + nameLength + "s | %s (%s)", p.getNum(), p.getName(), pokemonName, pokemonType));
+                options.add(String.format("[%" + idLength + "d] %-" + nameLength + "s | %s (%s)", p.getNum(), p.getName(), pokemonName, pokemonType));
             }
         }
 

@@ -48,7 +48,7 @@ public class ObjectChoiceInterface {
         UseObjectAction action = null;
 
         switch (input) {
-            case "r" -> action = (UseObjectAction) this.fightChoiceInterface.askGlobalChoice(player);
+            case "r" -> action = null;
 
             default -> {
                 Pokemon target = askTargetChoice(player);

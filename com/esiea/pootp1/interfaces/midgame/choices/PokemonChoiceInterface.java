@@ -48,7 +48,7 @@ public class PokemonChoiceInterface {
         ChangePokemonAction action = null;
 
         switch (input) {
-            case "r" -> action = (ChangePokemonAction) this.fightChoiceInterface.askGlobalChoice(player);
+            case "r" -> action = null;
 
             default -> {
                 Pokemon firstPokemon = player.getFightingPokemon();
