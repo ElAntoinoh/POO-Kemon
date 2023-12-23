@@ -7,8 +7,8 @@ import com.esiea.pootp1.fight.player.team.members.Pokemon;
 import com.esiea.pootp1.fight.player.team.members.moves.Move;
 
 public class AttackAction extends Action {
-    private static double MIN_ATTACK_COEF = 0.85;
-    private static double MAX_ATTACK_COEF = 1.;
+    private static double MIN_ATTACK_COEF = 0.85d;
+    private static double MAX_ATTACK_COEF = 1d;
 
     private Player attacker, target;
 
@@ -33,7 +33,7 @@ public class AttackAction extends Action {
         int damage;
 
         Pokemon attackingPokemon = this.attacker.getFightingPokemon();
-        Pokemon defendingPokemon = this.target.getFightingPokemon();
+        Pokemon defendingPokemon = this.target  .getFightingPokemon();
 
         int attackerAttack = attackingPokemon.getAttack();
         int targetDefense  = defendingPokemon.getDefense();

@@ -49,7 +49,7 @@ public class Fight {
             updateLivingPlayersList();
         }
 
-        this.controller.getConsoleInterface().printFightResult(this.getWinner());
+        this.controller.getConsoleInterface().printFightResult(getWinner());
     }
 
     public void processTurn(Turn turn) {

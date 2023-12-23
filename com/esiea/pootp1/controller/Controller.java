@@ -33,7 +33,6 @@ public class Controller {
 
         this.consoleInterface.printWelcomeAnimation();
         this.consoleInterface.printWelcomeMessage();
-
         this.consoleInterface.waitForAction();
 
         this.consoleInterface.clearConsole();

@@ -26,6 +26,8 @@ public class UseObjectAction extends Action {
 
     @Override
     public String activate() {
+        // TODO
+
         return null;
     }
 
@@ -36,8 +38,8 @@ public class UseObjectAction extends Action {
         System.out.format(
             format,
             this.player.getName(),
-            item.getName(),
-            target.getName()
+            this.item.getName(),
+            this.target.getName()
         );
 
         this.player.getController().getConsoleInterface().waitForAction();

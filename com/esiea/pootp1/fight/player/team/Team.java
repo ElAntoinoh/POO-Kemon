@@ -17,9 +17,13 @@ public class Team {
     public Team(Player player) {
         this.player = player;
 
-        for (int i = 0; i < MAXIMUM_NUMBER_OF_MEMBERS; i++) this.members.add(null);
+        fillVoidTeam();
 
         setRandomMembers();
+    }
+
+    private void fillVoidTeam() {
+        for (int i = 0; i < MAXIMUM_NUMBER_OF_MEMBERS; i++) this.members.add(null);
     }
 
     public void setRandomMembers() {

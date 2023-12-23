@@ -41,9 +41,7 @@ public class Bag {
         assert newItems.size() == MAXIMUM_NUMBER_OF_ITEMS;
 
         for (int i = 0; i < MAXIMUM_NUMBER_OF_ITEMS; i++) {
-            Item newItem = newItems.get(i);
-
-            this.items.set(i, newItem);
+            this.items.set(i, newItems.get(i));
         }
     }
 
