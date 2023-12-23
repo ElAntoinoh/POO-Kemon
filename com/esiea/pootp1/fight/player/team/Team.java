@@ -1,7 +1,6 @@
 package com.esiea.pootp1.fight.player.team;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 import com.esiea.pootp1.fight.player.Player;
@@ -76,13 +75,5 @@ public class Team {
 
     public ArrayList<Pokemon> getMembers() {
         return this.members;
-    }
-
-    public String toString() {
-        String str = "Team :\n";
-
-        for (Pokemon p : this.members) str += p.toString() + '\n';
-
-        return str;
     }
 }

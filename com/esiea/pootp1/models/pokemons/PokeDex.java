@@ -23,14 +23,4 @@ public class PokeDex {
     public ArrayList<GenericPokemon> getPokemonList() {
         return this.pokemonsList;
     }
-
-    public String toString() {
-        String str = "";
-
-        for (GenericPokemon p : this.pokemonsList) {
-            str += p.toString() + '\n';
-        }
-
-        return str;
-    }
 }

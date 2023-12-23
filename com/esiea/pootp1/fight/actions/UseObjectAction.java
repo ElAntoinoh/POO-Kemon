@@ -54,8 +54,4 @@ public class UseObjectAction extends Action {
     public Item getItem() {
         return this.item;
     }
-
-    public String toString() {
-        return this.player.getName() + " -> " + this.target.getName() + " (" + this.item.getName() + ")";
-    }
 }

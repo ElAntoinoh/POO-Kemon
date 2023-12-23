@@ -1,7 +1,6 @@
 package com.esiea.pootp1.fight.player.bag;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 import com.esiea.pootp1.fight.player.Player;
@@ -61,14 +60,5 @@ public class Bag {
 
     public ArrayList<Item> getItems() {
         return this.items;
-    }
-
-    @Override
-    public String toString() {
-        String str = "Sac :\n";
-
-        for (Item i : this.items) str += i.toString() + '\n';
-
-        return str;
     }
 }

@@ -53,8 +53,4 @@ public class ChangePokemonAction extends Action {
     public Pokemon getSecondPokemon() {
         return this.secondPokemon;
     }
-
-    public String toString() {
-        return this.player.getName() + " : " + this.firstPokemon.getName() + " -> " + this.secondPokemon.getName();
-    }
 }

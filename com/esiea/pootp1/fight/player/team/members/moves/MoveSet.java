@@ -59,12 +59,4 @@ public class MoveSet {
     public ArrayList<Move> getMoves() {
         return this.moves;
     }
-
-    public String toString() {
-        String str = "";
-
-        for (Move m : this.moves) str += m.toString() + '\n';
-
-        return str;
-    }
 }

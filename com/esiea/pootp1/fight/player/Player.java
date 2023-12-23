@@ -67,8 +67,4 @@ public class Player {
     public Bag getBag() {
         return this.bag;
     }
-
-    public String toString() {
-        return this.name + " (" + this.numPlayer + ") :\n" + this.team.toString() + '\n' + this.bag.toString();
-    }
 }

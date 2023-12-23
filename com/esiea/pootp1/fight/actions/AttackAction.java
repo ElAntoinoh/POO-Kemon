@@ -103,8 +103,4 @@ public class AttackAction extends Action {
     public Move getMove() {
         return this.move;
     }
-
-    public String toString() {
-        return this.attacker.getName() + " -> " + this.target.getName() + " (" + this.move.getName() + ")";
-    }
 }

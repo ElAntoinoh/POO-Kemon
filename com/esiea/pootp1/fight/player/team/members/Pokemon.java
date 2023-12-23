@@ -98,12 +98,4 @@ public class Pokemon {
     public MoveSet getMoveSet() {
         return this.moveSet;
     }
-
-    public String toString() {
-        String str = this.name + '\n';
-
-        str += this.moveSet.toString();
-
-        return str;
-    }
 }

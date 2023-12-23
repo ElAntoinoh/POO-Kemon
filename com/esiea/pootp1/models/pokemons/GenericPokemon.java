@@ -79,8 +79,4 @@ public class GenericPokemon {
     public int getMaxSpeed() {
         return this.maxSpeed;
     }
-
-    public String toString() {
-        return this.name + " | " + Type.getTypeDisplayText().get(this.type);
-    }
 }
