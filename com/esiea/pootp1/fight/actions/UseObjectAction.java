@@ -40,7 +40,7 @@ public class UseObjectAction extends Action {
             target.getName()
         );
 
-        this.player.getController().getConsoleInterface().getScanner().nextLine();
+        this.player.getController().getConsoleInterface().waitForAction();
     }
 
     public Player getPlayer() {

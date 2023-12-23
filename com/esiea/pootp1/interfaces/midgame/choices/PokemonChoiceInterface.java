@@ -22,8 +22,8 @@ public class PokemonChoiceInterface {
         this.fightChoiceInterface = fightChoiceInterface;
     }
 
-    public ChangePokemonAction askPokemonChoice(Player player) {
-        printPokemonChoice(player);
+    public ChangePokemonAction askPokemonChoice(Player player, boolean isChoiceOptional) {
+        printPokemonChoice(player, isChoiceOptional);
 
         Scanner scanner = this.fightChoiceInterface.getConsoleInterface().getScanner();
 
@@ -39,10 +39,10 @@ public class PokemonChoiceInterface {
                     if (intInput >= 1 && intInput <= Team.MAXIMUM_NUMBER_OF_MEMBERS - 1) break;
                 }
 
-                else if (input.equals("r")) break;
+                else if (isChoiceOptional && input.equals("r")) break;
             }
 
-            printPokemonChoice(player);
+            printPokemonChoice(player, isChoiceOptional);
         }
 
         ChangePokemonAction action = null;
@@ -69,12 +69,14 @@ public class PokemonChoiceInterface {
         return action;
     }
 
-    private void printPokemonChoice(Player player) {
+    private void printPokemonChoice(Player player, boolean isChoiceOptional) {
         this.fightChoiceInterface.getConsoleInterface().clearConsole();
 
-        String title = String.format("Avez qui %s doit échanger sa place ?", player.getFightingPokemon().getName());
+        String title = isChoiceOptional ?
+            String.format("Avez qui %s doit échanger sa place ?", player.getFightingPokemon().getName()) :
+            String.format("Le %s de %s est KO, qui doit prendre sa place ?", player.getFightingPokemon().getName(), player.getName());
         
-        String indication = "Retour : r";
+        String indication = isChoiceOptional ? "Retour : r" : null;
 
         int nameLength = player.getTeam().getLongestMemberNameLength(player.getFightingPokemon());
 
@@ -82,7 +84,7 @@ public class PokemonChoiceInterface {
 
         int i = 1;
 
-        for (Pokemon pokemon : player.getTeam().getMembers()) {
+        for (Pokemon pokemon : player.getTeam().getAlivePokemons()) {
             if (!pokemon.equals(player.getFightingPokemon())) {
                 String name = pokemon.getName();
                 String type = Type.getTypeDisplayText().get(pokemon.getType());
@@ -92,5 +94,25 @@ public class PokemonChoiceInterface {
         }
 
         this.fightChoiceInterface.printFightChoice(title, indication, options);
+    }
+
+    public void printMandatoryPokemon(Pokemon firstPokemon, Pokemon secondPokemon) {
+        String line1 = String.format("Le %s de %s est K.O. !", firstPokemon.getName(), firstPokemon.getTeam().getPlayer().getName());
+        String line2 = String.format("%s est envoyé au combat pour le remplacer !", secondPokemon.getName());
+
+        int longestLineLength = line1.length() > line2.length() ? line1.length() : line2.length();
+
+        String str = "┌" + "─".repeat(longestLineLength + 2) + "┐\n";
+
+        str += String.format("│ %-" + longestLineLength + "s │\n", line1);
+        str += String.format("│ %-" + longestLineLength + "s │\n", line2);
+
+        str += "└" + "─".repeat(longestLineLength + 2) + "┘\n";
+
+        this.fightChoiceInterface.getConsoleInterface().clearConsole();
+
+        System.out.print(str);
+
+        this.fightChoiceInterface.getConsoleInterface().waitForAction();
     }
 }

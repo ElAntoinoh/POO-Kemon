@@ -10,6 +10,7 @@ import com.esiea.pootp1.interfaces.earlygame.BagFillingInterface;
 import com.esiea.pootp1.interfaces.earlygame.DataCollectionInterface;
 import com.esiea.pootp1.interfaces.earlygame.TeamBuildingInterface;
 import com.esiea.pootp1.interfaces.earlygame.WelcomeInterface;
+import com.esiea.pootp1.interfaces.endgame.FightResultInterface;
 import com.esiea.pootp1.interfaces.midgame.FightChoiceInterface;
 
 public class ConsoleInterface {
@@ -22,6 +23,7 @@ public class ConsoleInterface {
     private TeamBuildingInterface   teamBuildingInterface;
     private BagFillingInterface     bagFillingInterface;
     private FightChoiceInterface    fightChoiceInterface;
+    private FightResultInterface    fightResultInterface;
 
     public ConsoleInterface(Controller controller) {
         this.controller = controller;
@@ -33,6 +35,7 @@ public class ConsoleInterface {
         this.teamBuildingInterface   = new TeamBuildingInterface  (this);
         this.bagFillingInterface     = new BagFillingInterface    (this);
         this.fightChoiceInterface    = new FightChoiceInterface   (this);
+        this.fightResultInterface    = new FightResultInterface   (this);
     }
 
     public void clearConsole() {
@@ -59,6 +62,10 @@ public class ConsoleInterface {
     public void printWelcomePlayer(Player player) {
         System.out.format("Bienvenue, %s (%d) !\n", player.getName(), player.getNum());
     }
+
+    public void printFightResult(Player player) {
+        this.fightResultInterface.print(player);
+    }
     
     public void askTeam(Player p) {
         this.teamBuildingInterface.askTeam(p);
@@ -72,8 +79,16 @@ public class ConsoleInterface {
         return this.fightChoiceInterface.askGlobalChoice(p);
     }
 
+    public Action askChangePokemonChoice(Player p) {
+        return this.fightChoiceInterface.askChangePokemonChoice(p);
+    }
+
     public Controller getController() {
         return this.controller;
+    }
+
+    public FightChoiceInterface getFightChoiceInterface() {
+        return this.fightChoiceInterface;
     }
 
     public Scanner getScanner() {

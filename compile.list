@@ -40,15 +40,17 @@ com/esiea/pootp1/reader/AttacksFileReader.java
 com/esiea/pootp1/reader/ConsumablesFileReader.java
 com/esiea/pootp1/reader/PokemonsFileReader.java
 
+com/esiea/pootp1/interfaces/earlygame/BagFillingInterface.java
+com/esiea/pootp1/interfaces/earlygame/DataCollectionInterface.java
+com/esiea/pootp1/interfaces/earlygame/TeamBuildingInterface.java
+
+com/esiea/pootp1/interfaces/endgame/FightResultInterface.java
+
 com/esiea/pootp1/interfaces/midgame/choices/AttackChoiceInterface.java
 com/esiea/pootp1/interfaces/midgame/choices/ObjectChoiceInterface.java
 com/esiea/pootp1/interfaces/midgame/choices/PokemonChoiceInterface.java
 
 com/esiea/pootp1/interfaces/midgame/FightChoiceInterface.java
-
-com/esiea/pootp1/interfaces/earlygame/BagFillingInterface.java
-com/esiea/pootp1/interfaces/earlygame/DataCollectionInterface.java
-com/esiea/pootp1/interfaces/earlygame/TeamBuildingInterface.java
 
 com/esiea/pootp1/interfaces/ConsoleInterface.java
 

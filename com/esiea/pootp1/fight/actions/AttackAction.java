@@ -89,7 +89,7 @@ public class AttackAction extends Action {
             bonusInformation
         );
 
-        this.attacker.getController().getConsoleInterface().getScanner().nextLine();
+        this.attacker.getController().getConsoleInterface().waitForAction();
     }
 
     public Player getAttacker() {

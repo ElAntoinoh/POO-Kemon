@@ -2,6 +2,7 @@ package com.esiea.pootp1.fight.player.team;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
@@ -25,10 +26,12 @@ public class Team {
     public void setRandomMembers() {
         ArrayList<GenericPokemon> pokemonList = this.player.getController().getPokeDex().getPokemonList();
 
-        Collections.shuffle(pokemonList);
+        Random random = new Random();
 
         for (int i = 0; i < MAXIMUM_NUMBER_OF_MEMBERS; i++) {
-            this.members.set(i, new Pokemon(this, pokemonList.get(i)));
+            int index = random.nextInt(pokemonList.size());
+
+            this.members.set(i, new Pokemon(this, pokemonList.get(index)));
         }
     }
 

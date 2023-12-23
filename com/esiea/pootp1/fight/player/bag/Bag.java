@@ -2,6 +2,7 @@ package com.esiea.pootp1.fight.player.bag;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.models.consumables.Consumable;
@@ -28,10 +29,12 @@ public class Bag {
     public void setRandomItems() {
         ArrayList<Consumable> consumableList = this.player.getController().getGlobalBag().getConsumableList();
 
-        Collections.shuffle(consumableList);
-
+        Random random = new Random();
+        
         for (int i = 0; i < MAXIMUM_NUMBER_OF_ITEMS; i++) {
-            items.set(i, new Item(consumableList.get(i)));
+            int index = random.nextInt(consumableList.size());
+
+            items.set(i, new Item(consumableList.get(index)));
         }
     }
 

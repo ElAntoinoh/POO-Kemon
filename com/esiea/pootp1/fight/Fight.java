@@ -10,6 +10,7 @@ import com.esiea.pootp1.fight.actions.AttackAction;
 import com.esiea.pootp1.fight.actions.ChangePokemonAction;
 import com.esiea.pootp1.fight.actions.UseObjectAction;
 import com.esiea.pootp1.fight.player.Player;
+import com.esiea.pootp1.fight.player.team.members.Pokemon;
 
 public class Fight {
     private static Comparator<Player> speedComparator = new Comparator<Player>() {
@@ -48,7 +49,7 @@ public class Fight {
             updateLivingPlayersList();
         }
 
-        System.out.println("Gagnant : " + this.getWinner().getName() + " (" + this.getWinner().getNum() + ")");
+        this.controller.getConsoleInterface().printFightResult(this.getWinner());
     }
 
     public void processTurn(Turn turn) {
@@ -87,7 +88,28 @@ public class Fight {
 
         for (Player player : speedSortedPlayers) {
             if (attackActions.containsKey(player)) {
+                AttackAction action = attackActions.get(player);
+
+                if (!action.getAttacker().getFightingPokemon().isAlive()) continue;
+
                 processAction(attackActions.get(player));
+
+                Player target = attackActions.get(player).getTarget();
+
+                if (!target.getFightingPokemon().isAlive() && target.hasAlivePokemons()) {
+                    if (target.getAlivePokemons().size() == 1) {
+                        Pokemon firstPokemon  = target.getFightingPokemon();
+                        Pokemon secondPokemon = target.getAlivePokemons().get(0);
+
+                        this.controller.getConsoleInterface().getFightChoiceInterface().printMandatoryPokemon(firstPokemon, secondPokemon);
+
+                        target.switchPokemons(firstPokemon, secondPokemon);
+                    }
+
+                    else {
+                        this.controller.getConsoleInterface().getFightChoiceInterface().askChangePokemonChoice(target).activate();
+                    }
+                }
             }
         }
     }

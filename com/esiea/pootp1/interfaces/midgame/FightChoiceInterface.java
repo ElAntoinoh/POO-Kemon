@@ -10,6 +10,7 @@ import com.esiea.pootp1.interfaces.ConsoleInterface;
 import com.esiea.pootp1.interfaces.midgame.choices.AttackChoiceInterface;
 import com.esiea.pootp1.interfaces.midgame.choices.ObjectChoiceInterface;
 import com.esiea.pootp1.interfaces.midgame.choices.PokemonChoiceInterface;
+import com.esiea.pootp1.models.Type;
 
 public class FightChoiceInterface {
     private ConsoleInterface consoleInterface;
@@ -50,12 +51,16 @@ public class FightChoiceInterface {
         switch (choice) {
             case 1 -> action = this.attackChoiceInterface .askAttackChoice (player);
             case 2 -> action = this.objectChoiceInterface .askObjectChoice (player);
-            case 3 -> action = this.pokemonChoiceInterface.askPokemonChoice(player);
+            case 3 -> action = this.pokemonChoiceInterface.askPokemonChoice(player, true);
         }
 
         if (action == null) askGlobalChoice(player);
 
         return action;
+    }
+
+    public Action askChangePokemonChoice(Player p) {
+        return this.pokemonChoiceInterface.askPokemonChoice(p, false);
     }
 
     private void printChoice(Player player) {
@@ -120,10 +125,12 @@ public class FightChoiceInterface {
         String hp    = Integer.toString(pokemon.getHP());
         String maxHP = Integer.toString(pokemon.getMaxHP());
 
-        String line2 = String.format("│ %" + name.length() + "s │ %s/%s │\n", name, hp, maxHP);
+        String type = Type.getTypeDisplayText().get(pokemon.getType());
 
-        String line1 = "┌" + "─".repeat(name.length() + 2) + "┬" + "─".repeat(hp.length() + maxHP.length() + 1 + 2) + "┐\n";
-        String line3 = "└" + "─".repeat(name.length() + 2) + "┴" + "─".repeat(hp.length() + maxHP.length() + 1 + 2) + "┘\n";
+        String line2 = String.format("│ %" + name.length() + "s │ %s/%s │ %s |\n", name, hp, maxHP, type);
+
+        String line1 = "┌" + "─".repeat(name.length() + 2) + "┬" + "─".repeat(hp.length() + maxHP.length() + 1 + 2) + "┬" + "─".repeat(type.length() + 2) + "┐\n";
+        String line3 = "└" + "─".repeat(name.length() + 2) + "┴" + "─".repeat(hp.length() + maxHP.length() + 1 + 2) + "┴" + "─".repeat(type.length() + 2) + "┘\n";
 
         System.out.print(line1 + line2 + line3);
     }
@@ -131,7 +138,7 @@ public class FightChoiceInterface {
     public void printFightChoice(String title, String indication, ArrayList<String> options) {
         int longestLineLength = title.length();
 
-        if (indication.length() > longestLineLength) longestLineLength = indication.length();
+        if (indication != null && indication.length() > longestLineLength) longestLineLength = indication.length();
 
         for (String option : options) {
             if (option.length() > longestLineLength) {
@@ -143,7 +150,9 @@ public class FightChoiceInterface {
 
         str += String.format("│ %-" + longestLineLength + "s │\n%s\n", title, "│" + " ".repeat(longestLineLength + 2) + "│");
 
-        str += String.format("│ %-" + longestLineLength + "s │\n%s\n", indication, "│" + " ".repeat(longestLineLength + 2) + "│");
+        if (indication != null) {
+            str += String.format("│ %-" + longestLineLength + "s │\n%s\n", indication, "│" + " ".repeat(longestLineLength + 2) + "│");
+        }
 
         for (String option : options) {
             str += String.format("│ %-" + longestLineLength + "s │\n", option);
@@ -154,6 +163,10 @@ public class FightChoiceInterface {
         str += "\nChoix : ";
 
         System.out.print(str);
+    }
+
+    public void printMandatoryPokemon(Pokemon firstPokemon, Pokemon secondPokemon) {
+        this.pokemonChoiceInterface.printMandatoryPokemon(firstPokemon, secondPokemon);
     }
 
     public ConsoleInterface getConsoleInterface() {

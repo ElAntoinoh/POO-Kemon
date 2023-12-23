@@ -39,7 +39,7 @@ public class ChangePokemonAction extends Action {
             this.secondPokemon.getName()
         );
 
-        this.player.getController().getConsoleInterface().getScanner().nextLine();
+        this.player.getController().getConsoleInterface().waitForAction();
     }
 
     public Player getPlayer() {
