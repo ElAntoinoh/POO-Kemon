@@ -66,7 +66,7 @@ public class AttackChoiceInterface {
                     } else {
                         Move move = player.getFightingPokemon().getMoveSet().getMoves().get(Integer.parseInt(input) - 1);
 
-                        action = AttackAction.createAttackAction(player, target, move); 
+                        action = AttackAction.createAttackAction(player.getFightingPokemon(), target, move); 
                     }
                 }
             }

@@ -13,7 +13,7 @@ public class FightResultInterface {
     public void print(Player player) {
         this.consoleInterface.clearConsole();
 
-        System.out.format("Félicitation %s (%d) !!!\n", player.getName(), player.getNum());
+        System.out.format("Félicitation %s (%d) !!!", player.getName(), player.getNum());
 
         this.consoleInterface.waitForAction();
     }

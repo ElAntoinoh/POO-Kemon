@@ -90,7 +90,7 @@ public class Fight {
             if (attackActions.containsKey(player)) {
                 AttackAction action = attackActions.get(player);
 
-                if (!action.getAttacker().getFightingPokemon().isAlive()) continue;
+                if (!action.getAttacker().isAlive()) continue;
 
                 processAction(attackActions.get(player));
 

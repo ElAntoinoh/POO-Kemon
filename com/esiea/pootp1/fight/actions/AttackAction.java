@@ -10,18 +10,19 @@ public class AttackAction extends Action {
     private static double MIN_ATTACK_COEF = 0.85d;
     private static double MAX_ATTACK_COEF = 1d;
 
-    private Player attacker, target;
+    private Pokemon attacker;
+    private Player target;
 
     private Move move;
 
-    private AttackAction(Player attacker, Player target, Move move) {
+    private AttackAction(Pokemon attacker, Player target, Move move) {
         this.attacker = attacker;
         this.target = target;
         this.move = move;
     }
 
-    public static AttackAction createAttackAction(Player attacker, Player target, Move move) {
-        assert attacker.getFightingPokemon().getMoveSet().getMoves().contains(move) || move == null;
+    public static AttackAction createAttackAction(Pokemon attacker, Player target, Move move) {
+        assert attacker.getMoveSet().getMoves().contains(move) || move == null;
 
         return new AttackAction(attacker, target, move);
     }
@@ -32,10 +33,9 @@ public class AttackAction extends Action {
 
         int damage;
 
-        Pokemon attackingPokemon = this.attacker.getFightingPokemon();
-        Pokemon defendingPokemon = this.target  .getFightingPokemon();
+        Pokemon defendingPokemon = this.target.getFightingPokemon();
 
-        int attackerAttack = attackingPokemon.getAttack();
+        int attackerAttack = this.attacker.getAttack();
         int targetDefense  = defendingPokemon.getDefense();
 
         double coef = MIN_ATTACK_COEF + new Random().nextDouble() * (MAX_ATTACK_COEF - MIN_ATTACK_COEF);
@@ -47,12 +47,12 @@ public class AttackAction extends Action {
 
             double avantage = 1.0;
 
-            if (attackingPokemon.getType().getStrengths ().contains(defendingPokemon.getType())) {
+            if (this.attacker.getType().getStrengths ().contains(defendingPokemon.getType())) {
                 avantage = 2.0;
                 sRet = "C'est super efficace !";
             }
 
-            if (attackingPokemon.getType().getWeaknesses().contains(defendingPokemon.getType())) {
+            if (this.attacker.getType().getWeaknesses().contains(defendingPokemon.getType())) {
                 avantage = 0.5;
                 sRet = "Ce n'est pas très efficace..";
             }
@@ -81,18 +81,18 @@ public class AttackAction extends Action {
 
         System.out.format(
             format,
-            this.attacker.getFightingPokemon().getName(),
             this.attacker.getName(),
+            this.attacker.getTeam().getPlayer().getName(),
             this.move.getName(),
             this.target.getFightingPokemon().getName(),
             this.target.getName(),
             bonusInformation
         );
 
-        this.attacker.getController().getConsoleInterface().waitForAction();
+        this.attacker.getTeam().getPlayer().getController().getConsoleInterface().waitForAction();
     }
 
-    public Player getAttacker() {
+    public Pokemon getAttacker() {
         return this.attacker;
     }
 

@@ -58,11 +58,7 @@ public class PokemonsFileReader {
                     case TYPE -> {
                         Type type = Type.getTypeConfigText().get(words[1]);
 
-                        if (Type.getUsableTypes().contains(type)) {
-                            currentPokemon.setType(type);
-                        } else {
-                            currentPokemon.setType(null);
-                        }
+                        currentPokemon.setType(Type.getUsableTypes().contains(type) ? type : null);
                     }
 
                     case HP -> {
