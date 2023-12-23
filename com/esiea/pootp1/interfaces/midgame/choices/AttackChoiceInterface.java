@@ -26,42 +26,48 @@ public class AttackChoiceInterface {
     }
 
     public AttackAction askAttackChoice(Player player) {
-        printAttackChoice(player);
-
-        Scanner scanner = this.fightChoiceInterface.getConsoleInterface().getScanner();
-
-        String input;
-
-        while (true) {
-            if (scanner.hasNextLine()) {
-                input = scanner.nextLine();
-
-                if (PATTERN_IS_NUMERIC.matcher(input).matches()) {
-                    int intInput = Integer.parseInt(input);
-
-                    if (intInput >= 1 && intInput <= MoveSet.MAXIMUM_NUMBER_OF_MOVES) break;
-                }
-
-                else if (input.equals("r")) break;
-            }
-
-            printAttackChoice(player);
-        }
-
         AttackAction action = null;
 
-        switch (input) {
-            case "r" -> action = null;
+        if (player.getFightingPokemon().getMoveSet().getMoves().stream().mapToInt(Move::getNbUsesLeft).sum() != 0) {
+            printAttackChoice(player);
 
-            default -> {
-                Player target = askTargetChoice(player);
+            Scanner scanner = this.fightChoiceInterface.getConsoleInterface().getScanner();
 
-                if (target == null) {
-                    action = askAttackChoice(player);
-                } else {
-                    Move move = player.getFightingPokemon().getMoveSet().getMoves().get(Integer.parseInt(input) - 1);
+            String input;
 
-                    action = AttackAction.createAttackAction(player, target, move); 
+            while (true) {
+                if (scanner.hasNextLine()) {
+                    input = scanner.nextLine();
+
+                    if (PATTERN_IS_NUMERIC.matcher(input).matches()) {
+                        int intInput = Integer.parseInt(input);
+
+                        if (intInput >= 1 && intInput <= MoveSet.MAXIMUM_NUMBER_OF_MOVES) {
+                            Move move = player.getFightingPokemon().getMoveSet().getMoves().get(intInput - 1);
+
+                            if (move.canBeUsed()) break;
+                        }
+                    }
+
+                    else if (input.equals("r")) break;
+                }
+
+                printAttackChoice(player);
+            }
+
+            switch (input) {
+                case "r" -> action = null;
+
+                default -> {
+                    Player target = askTargetChoice(player);
+
+                    if (target == null) {
+                        action = askAttackChoice(player);
+                    } else {
+                        Move move = player.getFightingPokemon().getMoveSet().getMoves().get(Integer.parseInt(input) - 1);
+
+                        action = AttackAction.createAttackAction(player, target, move); 
+                    }
                 }
             }
         }
@@ -93,44 +99,52 @@ public class AttackChoiceInterface {
     }
 
     private Player askTargetChoice(Player player) {
-        printTargetChoice(player);
-
-        Scanner scanner = this.fightChoiceInterface.getConsoleInterface().getScanner();
-
-        List<Player> players = this.fightChoiceInterface.getConsoleInterface().getController().getFight().getLivingPlayersList();
-
-        List<Integer> playersNumbers = players.stream()
-            .filter(p -> p.getNum() != player.getNum())
-            .map(Player::getNum)
-            .collect(Collectors.toList());
-
-        String input;
-
-        while (true) {
-            if (scanner.hasNextLine()) {
-                input = scanner.nextLine();
-
-                if (PATTERN_IS_NUMERIC.matcher(input).matches()) {
-                    int intInput = Integer.parseInt(input);
-
-                    if (playersNumbers.contains(intInput)) break;
-                }
-
-                else if (input.equals("r")) break;
-            }
-
-            printTargetChoice(player);
-        }
-
         Player target = null;
 
-        switch (input) {
-            case "r" -> target = null;
+        ArrayList<Player> livingPlayers = this.fightChoiceInterface.getConsoleInterface().getController().getFight().getLivingPlayersList();
 
-            default -> target = this.fightChoiceInterface.getConsoleInterface().getController().getFight().getLivingPlayersList().get(Integer.parseInt(input) - 1);
+        if (player.getController().getFight().getLivingPlayersList().size() == 2) {
+            target = livingPlayers.get(Math.abs(1 - livingPlayers.indexOf(player)));
         }
 
-        return target;
+        else {
+            printTargetChoice(player);
+
+            Scanner scanner = this.fightChoiceInterface.getConsoleInterface().getScanner();
+
+            List<Player> players = livingPlayers;
+
+            List<Integer> playersNumbers = players.stream()
+                .filter(p -> p.getNum() != player.getNum())
+                .map(Player::getNum)
+                .collect(Collectors.toList());
+
+            String input;
+
+            while (true) {
+                if (scanner.hasNextLine()) {
+                    input = scanner.nextLine();
+
+                    if (PATTERN_IS_NUMERIC.matcher(input).matches()) {
+                        int intInput = Integer.parseInt(input);
+
+                        if (playersNumbers.contains(intInput)) break;
+                    }
+
+                    else if (input.equals("r")) break;
+                }
+
+                printTargetChoice(player);
+            }
+
+            switch (input) {
+                case "r" -> target = null;
+
+                default -> target = livingPlayers.get(Integer.parseInt(input) - 1);
+            }
+        }
+        
+        return target;   
     }
 
     private void printTargetChoice(Player player) {

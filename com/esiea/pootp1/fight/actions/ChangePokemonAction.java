@@ -22,12 +22,14 @@ public class ChangePokemonAction extends Action {
     }
 
     @Override
-    public void activate() {
+    public String activate() {
         this.player.switchPokemons(this.firstPokemon, this.secondPokemon);
+
+        return null;
     }
 
     @Override
-    public void print() {
+    public void print(String bonusInformation) {
         String format = "%s retire %s et envoie %s sur le terrain !";
 
         System.out.format(

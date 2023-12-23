@@ -25,12 +25,12 @@ public class UseObjectAction extends Action {
     }
 
     @Override
-    public void activate() {
-
+    public String activate() {
+        return null;
     }
 
     @Override
-    public void print() {
+    public void print(String bonusInformation) {
         String format = "%s utilise %s sur %s !";
 
         System.out.format(

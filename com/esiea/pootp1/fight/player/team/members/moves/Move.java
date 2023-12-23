@@ -22,6 +22,10 @@ public class Move {
         this.nbUseLeft--;
     }
 
+    public Attack getAttack() {
+        return this.attack;
+    }
+
     public int getNbUsesLeft() {
         return this.nbUseLeft;
     }

@@ -3,7 +3,6 @@ package com.esiea.pootp1.fight;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Map;
 
 import com.esiea.pootp1.controller.Controller;
 import com.esiea.pootp1.fight.actions.Action;
@@ -38,10 +37,6 @@ public class Fight {
             Player player = this.livingPlayers.get(playerIndex++);
 
             turn.addAction(player, this.controller.getConsoleInterface().askActionChoice(player));
-
-            for (Map.Entry<Player, Action> entry : turn.getActions().entrySet()) {
-                System.out.println(entry.getValue());
-            }
 
             if (playerIndex >= this.livingPlayers.size()) {
                 processTurn(turn);
@@ -100,8 +95,7 @@ public class Fight {
     private void processAction(Action action) {
         this.controller.getConsoleInterface().clearConsole();
 
-        action.activate();
-        action.print();
+        action.print(action.activate());
     }
 
     private void updateLivingPlayersList() {

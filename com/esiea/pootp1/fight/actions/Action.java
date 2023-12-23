@@ -1,6 +1,7 @@
 package com.esiea.pootp1.fight.actions;
 
 public class Action {
-    public void activate() {}
-    public void print   () {}
+    public String activate() { return null; }
+
+    public void print(String bonusInformation) {}
 }

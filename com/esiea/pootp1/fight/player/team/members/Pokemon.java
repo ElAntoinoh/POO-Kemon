@@ -33,6 +33,20 @@ public class Pokemon {
         this.moveSet = new MoveSet(this);
     }
 
+    public boolean harm(int amount) {
+        this.hp -= amount;
+
+        if (this.hp < 0) this.hp = 0;
+
+        return this.hp != 0;
+    }
+
+    public void heal(int amount) {
+        this.hp += amount;
+
+        if (this.hp > this.maxHP) this.hp = this.maxHP;
+    }
+
     public boolean isAlive() {
         return this.hp != 0;
     }
