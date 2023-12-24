@@ -13,6 +13,7 @@ import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.pokemons.attributes.types.ElecAttributes;
 import com.esiea.pootp1.models.pokemons.attributes.types.FireAttributes;
 import com.esiea.pootp1.models.pokemons.attributes.types.InsectAttributes;
+import com.esiea.pootp1.models.pokemons.attributes.types.PlantAttributes;
 import com.esiea.pootp1.models.pokemons.attributes.types.WaterAttributes;
 
 public class AttackAction extends Action {
@@ -139,7 +140,11 @@ public class AttackAction extends Action {
                 }
 
                 case PLANT -> {
+                    if (new Random().nextDouble() < ((PlantAttributes) this.attacker.getTypeAttributes()).getHeal()) {
+                        this.attacker.setStatus(Status.NORMAL);
 
+                        sRet += String.format("\nToutes les alterations d'état du %s de %s ont été soignées", this.attacker.getName(), this.attacker.getTeam().getPlayer().getName());
+                    }
                 }
 
                 case WATER -> {
