@@ -66,8 +66,8 @@ public class BagFillingInterface {
     }
 
     private ArrayList<Item> askItems(Bag bag) {
-        ArrayList<Consumable> consumablesList = this.consoleInterface.getController().getGlobalBag().getConsumableList();
-
+        ArrayList<Consumable> consumablesList = new ArrayList<>(this.consoleInterface.getController().getGlobalBag().getConsumableList());
+        
         Collections.sort(consumablesList, (consumable1, consumable2) -> consumable1.getName().compareTo(consumable2.getName()));
 
         ArrayList<Item> members = new ArrayList<>();

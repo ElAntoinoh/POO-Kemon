@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
+import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.pokemons.GenericPokemon;
 
 public class Team {
@@ -69,6 +70,14 @@ public class Team {
         return this.members.stream()
             .filter(pokemon -> !pokemon.equals(excludedPokemon))
             .mapToInt(pokemon -> pokemon.getName().length())
+            .max()
+            .orElse(0);
+    }
+
+    public int getLongestMemberTypeLength(Pokemon excludedPokemon) {
+        return this.members.stream()
+            .filter(pokemon -> !pokemon.equals(excludedPokemon))
+            .mapToInt(pokemon -> Type.getTypeDisplayText().get(pokemon.getType()).length())
             .max()
             .orElse(0);
     }
