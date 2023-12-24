@@ -79,7 +79,7 @@ public class Fight {
             Pokemon fightingPokemon = player.getFightingPokemon();
 
             if (fightingPokemon.getStatus() == Status.PARALYZED) {
-                if (random.nextDouble() < fightingPokemon.getNbTurnsWithStatus() / 6d) {
+                if (random.nextDouble() < fightingPokemon.tryToCureParalysis() / 6d) {
                     fightingPokemon.setStatus(Status.NORMAL);
 
                     this.controller.getConsoleInterface().getFightChoiceInterface().printStatusCuration(fightingPokemon, Status.PARALYZED);

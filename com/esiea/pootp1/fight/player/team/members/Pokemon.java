@@ -66,7 +66,7 @@ public class Pokemon {
 
     public void setStatus(Status status) {
         this.status = status;
-        this.nbTurnsWithStatus = 1;
+        this.nbTurnsWithStatus = 0;
     }
 
     public Team getTeam() {
@@ -113,7 +113,7 @@ public class Pokemon {
         return this.status;
     }
 
-    public int getNbTurnsWithStatus() {
-        return this.nbTurnsWithStatus;
+    public int tryToCureParalysis() {
+        return ++this.nbTurnsWithStatus;
     }
 }
