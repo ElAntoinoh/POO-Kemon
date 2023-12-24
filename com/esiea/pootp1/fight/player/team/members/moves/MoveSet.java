@@ -29,6 +29,7 @@ public class MoveSet {
     public void setRandomAttacks() {
         ArrayList<Attack> learnableAttacks = new ArrayList<>();
 
+        // A monster can learn abilities of its type or the normal type
         learnableAttacks.addAll(this.pokemon.getTeam().getPlayer().getController().getAttackDex().getAttacksFromType(this.pokemon.getType()));
         learnableAttacks.addAll(this.pokemon.getTeam().getPlayer().getController().getAttackDex().getAttacksFromType(Type.NORMAL));
 

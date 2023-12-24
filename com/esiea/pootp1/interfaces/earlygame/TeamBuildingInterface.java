@@ -88,7 +88,6 @@ public class TeamBuildingInterface {
         while (scanner.hasNextLine()) {
             this.consoleInterface.clearConsole();
 
-            //printActualTeam(team);
             printMemberChoiceHelp();
             printPokemonListPage(pokemonsList, numPage, nbPages);
 
@@ -118,24 +117,6 @@ public class TeamBuildingInterface {
         }
 
         return new Pokemon(team, pokemonsList.get(Integer.parseInt(input) - 1));
-    }
-
-    private void printActualTeam(Team team) {
-        String str = "Équipe actuelle : \n\n";
-
-        int maxNamelength = team.getLongestMemberNameLength(null);
-        int maxTypelength = team.getLongestMemberTypeLength(null);
-
-        for (Pokemon pokemon : team.getMembers()) {
-            if (pokemon != null) {
-                String name = pokemon.getName();
-                String type = Type.getTypeDisplayText().get(pokemon.getType());
-
-                str += String.format("[%-" + maxNamelength + "s | %-" + maxTypelength + "s]\n", name, type);
-            }
-        }
-
-        System.out.println(str);
     }
 
     private void printMemberChoiceHelp() {

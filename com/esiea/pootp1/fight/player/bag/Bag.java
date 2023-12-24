@@ -17,8 +17,6 @@ public class Bag {
         this.player = player;
 
         fillVoidBag();
-
-        setRandomItems();
     }
 
     private void fillVoidBag() {
@@ -47,6 +45,7 @@ public class Bag {
 
     public int getLongestItemName() {
         return this.items.stream()
+            .filter(item -> item != null)
             .mapToInt(item -> item.getName().length())
             .max()
             .orElse(0);

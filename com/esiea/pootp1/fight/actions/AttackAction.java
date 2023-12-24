@@ -46,28 +46,31 @@ public class AttackAction extends Action {
         int attackerAttack = this.attacker.getAttack();
         int targetDefense  = defendingPokemon.getDefense();
 
-        double coef = MIN_ATTACK_COEF + new Random().nextDouble() * (MAX_ATTACK_COEF - MIN_ATTACK_COEF);
-
+        // Attack with hands
         if (move == null) {
-            damage = (int) (20 * attackerAttack * coef / targetDefense);
-        } else {
-            int movePower = this.move.getAttack().getPower();
-
+            damage = calculateHandsAttackDamages(attackerAttack, targetDefense);
+        }
+        
+        // Attack with a move
+        else {
             double avantage = 1.0;
 
+            // Effictive attack
             if (this.attacker.getType().getStrengths().contains(defendingPokemon.getType())) {
                 avantage = 2.0;
                 sRet = "C'est super efficace !";
             }
 
-            if (this.attacker.getType().getWeaknesses().contains(defendingPokemon.getType())) {
+            // Ineffective attack
+            else if (this.attacker.getType().getWeaknesses().contains(defendingPokemon.getType())) {
                 avantage = 0.5;
                 sRet = "Ce n'est pas très efficace..";
             }
 
-            damage = (int) (((11 * attackerAttack * movePower)/(25 * targetDefense) + 2) * avantage * coef);
+            damage = calculateMoveAttackDamages(attackerAttack, this.move.getAttack().getPower(), targetDefense, avantage);
         }
 
+        // Flooded terrain capacity
         if (this.attacker.getTeam().getPlayer().getController().getFight().getBattlefield().isFlooded() &&
             this.attacker.getType() != Type.WATER &&
             new Random().nextDouble() < ((WaterAttributes) this.attacker.getTeam().getPlayer().getController().getFight().getBattlefield().getStater().getTypeAttributes()).getFall()) {
@@ -77,17 +80,22 @@ public class AttackAction extends Action {
             sRet = "Mais il glisse sur le terrain inondé !";
         }
 
+        // Paralyzation capacity
         else if (attacker.getStatus() == Status.PARALYZED && new Random().nextDouble() >= 0.25) {
             sRet = "Mais il ne peut pas bouger..";
         }
 
+        // Probability to fail
         else if (new Random().nextDouble() < this.move.getAttack().getFailureProbability()) {
             sRet = "Mais cela échoue..";
         }
 
+        // Attack is gonna be thrown
         else {
+            // Harm the target
             defendingPokemon.harm(damage);
 
+            // Check for attacker's type's special capacity
             switch (this.attacker.getType()) {
                 case DIRT -> {
                     // TODO Dirt type special capacity
@@ -147,6 +155,7 @@ public class AttackAction extends Action {
             }
         }
 
+        // Taking into account the use of the attack
         this.move.use();
 
         return sRet;
@@ -169,6 +178,18 @@ public class AttackAction extends Action {
         );
 
         this.attacker.getTeam().getPlayer().getController().getConsoleInterface().waitForAction();
+    }
+
+    public int calculateHandsAttackDamages(int attackerAttack, int targetDefense) {
+        double coef = MIN_ATTACK_COEF + new Random().nextDouble() * (MAX_ATTACK_COEF - MIN_ATTACK_COEF);
+
+        return (int) (20 * attackerAttack * coef / targetDefense);
+    }
+
+    public int calculateMoveAttackDamages(int attackerAttack, int movePower, int targetDefense, double avantage) {
+        double coef = MIN_ATTACK_COEF + new Random().nextDouble() * (MAX_ATTACK_COEF - MIN_ATTACK_COEF);
+
+        return (int) (((11 * attackerAttack * movePower)/(25 * targetDefense) + 2) * avantage * coef);
     }
 
     public Pokemon getAttacker() {

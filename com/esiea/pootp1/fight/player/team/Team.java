@@ -19,8 +19,6 @@ public class Team {
         this.player = player;
 
         fillVoidTeam();
-
-        setRandomMembers();
     }
 
     private void fillVoidTeam() {

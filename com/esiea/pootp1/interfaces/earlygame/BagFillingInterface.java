@@ -70,13 +70,13 @@ public class BagFillingInterface {
         
         Collections.sort(consumablesList, (consumable1, consumable2) -> consumable1.getName().compareTo(consumable2.getName()));
 
-        ArrayList<Item> members = new ArrayList<>();
+        ArrayList<Item> items = new ArrayList<>();
 
         for (int i = 0; i < Bag.MAXIMUM_NUMBER_OF_ITEMS; i++) {
-            members.add(askItem(bag, consumablesList));
+            items.add(askItem(bag, consumablesList));
         }
 
-        return members;
+        return items;
     }
 
     private Item askItem(Bag bag, ArrayList<Consumable> consumablesList) {
@@ -88,6 +88,8 @@ public class BagFillingInterface {
         String input = null;
 
         while (scanner.hasNextLine()) {
+            this.consoleInterface.clearConsole();
+
             printBagChoiceHelp();
             printItemListPage(consumablesList, numPage, nbPages);
 
@@ -124,8 +126,6 @@ public class BagFillingInterface {
     }
 
     private void printBagChoiceHelp() {
-        this.consoleInterface.clearConsole();
-
         String str = "Choisissez un objet en entrant son numéro\n\n";
 
         str += String.format("%-24s : %s\n", "Afficher page n"         , "Pn");
