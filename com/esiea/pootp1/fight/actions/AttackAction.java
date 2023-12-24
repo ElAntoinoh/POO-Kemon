@@ -37,7 +37,7 @@ public class AttackAction extends Action {
 
     @Override
     public String activate() {
-        String sRet = null;
+        String sRet = "";
 
         int damage;
 
@@ -90,7 +90,7 @@ public class AttackAction extends Action {
 
             switch (this.attacker.getType()) {
                 case DIRT -> {
-                    
+                    // TODO Dirt type special capacity
                 }
 
                 case ELEC -> {
@@ -156,7 +156,7 @@ public class AttackAction extends Action {
     public void print(String bonusInformation) {
         String format = "Le %s de %s utilise %s sur le %s de %s !";
 
-        if (bonusInformation != null) format += "\n%s";
+        if (bonusInformation != "") format += (bonusInformation.startsWith("\n") ? "" : "\n") + "%s";
 
         System.out.format(
             format,
