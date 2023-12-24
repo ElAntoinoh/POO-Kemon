@@ -9,6 +9,7 @@ import com.esiea.pootp1.fight.player.team.members.Status;
 import com.esiea.pootp1.fight.player.team.members.moves.Move;
 import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.pokemons.attributes.types.ElecAttributes;
+import com.esiea.pootp1.models.pokemons.attributes.types.FireAttributes;
 import com.esiea.pootp1.models.pokemons.attributes.types.WaterAttributes;
 
 public class AttackAction extends Action {
@@ -70,7 +71,7 @@ public class AttackAction extends Action {
             new Random().nextDouble() < ((WaterAttributes) this.attacker.getTeam().getPlayer().getController().getFight().getBattlefield().getStater().getTypeAttributes()).getFall()) {
         
             this.attacker.harm(damage / 4);
-            
+
             sRet = "Mais il glisse sur le terrain inondé !";
         }
 
@@ -103,7 +104,15 @@ public class AttackAction extends Action {
                 }
 
                 case FIRE -> {
+                    if (new Random().nextDouble() < ((FireAttributes) this.attacker.getTypeAttributes()).getBurn()) {
+                        defendingPokemon.setStatus(Status.BURNED);
 
+                        String pokemonName = defendingPokemon.getName();
+                        String playerName = defendingPokemon.getTeam().getPlayer().getName();
+                        String status = Status.getStatsDisplayText().get(defendingPokemon.getStatus());
+
+                        sRet += String.format("\nLe %s de %s a été %s !", pokemonName, playerName, status);
+                    }
                 }
 
                 case INSECT -> {

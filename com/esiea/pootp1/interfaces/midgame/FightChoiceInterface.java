@@ -188,6 +188,14 @@ public class FightChoiceInterface {
         this.consoleInterface.waitForAction();
     }
 
+    public void printStatusHarmings(Pokemon pokemon) {
+        this.consoleInterface.clearConsole();
+
+        System.out.format("Le %s de %s est toujours %s. Il subit des dégats !", pokemon.getName(), pokemon.getTeam().getPlayer().getName(), Status.getStatsDisplayText().get(pokemon.getStatus()));
+    
+        this.consoleInterface.waitForAction();
+    }
+
     public void printNormalBattlefieldState() {
         this.consoleInterface.clearConsole();
 

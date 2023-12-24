@@ -65,13 +65,30 @@ public class Fight {
 
         this.battlefield.tryToDry();
 
+        processBurnCures     (speedSortedPlayers);
         processParalysisCures(speedSortedPlayers);
+
+        processStatusHarmings(speedSortedPlayers);
 
         processChangePokemonActions(turn, speedSortedPlayers);
         processUseObjectActions    (turn, speedSortedPlayers);
         processAttackActions       (turn, speedSortedPlayers);
 
         updateLivingPlayersList();
+    }
+
+    private void processBurnCures(ArrayList<Player> speedSortedPlayers) {
+        for (Player player : speedSortedPlayers) {
+            Pokemon fightingPokemon = player.getFightingPokemon();
+
+            if (fightingPokemon.getStatus() == Status.BURNED) {
+                if (this.battlefield.isFlooded()) {
+                    fightingPokemon.setStatus(Status.NORMAL);
+
+                    this.controller.getConsoleInterface().getFightChoiceInterface().printStatusCuration(fightingPokemon, Status.BURNED);
+                }
+            }
+        }
     }
 
     private void processParalysisCures(ArrayList<Player> speedSortedPlayers) {
@@ -85,6 +102,19 @@ public class Fight {
                     fightingPokemon.setStatus(Status.NORMAL);
 
                     this.controller.getConsoleInterface().getFightChoiceInterface().printStatusCuration(fightingPokemon, Status.PARALYZED);
+                }
+            }
+        }
+    }
+
+    private void processStatusHarmings(ArrayList<Player> speedSortedPlayers) {
+        for (Player player : speedSortedPlayers) {
+            Pokemon fightingPokemon = player.getFightingPokemon();
+
+            switch (fightingPokemon.getStatus()) {
+                case BURNED -> {
+                    fightingPokemon.harm(fightingPokemon.getAttack() / 10);
+                    this.controller.getConsoleInterface().getFightChoiceInterface().printStatusHarmings(fightingPokemon);
                 }
             }
         }
