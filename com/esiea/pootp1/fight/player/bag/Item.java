@@ -9,6 +9,10 @@ public class Item {
         this.consumable = consumable;
     }
 
+    public Consumable getConsumable() {
+        return this.consumable;
+    }
+
     public String getName() {
         return this.consumable.getName();
     }

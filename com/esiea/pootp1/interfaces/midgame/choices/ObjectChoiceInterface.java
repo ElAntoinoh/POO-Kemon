@@ -9,6 +9,7 @@ import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.bag.Bag;
 import com.esiea.pootp1.fight.player.bag.Item;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
+import com.esiea.pootp1.fight.player.team.members.Status;
 import com.esiea.pootp1.interfaces.midgame.FightChoiceInterface;
 
 public class ObjectChoiceInterface {
@@ -132,7 +133,7 @@ public class ObjectChoiceInterface {
         int i = 1;
 
         for (Pokemon pokemon : player.getAlivePokemons()) {
-            options.add(String.format("[%d] %s", i++, pokemon.getName()));
+            options.add(String.format("[%d] %s | %s", i++, pokemon.getName(), Status.getStatsDisplayText().get(pokemon.getStatus())));
         }
 
         this.fightChoiceInterface.printFightChoice(title, indication, options);

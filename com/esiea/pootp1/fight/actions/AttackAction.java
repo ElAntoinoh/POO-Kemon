@@ -2,8 +2,6 @@ package com.esiea.pootp1.fight.actions;
 
 import java.util.Random;
 
-import javax.swing.text.Position;
-
 import com.esiea.pootp1.fight.battlefield.State;
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;

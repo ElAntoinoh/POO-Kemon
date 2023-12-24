@@ -22,20 +22,20 @@ EndConsumable
 Consumable
 	Name	Antipoison
 	Type	Medecine
-	Status  Poisoned
+	Status	Poisoned
 	Quantity	2
 EndConsumable
 
 Consumable
 	Name	Antiparalysie
 	Type	Medecine
-	Status  Paralyzed
+	Status	Paralyzed
 	Quantity	2
 EndConsumable
 
 Consumable
 	Name	Antibrûlure
 	Type	Medecine
-	Status  Burned
+	Status	Burned
 	Quantity	2
 EndConsumable
