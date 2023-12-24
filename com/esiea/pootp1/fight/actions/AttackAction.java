@@ -2,6 +2,8 @@ package com.esiea.pootp1.fight.actions;
 
 import java.util.Random;
 
+import javax.swing.text.Position;
+
 import com.esiea.pootp1.fight.battlefield.State;
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
@@ -10,6 +12,7 @@ import com.esiea.pootp1.fight.player.team.members.moves.Move;
 import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.pokemons.attributes.types.ElecAttributes;
 import com.esiea.pootp1.models.pokemons.attributes.types.FireAttributes;
+import com.esiea.pootp1.models.pokemons.attributes.types.InsectAttributes;
 import com.esiea.pootp1.models.pokemons.attributes.types.WaterAttributes;
 
 public class AttackAction extends Action {
@@ -116,7 +119,15 @@ public class AttackAction extends Action {
                 }
 
                 case INSECT -> {
+                    if (new Random().nextDouble() < ((InsectAttributes) this.attacker.getTypeAttributes()).getPoison()) {
+                        defendingPokemon.setStatus(Status.POISONED);
 
+                        String pokemonName = defendingPokemon.getName();
+                        String playerName = defendingPokemon.getTeam().getPlayer().getName();
+                        String status = Status.getStatsDisplayText().get(defendingPokemon.getStatus());
+
+                        sRet += String.format("\nLe %s de %s a été %s !", pokemonName, playerName, status);
+                    }
                 }
 
                 case NATURE -> {

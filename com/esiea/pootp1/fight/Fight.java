@@ -66,6 +66,7 @@ public class Fight {
         this.battlefield.tryToDry();
 
         processBurnCures     (speedSortedPlayers);
+        processPoisonCures   (speedSortedPlayers);
         processParalysisCures(speedSortedPlayers);
 
         processStatusHarmings(speedSortedPlayers);
@@ -86,6 +87,20 @@ public class Fight {
                     fightingPokemon.setStatus(Status.NORMAL);
 
                     this.controller.getConsoleInterface().getFightChoiceInterface().printStatusCuration(fightingPokemon, Status.BURNED);
+                }
+            }
+        }
+    }
+
+    private void processPoisonCures(ArrayList<Player> speedSortedPlayers) {
+        for (Player player : speedSortedPlayers) {
+            Pokemon fightingPokemon = player.getFightingPokemon();
+
+            if (fightingPokemon.getStatus() == Status.POISONED) {
+                if (this.battlefield.isFlooded()) {
+                    fightingPokemon.setStatus(Status.NORMAL);
+
+                    this.controller.getConsoleInterface().getFightChoiceInterface().printStatusCuration(fightingPokemon, Status.POISONED);
                 }
             }
         }
@@ -113,6 +128,11 @@ public class Fight {
 
             switch (fightingPokemon.getStatus()) {
                 case BURNED -> {
+                    fightingPokemon.harm(fightingPokemon.getAttack() / 10);
+                    this.controller.getConsoleInterface().getFightChoiceInterface().printStatusHarmings(fightingPokemon);
+                }
+
+                case POISONED -> {
                     fightingPokemon.harm(fightingPokemon.getAttack() / 10);
                     this.controller.getConsoleInterface().getFightChoiceInterface().printStatusHarmings(fightingPokemon);
                 }
