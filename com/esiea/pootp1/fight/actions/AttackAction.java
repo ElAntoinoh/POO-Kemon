@@ -131,14 +131,6 @@ public class AttackAction extends Action {
                     }
                 }
 
-                case NATURE -> {
-
-                }
-
-                case NORMAL -> {
-
-                }
-
                 case PLANT -> {
                     if (new Random().nextDouble() < ((PlantAttributes) this.attacker.getTypeAttributes()).getHeal()) {
                         this.attacker.setStatus(Status.NORMAL);

@@ -14,6 +14,7 @@ import com.esiea.pootp1.fight.battlefield.Battlefield;
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
 import com.esiea.pootp1.fight.player.team.members.Status;
+import com.esiea.pootp1.models.Type;
 
 public class Fight {
     private static Comparator<Player> speedComparator = new Comparator<Player>() {
@@ -70,6 +71,8 @@ public class Fight {
         processParalysisCures(speedSortedPlayers);
 
         processStatusHarmings(speedSortedPlayers);
+
+        processNaturePokemonsCapacity(speedSortedPlayers);
 
         processChangePokemonActions(turn, speedSortedPlayers);
         processUseObjectActions    (turn, speedSortedPlayers);
@@ -136,6 +139,16 @@ public class Fight {
                     fightingPokemon.harm(fightingPokemon.getAttack() / 10);
                     this.controller.getConsoleInterface().getFightChoiceInterface().printStatusHarmings(fightingPokemon);
                 }
+            }
+        }
+    }
+
+    private void processNaturePokemonsCapacity(ArrayList<Player> speedSortedPlayers) {
+        for (Player player : speedSortedPlayers) {
+            Pokemon fightingPokemon = player.getFightingPokemon();
+
+            if (fightingPokemon.getType() == Type.PLANT || fightingPokemon.getType() == Type.INSECT) {
+                fightingPokemon.heal(fightingPokemon.getMaxHP() / 20);
             }
         }
     }
