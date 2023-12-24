@@ -15,7 +15,7 @@ public enum Status {
 
     private static Map<Status, String> statusDisplayText = Map.ofEntries(
         Map.entry(NORMAL   , "Normal"   ),
-        Map.entry(POISONED , "Empoisoné"),
+        Map.entry(POISONED , "Empoisonné"),
         Map.entry(PARALYZED, "Paralysé" ),
         Map.entry(BURNED   , "Brûlé"    ),
         Map.entry(HIDDEN   , "Caché"    )

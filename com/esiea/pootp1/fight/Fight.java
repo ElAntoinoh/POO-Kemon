@@ -144,6 +144,8 @@ public class Fight {
     }
 
     private void processNaturePokemonsCapacity(ArrayList<Player> speedSortedPlayers) {
+        if (!this.battlefield.isFlooded()) return;
+
         for (Player player : speedSortedPlayers) {
             Pokemon fightingPokemon = player.getFightingPokemon();
 

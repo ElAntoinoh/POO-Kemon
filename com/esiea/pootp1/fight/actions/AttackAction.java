@@ -8,6 +8,7 @@ import com.esiea.pootp1.fight.player.team.members.Pokemon;
 import com.esiea.pootp1.fight.player.team.members.Status;
 import com.esiea.pootp1.fight.player.team.members.moves.Move;
 import com.esiea.pootp1.models.Type;
+import com.esiea.pootp1.models.pokemons.attributes.types.DirtAttributes;
 import com.esiea.pootp1.models.pokemons.attributes.types.ElecAttributes;
 import com.esiea.pootp1.models.pokemons.attributes.types.FireAttributes;
 import com.esiea.pootp1.models.pokemons.attributes.types.InsectAttributes;
@@ -98,7 +99,9 @@ public class AttackAction extends Action {
             // Check for attacker's type's special capacity
             switch (this.attacker.getType()) {
                 case DIRT -> {
-                    // TODO Dirt type special capacity
+                    if (new Random().nextDouble() < ((DirtAttributes) this.attacker.getTypeAttributes()).getHide()) {
+                        // TODO Dirt type special capacity
+                    }
                 }
 
                 case ELEC -> {
