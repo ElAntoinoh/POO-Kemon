@@ -2,11 +2,14 @@ package com.esiea.pootp1.fight.actions;
 
 import java.util.Random;
 
+import com.esiea.pootp1.fight.battlefield.State;
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
 import com.esiea.pootp1.fight.player.team.members.Status;
 import com.esiea.pootp1.fight.player.team.members.moves.Move;
+import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.pokemons.attributes.types.ElecAttributes;
+import com.esiea.pootp1.models.pokemons.attributes.types.WaterAttributes;
 
 public class AttackAction extends Action {
     private static double MIN_ATTACK_COEF = 0.85d;
@@ -62,56 +65,71 @@ public class AttackAction extends Action {
             damage = (int) (((11 * attackerAttack * movePower)/(25 * targetDefense) + 2) * avantage * coef);
         }
 
-        if (new Random().nextDouble() >= this.move.getAttack().getFailureProbability()) {
-            if (!(attacker.getStatus() == Status.PARALYZED && new Random().nextDouble() >= 0.25)) {
-                defendingPokemon.harm(damage);
+        if (this.attacker.getTeam().getPlayer().getController().getFight().getBattlefield().isFlooded() &&
+            this.attacker.getType() != Type.WATER &&
+            new Random().nextDouble() < ((WaterAttributes) this.attacker.getTeam().getPlayer().getController().getFight().getBattlefield().getStater().getTypeAttributes()).getFall()) {
+        
+            this.attacker.harm(damage / 4);
+            
+            sRet = "Mais il glisse sur le terrain inondé !";
+        }
 
-                switch (this.attacker.getType()) {
-                    case DIRT -> {
-                        
-                    }
+        else if (attacker.getStatus() == Status.PARALYZED && new Random().nextDouble() >= 0.25) {
+            sRet = "Mais il ne peut pas bouger..";
+        }
 
-                    case ELEC -> {
-                        if (new Random().nextDouble() < ((ElecAttributes) this.attacker.getTypeAttributes()).getParalysis()) {
-                            defendingPokemon.setStatus(Status.PARALYZED);
+        else if (new Random().nextDouble() < this.move.getAttack().getFailureProbability()) {
+            sRet = "Mais cela échoue..";
+        }
 
-                            String pokemonName = defendingPokemon.getName();
-                            String playerName = defendingPokemon.getTeam().getPlayer().getName();
-                            String status = Status.getStatsDisplayText().get(defendingPokemon.getStatus());
+        else {
+            defendingPokemon.harm(damage);
 
-                            sRet += String.format("\nLe %s de %s a été %s !", pokemonName, playerName, status);
-                        }
-                    }
+            switch (this.attacker.getType()) {
+                case DIRT -> {
+                    
+                }
 
-                    case FIRE -> {
+                case ELEC -> {
+                    if (new Random().nextDouble() < ((ElecAttributes) this.attacker.getTypeAttributes()).getParalysis()) {
+                        defendingPokemon.setStatus(Status.PARALYZED);
 
-                    }
+                        String pokemonName = defendingPokemon.getName();
+                        String playerName = defendingPokemon.getTeam().getPlayer().getName();
+                        String status = Status.getStatsDisplayText().get(defendingPokemon.getStatus());
 
-                    case INSECT -> {
-
-                    }
-
-                    case NATURE -> {
-
-                    }
-
-                    case NORMAL -> {
-
-                    }
-
-                    case PLANT -> {
-
-                    }
-
-                    case WATER -> {
-
+                        sRet += String.format("\nLe %s de %s a été %s !", pokemonName, playerName, status);
                     }
                 }
-            } else {
-                sRet = "Mais il n'arrive pas à bouger !";
+
+                case FIRE -> {
+
+                }
+
+                case INSECT -> {
+
+                }
+
+                case NATURE -> {
+
+                }
+
+                case NORMAL -> {
+
+                }
+
+                case PLANT -> {
+
+                }
+
+                case WATER -> {
+                    if (new Random().nextDouble() < ((WaterAttributes) this.attacker.getTypeAttributes()).getFlood()) {
+                        this.attacker.getTeam().getPlayer().getController().getFight().getBattlefield().setState(State.FLOODED, this.attacker);
+
+                        sRet += "\nLe terrain est tout inondé !";
+                    }
+                }
             }
-        } else {
-            sRet = "Mais cela échoue..";
         }
 
         this.move.use();

@@ -188,6 +188,14 @@ public class FightChoiceInterface {
         this.consoleInterface.waitForAction();
     }
 
+    public void printNormalBattlefieldState() {
+        this.consoleInterface.clearConsole();
+
+        System.out.print("Le terrain est de retour à la normale");
+    
+        this.consoleInterface.waitForAction();
+    }
+
     public ConsoleInterface getConsoleInterface() {
         return this.consoleInterface;
     }

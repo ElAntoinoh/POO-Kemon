@@ -31,7 +31,7 @@ public class Fight {
     public Fight(Controller controller, ArrayList<Player> players) {
         this.controller = controller;
 
-        this.battlefield = new Battlefield();
+        this.battlefield = new Battlefield(this);
 
         this.players = this.livingPlayers = players;
     }
@@ -62,6 +62,8 @@ public class Fight {
     public void processTurn(Turn turn) {
         ArrayList<Player> speedSortedPlayers = this.livingPlayers;
         speedSortedPlayers.sort(Fight.speedComparator);
+
+        this.battlefield.tryToDry();
 
         processParalysisCures(speedSortedPlayers);
 

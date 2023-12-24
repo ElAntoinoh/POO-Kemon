@@ -1,5 +1,6 @@
 package com.esiea.pootp1.fight.actions;
 
+import com.esiea.pootp1.fight.battlefield.Battlefield;
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
 
@@ -23,20 +24,32 @@ public class ChangePokemonAction extends Action {
 
     @Override
     public String activate() {
+        String sRet = null;
+
         this.player.switchPokemons(this.firstPokemon, this.secondPokemon);
 
-        return null;
+        Battlefield battlefield = this.player.getController().getFight().getBattlefield();
+
+        if (battlefield.isFlooded() && battlefield.getStater().equals(this.firstPokemon)) {
+            battlefield.dry();
+            sRet = String.format("Le départ de %s permet au terrain de sécher", this.firstPokemon.getName());
+        }
+
+        return sRet;
     }
 
     @Override
     public void print(String bonusInformation) {
         String format = "%s retire %s et envoie %s sur le terrain !";
 
+        if (bonusInformation != null) format += "\n%s";
+
         System.out.format(
             format,
             this.player.getName(),
             this.firstPokemon.getName(),
-            this.secondPokemon.getName()
+            this.secondPokemon.getName(),
+            bonusInformation
         );
 
         this.player.getController().getConsoleInterface().waitForAction();
