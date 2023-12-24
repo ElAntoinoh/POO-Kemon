@@ -1,11 +1,14 @@
 package com.esiea.pootp1.models.pokemons;
 
 import com.esiea.pootp1.models.Type;
+import com.esiea.pootp1.models.pokemons.attributes.Attributes;
 
 public class GenericPokemon {
     private String name;
 
     private Type type;
+
+    private Attributes typeAttributes;
 
     private int minHP,      maxHP;
     private int minAttack,  maxAttack;
@@ -18,6 +21,10 @@ public class GenericPokemon {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public void setTypeAttributes(Attributes typeAttributes) {
+        this.typeAttributes = typeAttributes;
     }
     
     public void setHP(int minHP, int maxHP) {
@@ -46,6 +53,10 @@ public class GenericPokemon {
 
     public Type getType() {
         return this.type;
+    }
+
+    public Attributes getTypeAttributes() {
+        return this.typeAttributes;
     }
 
     public int getMinHP() {
@@ -78,5 +89,9 @@ public class GenericPokemon {
 
     public int getMaxSpeed() {
         return this.maxSpeed;
+    }
+
+    public String toString() {
+        return this.name;
     }
 }

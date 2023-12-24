@@ -3,14 +3,17 @@ package com.esiea.pootp1.fight;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Random;
 
 import com.esiea.pootp1.controller.Controller;
 import com.esiea.pootp1.fight.actions.Action;
 import com.esiea.pootp1.fight.actions.AttackAction;
 import com.esiea.pootp1.fight.actions.ChangePokemonAction;
 import com.esiea.pootp1.fight.actions.UseObjectAction;
+import com.esiea.pootp1.fight.battlefield.Battlefield;
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
+import com.esiea.pootp1.fight.player.team.members.Status;
 
 public class Fight {
     private static Comparator<Player> speedComparator = new Comparator<Player>() {
@@ -21,10 +24,14 @@ public class Fight {
 
     private Controller controller;
 
+    private Battlefield battlefield;
+
     private ArrayList<Player> players, livingPlayers;
 
     public Fight(Controller controller, ArrayList<Player> players) {
         this.controller = controller;
+
+        this.battlefield = new Battlefield();
 
         this.players = this.livingPlayers = players;
     }
@@ -56,11 +63,29 @@ public class Fight {
         ArrayList<Player> speedSortedPlayers = this.livingPlayers;
         speedSortedPlayers.sort(Fight.speedComparator);
 
+        processParalysisCures(speedSortedPlayers);
+
         processChangePokemonActions(turn, speedSortedPlayers);
         processUseObjectActions    (turn, speedSortedPlayers);
         processAttackActions       (turn, speedSortedPlayers);
 
         updateLivingPlayersList();
+    }
+
+    private void processParalysisCures(ArrayList<Player> speedSortedPlayers) {
+        Random random = new Random();
+
+        for (Player player : speedSortedPlayers) {
+            Pokemon fightingPokemon = player.getFightingPokemon();
+
+            if (fightingPokemon.getStatus() == Status.PARALYZED) {
+                if (random.nextDouble() < fightingPokemon.getNbTurnsWithStatus() / 6d) {
+                    fightingPokemon.setStatus(Status.NORMAL);
+
+                    this.controller.getConsoleInterface().getFightChoiceInterface().printStatusCuration(fightingPokemon, Status.PARALYZED);
+                }
+            }
+        }
     }
 
     private void processChangePokemonActions(Turn turn, ArrayList<Player> speedSortedPlayers) {
@@ -136,6 +161,14 @@ public class Fight {
             .orElse(0);
     }
 
+    public ArrayList<Pokemon> getFightingPokemons() {
+        return new ArrayList<>(
+            this.livingPlayers.stream()
+                .map(player -> player.getFightingPokemon())
+                .toList()
+        );
+    }
+
     private boolean isOver() {
         return this.livingPlayers.size() == 1;
     }
@@ -146,6 +179,10 @@ public class Fight {
 
     public Controller getController() {
         return this.controller;
+    }
+
+    public Battlefield getBattlefield() {
+        return this.battlefield;
     }
 
     public ArrayList<Player> getLivingPlayersList() {

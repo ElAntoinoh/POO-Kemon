@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.nio.charset.StandardCharsets;
 
 import com.esiea.pootp1.controller.Controller;
-import com.esiea.pootp1.models.Status;
+import com.esiea.pootp1.fight.player.team.members.Status;
 import com.esiea.pootp1.models.consumables.Consumable;
 import com.esiea.pootp1.models.consumables.healings.Medecine;
 import com.esiea.pootp1.models.consumables.healings.Potion;

@@ -1,6 +1,6 @@
 package com.esiea.pootp1.models.consumables.healings;
 
-import com.esiea.pootp1.models.Status;
+import com.esiea.pootp1.fight.player.team.members.Status;
 import com.esiea.pootp1.models.consumables.Consumable;
 
 public class Medecine extends Consumable {

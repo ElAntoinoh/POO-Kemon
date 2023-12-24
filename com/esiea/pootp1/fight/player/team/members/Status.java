@@ -1,4 +1,4 @@
-package com.esiea.pootp1.models;
+package com.esiea.pootp1.fight.player.team.members;
 
 import java.util.Map;
 

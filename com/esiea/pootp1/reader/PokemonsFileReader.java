@@ -8,6 +8,13 @@ import java.nio.charset.StandardCharsets;
 import com.esiea.pootp1.controller.Controller;
 import com.esiea.pootp1.models.Type;
 import com.esiea.pootp1.models.pokemons.GenericPokemon;
+import com.esiea.pootp1.models.pokemons.attributes.Attributes;
+import com.esiea.pootp1.models.pokemons.attributes.types.DirtAttributes;
+import com.esiea.pootp1.models.pokemons.attributes.types.ElecAttributes;
+import com.esiea.pootp1.models.pokemons.attributes.types.FireAttributes;
+import com.esiea.pootp1.models.pokemons.attributes.types.InsectAttributes;
+import com.esiea.pootp1.models.pokemons.attributes.types.PlantAttributes;
+import com.esiea.pootp1.models.pokemons.attributes.types.WaterAttributes;
 
 public class PokemonsFileReader {
     // Configuration file's key words
@@ -19,6 +26,14 @@ public class PokemonsFileReader {
     private final static String ATTACK        = "Attack";
     private final static String DEFENSE       = "Defense";
     private final static String SPEED         = "Speed";
+
+    private final static String HIDE      = "Hide";
+    private final static String PARALYSIS = "Paralysis";
+    private final static String BURN      = "Burn";
+    private final static String POISON    = "Poison";
+    private final static String HEAL      = "Heal";
+    private final static String FLOOD     = "Flood";
+    private final static String FALL      = "Fall";
 
     Controller controller;
     File file;
@@ -35,6 +50,8 @@ public class PokemonsFileReader {
 
             GenericPokemon currentPokemon = null;
 
+            Attributes attributes = null;
+
             while ((line = br.readLine()) != null) {
                 if (line.equals("")) continue;
                 
@@ -48,6 +65,7 @@ public class PokemonsFileReader {
                     }
 
                     case END_MONSTER -> {
+                        currentPokemon.setTypeAttributes(attributes);
                         addPokemon(currentPokemon);
                     }
 
@@ -57,6 +75,15 @@ public class PokemonsFileReader {
 
                     case TYPE -> {
                         Type type = Type.getTypeConfigText().get(words[1]);
+
+                        switch (type) {
+                            case DIRT   -> attributes = new DirtAttributes  ();
+                            case ELEC   -> attributes = new ElecAttributes  ();
+                            case FIRE   -> attributes = new FireAttributes  ();
+                            case INSECT -> attributes = new InsectAttributes();
+                            case PLANT  -> attributes = new PlantAttributes ();
+                            case WATER  -> attributes = new WaterAttributes ();
+                        }
 
                         currentPokemon.setType(Type.getUsableTypes().contains(type) ? type : null);
                     }
@@ -91,6 +118,34 @@ public class PokemonsFileReader {
                         int maxSpeed = words.length > 2 ? Integer.parseInt(words[2]) : minSpeed;
 
                         currentPokemon.setSpeed(minSpeed, maxSpeed);
+                    }
+
+                    case HIDE -> {
+                        ((DirtAttributes) attributes).setHide(Double.parseDouble(words[1]));
+                    }
+
+                    case PARALYSIS -> {
+                        ((ElecAttributes) attributes).setParalysis(Double.parseDouble(words[1]));
+                    }
+
+                    case BURN -> {
+                        ((FireAttributes) attributes).setBurn(Double.parseDouble(words[1]));
+                    }
+
+                    case POISON -> {
+                        ((InsectAttributes) attributes).setPoison(Double.parseDouble(words[1]));
+                    }
+
+                    case HEAL -> {
+                        ((PlantAttributes) attributes).setHeal(Double.parseDouble(words[1]));
+                    }
+
+                    case FLOOD -> {
+                        ((WaterAttributes) attributes).setFlood(Double.parseDouble(words[1]));
+                    }
+
+                    case FALL -> {
+                        ((WaterAttributes) attributes).setFall(Double.parseDouble(words[1]));
                     }
                 }
             }

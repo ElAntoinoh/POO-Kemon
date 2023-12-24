@@ -4,7 +4,9 @@ import java.util.Random;
 
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
+import com.esiea.pootp1.fight.player.team.members.Status;
 import com.esiea.pootp1.fight.player.team.members.moves.Move;
+import com.esiea.pootp1.models.pokemons.attributes.types.ElecAttributes;
 
 public class AttackAction extends Action {
     private static double MIN_ATTACK_COEF = 0.85d;
@@ -47,7 +49,7 @@ public class AttackAction extends Action {
 
             double avantage = 1.0;
 
-            if (this.attacker.getType().getStrengths ().contains(defendingPokemon.getType())) {
+            if (this.attacker.getType().getStrengths().contains(defendingPokemon.getType())) {
                 avantage = 2.0;
                 sRet = "C'est super efficace !";
             }
@@ -61,9 +63,53 @@ public class AttackAction extends Action {
         }
 
         if (new Random().nextDouble() >= this.move.getAttack().getFailureProbability()) {
-            defendingPokemon.harm(damage);
+            if (!(attacker.getStatus() == Status.PARALYZED && new Random().nextDouble() >= 0.25)) {
+                defendingPokemon.harm(damage);
 
-            // TODO Activer capacité spéciale de type
+                switch (this.attacker.getType()) {
+                    case DIRT -> {
+                        
+                    }
+
+                    case ELEC -> {
+                        if (new Random().nextDouble() < ((ElecAttributes) this.attacker.getTypeAttributes()).getParalysis()) {
+                            defendingPokemon.setStatus(Status.PARALYZED);
+
+                            String pokemonName = defendingPokemon.getName();
+                            String playerName = defendingPokemon.getTeam().getPlayer().getName();
+                            String status = Status.getStatsDisplayText().get(defendingPokemon.getStatus());
+
+                            sRet += String.format("\nLe %s de %s a été %s !", pokemonName, playerName, status);
+                        }
+                    }
+
+                    case FIRE -> {
+
+                    }
+
+                    case INSECT -> {
+
+                    }
+
+                    case NATURE -> {
+
+                    }
+
+                    case NORMAL -> {
+
+                    }
+
+                    case PLANT -> {
+
+                    }
+
+                    case WATER -> {
+
+                    }
+                }
+            } else {
+                sRet = "Mais il n'arrive pas à bouger !";
+            }
         } else {
             sRet = "Mais cela échoue..";
         }
@@ -77,7 +123,7 @@ public class AttackAction extends Action {
     public void print(String bonusInformation) {
         String format = "Le %s de %s utilise %s sur le %s de %s !";
 
-        if (bonusInformation != null) format += " %s";
+        if (bonusInformation != null) format += "\n%s";
 
         System.out.format(
             format,

@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.esiea.pootp1.fight.actions.Action;
 import com.esiea.pootp1.fight.player.Player;
 import com.esiea.pootp1.fight.player.team.members.Pokemon;
+import com.esiea.pootp1.fight.player.team.members.Status;
 import com.esiea.pootp1.interfaces.ConsoleInterface;
 import com.esiea.pootp1.interfaces.midgame.choices.AttackChoiceInterface;
 import com.esiea.pootp1.interfaces.midgame.choices.ObjectChoiceInterface;
@@ -127,10 +128,12 @@ public class FightChoiceInterface {
 
         String type = Type.getTypeDisplayText().get(pokemon.getType());
 
-        String line2 = String.format("│ %" + name.length() + "s │ %s/%s │ %s |\n", name, hp, maxHP, type);
+        String status = Status.getStatsDisplayText().get(pokemon.getStatus());
 
-        String line1 = "┌" + "─".repeat(name.length() + 2) + "┬" + "─".repeat(hp.length() + maxHP.length() + 1 + 2) + "┬" + "─".repeat(type.length() + 2) + "┐\n";
-        String line3 = "└" + "─".repeat(name.length() + 2) + "┴" + "─".repeat(hp.length() + maxHP.length() + 1 + 2) + "┴" + "─".repeat(type.length() + 2) + "┘\n";
+        String line2 = String.format("│ %" + name.length() + "s │ %s/%s │ %s | %s |\n", name, hp, maxHP, type, status);
+
+        String line1 = "┌" + "─".repeat(name.length() + 2) + "┬" + "─".repeat(hp.length() + maxHP.length() + 1 + 2) + "┬" + "─".repeat(type.length() + 2) + "┬" + "─".repeat(status.length() + 2) + "┐\n";
+        String line3 = "└" + "─".repeat(name.length() + 2) + "┴" + "─".repeat(hp.length() + maxHP.length() + 1 + 2) + "┴" + "─".repeat(type.length() + 2) + "┴" + "─".repeat(status.length() + 2) + "┘\n";
 
         System.out.print(line1 + line2 + line3);
     }
@@ -167,6 +170,22 @@ public class FightChoiceInterface {
 
     public void printMandatoryPokemon(Pokemon firstPokemon, Pokemon secondPokemon) {
         this.pokemonChoiceInterface.printMandatoryPokemon(firstPokemon, secondPokemon);
+    }
+
+    public void printNewStatus(Pokemon pokemon, Status status) {
+        this.consoleInterface.clearConsole();
+
+        System.out.format("Le %s de %s a été %s !", pokemon.getName(), pokemon.getTeam().getPlayer().getName(), Status.getStatsDisplayText().get(status));
+    
+        this.consoleInterface.waitForAction();
+    }
+
+    public void printStatusCuration(Pokemon pokemon, Status status) {
+        this.consoleInterface.clearConsole();
+
+        System.out.format("Le %s de %s n'est plus %s !", pokemon.getName(), pokemon.getTeam().getPlayer().getName(), Status.getStatsDisplayText().get(status));
+    
+        this.consoleInterface.waitForAction();
     }
 
     public ConsoleInterface getConsoleInterface() {
