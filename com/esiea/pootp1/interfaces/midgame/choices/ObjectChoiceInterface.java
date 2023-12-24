@@ -133,7 +133,7 @@ public class ObjectChoiceInterface {
         int i = 1;
 
         for (Pokemon pokemon : player.getAlivePokemons()) {
-            options.add(String.format("[%d] %s | %s", i++, pokemon.getName(), Status.getStatsDisplayText().get(pokemon.getStatus())));
+            options.add(String.format("[%d] %s | %s", i++, pokemon.getName(), Status.getStatusDisplayText().get(pokemon.getStatus())));
         }
 
         this.fightChoiceInterface.printFightChoice(title, indication, options);

@@ -25,7 +25,7 @@ public enum Status {
         return Status.statusConfigText;
     }
 
-    public static Map<Status, String> getStatsDisplayText() {
+    public static Map<Status, String> getStatusDisplayText() {
         return Status.statusDisplayText;
     }
 }

@@ -6,10 +6,12 @@ import java.io.FileReader;
 import java.nio.charset.StandardCharsets;
 
 import com.esiea.pootp1.controller.Controller;
+import com.esiea.pootp1.fight.battlefield.State;
 import com.esiea.pootp1.fight.player.team.members.Status;
 import com.esiea.pootp1.models.consumables.Consumable;
-import com.esiea.pootp1.models.consumables.healings.Medecine;
-import com.esiea.pootp1.models.consumables.healings.Potion;
+import com.esiea.pootp1.models.consumables.types.Medecine;
+import com.esiea.pootp1.models.consumables.types.Potion;
+import com.esiea.pootp1.models.consumables.types.Terrainizer;
 
 public class ConsumablesFileReader {
     // Configuration file's key words
@@ -22,6 +24,8 @@ public class ConsumablesFileReader {
     private final static String POWER = "Power";
 
     private final static String STATUS = "Status";
+
+    private final static String STATE = "State";
 
     private Controller controller;
     private File file;
@@ -60,8 +64,9 @@ public class ConsumablesFileReader {
 
                     case TYPE -> {
                         switch (words[1]) {
-                            case "Potion"   -> consumable = new Potion  (consumable);
-                            case "Medecine" -> consumable = new Medecine(consumable);
+                            case "Potion"      -> consumable = new Potion     (consumable);
+                            case "Medecine"    -> consumable = new Medecine   (consumable);
+                            case "Terrainizer" -> consumable = new Terrainizer(consumable);
                         }
                     }
 
@@ -75,6 +80,10 @@ public class ConsumablesFileReader {
 
                     case STATUS -> {
                         ((Medecine) consumable).setStatus(Status.getStatusConfigText().get(words[1]));
+                    }
+
+                    case STATE -> {
+                        ((Terrainizer) consumable).setState(State.getStateConfigText().get(words[1]));
                     }
                 }
             }

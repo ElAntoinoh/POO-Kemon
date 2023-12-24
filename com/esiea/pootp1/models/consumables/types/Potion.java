@@ -1,4 +1,4 @@
-package com.esiea.pootp1.models.consumables.healings;
+package com.esiea.pootp1.models.consumables.types;
 
 import com.esiea.pootp1.models.consumables.Consumable;
 

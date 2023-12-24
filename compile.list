@@ -19,8 +19,9 @@ com/esiea/pootp1/fight/Fight.java
 com/esiea/pootp1/fight/Turn.java
 com/esiea/pootp1/models/attacks/Attack.java
 com/esiea/pootp1/models/attacks/AttackDex.java
-com/esiea/pootp1/models/consumables/healings/Medecine.java
-com/esiea/pootp1/models/consumables/healings/Potion.java
+com/esiea/pootp1/models/consumables/types/Medecine.java
+com/esiea/pootp1/models/consumables/types/Potion.java
+com/esiea/pootp1/models/consumables/types/Terrainizer.java
 com/esiea/pootp1/models/consumables/Consumable.java
 com/esiea/pootp1/models/consumables/GlobalBag.java
 com/esiea/pootp1/models/pokemons/attributes/types/DirtAttributes.java

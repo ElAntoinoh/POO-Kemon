@@ -39,3 +39,10 @@ Consumable
 	Status	Burned
 	Quantity	2
 EndConsumable
+
+Consumable
+	Name	Assécheur de terrain
+	Type	Terrainizer
+	State	Flooded
+	Quantity	2
+EndConsumable

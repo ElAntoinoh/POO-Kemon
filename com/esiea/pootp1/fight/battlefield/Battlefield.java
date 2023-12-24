@@ -44,6 +44,10 @@ public class Battlefield {
         return this.state == State.FLOODED;
     }
 
+    public State getState() {
+        return this.state;
+    }
+
     public Pokemon getStater() {
         return this.stater;
     }

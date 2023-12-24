@@ -110,7 +110,7 @@ public class AttackAction extends Action {
 
                         String pokemonName = defendingPokemon.getName();
                         String playerName = defendingPokemon.getTeam().getPlayer().getName();
-                        String status = Status.getStatsDisplayText().get(defendingPokemon.getStatus());
+                        String status = Status.getStatusDisplayText().get(defendingPokemon.getStatus());
 
                         sRet += String.format("\nLe %s de %s a été %s !", pokemonName, playerName, status);
                     }
@@ -122,7 +122,7 @@ public class AttackAction extends Action {
 
                         String pokemonName = defendingPokemon.getName();
                         String playerName = defendingPokemon.getTeam().getPlayer().getName();
-                        String status = Status.getStatsDisplayText().get(defendingPokemon.getStatus());
+                        String status = Status.getStatusDisplayText().get(defendingPokemon.getStatus());
 
                         sRet += String.format("\nLe %s de %s a été %s !", pokemonName, playerName, status);
                     }
@@ -134,7 +134,7 @@ public class AttackAction extends Action {
 
                         String pokemonName = defendingPokemon.getName();
                         String playerName = defendingPokemon.getTeam().getPlayer().getName();
-                        String status = Status.getStatsDisplayText().get(defendingPokemon.getStatus());
+                        String status = Status.getStatusDisplayText().get(defendingPokemon.getStatus());
 
                         sRet += String.format("\nLe %s de %s a été %s !", pokemonName, playerName, status);
                     }

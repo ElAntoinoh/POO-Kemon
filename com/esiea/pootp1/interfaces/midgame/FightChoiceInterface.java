@@ -128,7 +128,7 @@ public class FightChoiceInterface {
 
         String type = Type.getTypeDisplayText().get(pokemon.getType());
 
-        String status = Status.getStatsDisplayText().get(pokemon.getStatus());
+        String status = Status.getStatusDisplayText().get(pokemon.getStatus());
 
         String line2 = String.format("│ %" + name.length() + "s │ %s/%s │ %s | %s |\n", name, hp, maxHP, type, status);
 
@@ -175,7 +175,7 @@ public class FightChoiceInterface {
     public void printNewStatus(Pokemon pokemon, Status status) {
         this.consoleInterface.clearConsole();
 
-        System.out.format("Le %s de %s a été %s !", pokemon.getName(), pokemon.getTeam().getPlayer().getName(), Status.getStatsDisplayText().get(status));
+        System.out.format("Le %s de %s a été %s !", pokemon.getName(), pokemon.getTeam().getPlayer().getName(), Status.getStatusDisplayText().get(status));
     
         this.consoleInterface.waitForAction();
     }
@@ -183,7 +183,7 @@ public class FightChoiceInterface {
     public void printStatusCuration(Pokemon pokemon, Status status) {
         this.consoleInterface.clearConsole();
 
-        System.out.format("Le %s de %s n'est plus %s !", pokemon.getName(), pokemon.getTeam().getPlayer().getName(), Status.getStatsDisplayText().get(status));
+        System.out.format("Le %s de %s n'est plus %s !", pokemon.getName(), pokemon.getTeam().getPlayer().getName(), Status.getStatusDisplayText().get(status));
     
         this.consoleInterface.waitForAction();
     }
@@ -191,7 +191,7 @@ public class FightChoiceInterface {
     public void printStatusHarmings(Pokemon pokemon) {
         this.consoleInterface.clearConsole();
 
-        System.out.format("Le %s de %s est toujours %s. Il subit des dégats !", pokemon.getName(), pokemon.getTeam().getPlayer().getName(), Status.getStatsDisplayText().get(pokemon.getStatus()));
+        System.out.format("Le %s de %s est toujours %s. Il subit des dégats !", pokemon.getName(), pokemon.getTeam().getPlayer().getName(), Status.getStatusDisplayText().get(pokemon.getStatus()));
     
         this.consoleInterface.waitForAction();
     }
